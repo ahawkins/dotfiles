@@ -11,6 +11,7 @@ set smarttab
 set hlsearch
 
 set guifont=Monaco:h12
+set guioptions-=T
 
 filetype plugin indent on
 syntax on
