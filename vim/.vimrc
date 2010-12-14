@@ -1,5 +1,5 @@
 set nocompatible
-colorscheme spectacular
+colorscheme vividchalk
 
 "GUI
 set transparency=10
@@ -21,6 +21,8 @@ set directory=$HOME/.vim/tmp//,.
 set tabstop=2
 set shiftwidth=2
 set smarttab
+set softtabstop
+set expandtab
 
 filetype plugin indent on
 syntax on
