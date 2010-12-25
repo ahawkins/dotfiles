@@ -15,7 +15,9 @@ set ignorecase
 set smartcase
 
 "Swap & Tempfiles
-set directory=$HOME/.vim/tmp//,.
+set nobackup
+set nowritebackup
+set noswapfile
 
 "Tabbing
 set tabstop=2
