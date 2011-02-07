@@ -4,6 +4,7 @@ colorscheme vividchalk
 set autoindent
 set number
 set hlsearch
+set ruler
 
 "Searching 
 set ignorecase
@@ -32,3 +33,16 @@ set wildignore+=*.o,*.obj,.git,*.rbc
 let mapleader=','
 
 nnoremap ; :
+inoremap <S-CR> <Esc>
+
+" Thorfile, Rakefile and Gemfile are Ruby
+au BufRead,BufNewFile {Vagrantfile,Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
+
+
+" Folding
+if has("folding")
+ set foldenable
+ set foldmethod=syntax
+ set foldlevel=1
+ set foldnestmax=2
+endif
