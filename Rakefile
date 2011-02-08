@@ -7,6 +7,8 @@ namespace :install do
       'rvmrc' => '~/.rvmrc',
       'vimrc.local' => '~/.vimrc.local',
       'gvimrc.local' => '~/.gvimrc.local',
+      'global.gems' => '~/.rvm/gemsets/',
+      'profile' => '~/.profile'
     }.each_pair do |source, destination|
       puts "Linking #{source} => #{destination}"
       real_path = File.expand_path "../#{source}", __FILE__    
