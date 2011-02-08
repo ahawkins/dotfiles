@@ -1,0 +1,15 @@
+colorscheme vividchalk
+
+" Folding
+if has("folding")
+ set foldenable
+ set foldmethod=syntax
+ set foldlevel=1
+ set foldnestmax=2
+endif
+
+" Leader/Remaps
+let mapleader=','
+
+nnoremap ; :
+inoremap <S-CR> <Esc>
