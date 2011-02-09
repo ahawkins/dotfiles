@@ -15,6 +15,11 @@ namespace :install do
       %x(ln -sf #{real_path} #{destination})
     end
   end
+
+  desc "Install global gems"
+  task :gems => :configs do
+    %x(source ~/.rvm/scripts/rvm; for ruby in $(rvm list strings) ; do rvm ${ruby}@global ; rvm gemset import ~/.rvm/gemsets/global.gems ; done)
+  end
   
   desc "Install/Update my Janus fork"
   task :janus do
@@ -25,7 +30,7 @@ namespace :install do
     end
   end
   
-  task :all => [:janus, :configs]
+  task :all => [:janus, :configs, :gems]
 end
 
 task :default => 'install:all'
