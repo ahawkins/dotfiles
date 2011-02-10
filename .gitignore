@@ -1,3 +1,3 @@
 gitignore.global
 vim/bundle/*
-!vim/bundle/peepopen
+!vim/bundle/vim-peepopen
