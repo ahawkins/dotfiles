@@ -5,8 +5,8 @@ namespace :install do
       'gemrc' => '~/.gemrc',
       'irbrc' => '~/.irbrc',
       'rvmrc' => '~/.rvmrc',
-      'vimrc.local' => '~/.vimrc.local',
-      'gvimrc.local' => '~/.gvimrc.local',
+      'vimrc' => '~/.vimrc',
+      'gvimrc' => '~/.gvimrc',
       'global.gems' => '~/.rvm/gemsets/',
       'profile' => '~/.profile'
     }.each_pair do |source, destination|
@@ -14,6 +14,9 @@ namespace :install do
       real_path = File.expand_path "../#{source}", __FILE__    
       %x(ln -sf #{real_path} #{destination})
     end
+    
+    vim_path = File.expand_path '../vim', __FILE__
+    %x(ln -sf #{vim_path} ~/.vim)
   end
 
   desc "Install global gems"
@@ -21,12 +24,61 @@ namespace :install do
     %x(source ~/.rvm/scripts/rvm; for ruby in $(rvm list strings) ; do rvm ${ruby}@global ; echo "Importing global gems into $ruby" ; rvm gemset import ~/.rvm/gemsets/global.gems ; done)
   end
   
-  desc "Install/Update my Janus fork"
-  task :janus do
-    if File.directory?('~/.vim') 
-      %x(cd ~/.vim ; rake)
-    else
-      %x(git clone git://github.com/Adman65/janus.git ~/.vim ; cd ~/.vim ; rake)
+  desc "Installs vim bundles"
+  task :bundle do
+    git_bundles = [ 
+      "git://github.com/airblade/vim-rooter",
+      "git://github.com/wycats/nerdtree.git",
+      "git://github.com/timcharper/textile.vim.git",
+      "git://github.com/tpope/vim-cucumber.git",
+      "git://github.com/tpope/vim-fugitive.git",
+      "git://github.com/tpope/vim-git.git",
+      "git://github.com/tpope/vim-haml.git",
+      "git://github.com/tpope/vim-markdown.git",
+      "git://github.com/tpope/vim-rails.git",
+      "git://github.com/tpope/vim-surround.git",
+      "git://github.com/tpope/vim-vividchalk.git",
+      "git://github.com/tsaleh/vim-align.git",
+      "git://github.com/tsaleh/vim-supertab.git",
+      "git://github.com/ddollar/nerdcommenter.git",
+      "git://github.com/vim-ruby/vim-ruby.git",
+      "git://github.com/hallettj/jslint.vim.git",
+      "git://github.com/pangloss/vim-javascript.git",
+      "git://github.com/mileszs/ack.vim.git",
+      "git://github.com/tpope/vim-endwise.git",
+      "git://github.com/robgleeson/vim-markdown-preview.git"
+    ]
+    
+    vim_org_scripts = [
+      ["gist",          "12732", "plugin"],
+      ["jquery",        "12107", "syntax"],
+    ]
+    
+    require 'fileutils'
+    require 'open-uri'
+
+    bundle_dir = File.expand_path('../vim/bundle', __FILE__)
+        
+    # wipe the directory so we get a fresh start
+    # so only the listed plugins are installed
+    # except peepopen
+    Dir[bundle_dir + "/*"].each do |dir|
+      if !dir.match /peepopen/
+        %x(rm -rf #{dir})
+      end
+    end
+      
+    git_bundles.each do |url|
+      `cd #{bundle_dir} ; git clone #{url}`
+    end
+
+    vim_org_scripts.each do |name, script_id, script_type|
+      puts "  Downloading #{name}"
+      local_file = File.join(bundle_dir, name, script_type, "#{name}.vim")
+      FileUtils.mkdir_p(File.dirname(local_file))
+      File.open(local_file, "w") do |file|
+        file << open("http://www.vim.org/scripts/download_script.php?src_id=#{script_id}").read
+      end
     end
   end
   
@@ -51,7 +103,7 @@ namespace :install do
     %x(git config --global core.excludesfile #{git_ignore_path})
   end
 
-  task :all => [:janus, :configs, :gems, :gitignore]
+  task :all => [:bundle, :configs, :gems, :gitignore]
 end
 
 task :default => 'install:all'

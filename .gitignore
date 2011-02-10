@@ -1,2 +1,3 @@
 gitignore.global
-.DS_STORE
+vim/bundle/*
+!vim/bundle/peepopen
