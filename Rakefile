@@ -28,7 +28,7 @@ namespace :install do
   task :bundle do
     git_bundles = [ 
       "git://github.com/airblade/vim-rooter",
-      "git://github.com/wycats/nerdtree.git",
+      "https://github.com/scrooloose/nerdtree.git",
       "git://github.com/timcharper/textile.vim.git",
       "git://github.com/tpope/vim-cucumber.git",
       "git://github.com/tpope/vim-fugitive.git",

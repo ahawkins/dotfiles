@@ -4,12 +4,6 @@ set guifont=Monaco:h12
 set guioptions-=T
 colorscheme vividchalk
 
-" Change peepopen to command t
-if has("gui_macvim")
-  macmenu &File.New\ Tab key=<nop>
-  map <D-t> <Plug>PeepOpen
-end
-
 if has("gui_macvim")
   " Fullscreen takes up entire screen
   set fuoptions=maxhorz,maxvert

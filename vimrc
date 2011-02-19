@@ -30,11 +30,6 @@ set softtabstop=2
 set expandtab
 set list listchars=tab:\ \ ,trail:·
 
-" Wrapping
-set wrap
-set wm=2
-set textwidth=72
-
 " Folding
 if has("folding")
  set foldenable
@@ -56,6 +51,17 @@ inoremap <S-CR> <Esc>
 " File types / syntax stuff
 filetype plugin indent on
 syntax on
+
+function s:setupWrapping()
+  set wrap
+  set wm=2
+  set textwidth=72
+endfunction
+
+function s:setupMarkup()
+  call s:setupWrapping()
+  map <buffer> <Leader>m :Mm <CR>
+endfunction
 
 " Thorfile, Rakefile and Gemfile are Ruby
 au BufRead,BufNewFile {Vagrantfile,Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
