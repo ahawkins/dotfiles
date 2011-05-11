@@ -46,12 +46,17 @@ namespace :install do
       "git://github.com/pangloss/vim-javascript.git",
       "git://github.com/mileszs/ack.vim.git",
       "git://github.com/tpope/vim-endwise.git",
-      "git://github.com/robgleeson/vim-markdown-preview.git"
+      "git://github.com/robgleeson/vim-markdown-preview.git",
+      "git://github.com/mattn/gist-vim.git",
+      "git://github.com/hallettj/jslint.vim.git",
+      "git://github.com/taq/vim-rspec.git",
+      "git://github.com/ajf/puppet-vim.git",
+      "git://github.com/kchmck/vim-coffee-script.git",
+      "git://github.com/tsaleh/vim-align.git"
     ]
     
     vim_org_scripts = [
-      ["gist",          "12732", "plugin"],
-      ["jquery",        "12107", "syntax"],
+      #["jquery",        "12107", "syntax"],
     ]
     
     require 'fileutils'
