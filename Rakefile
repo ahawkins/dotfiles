@@ -14,7 +14,7 @@ namespace :install do
       real_path = File.expand_path "../#{source}", __FILE__    
       %x(ln -sf #{real_path} #{destination})
     end
-    
+
     vim_path = File.expand_path '../vim', __FILE__
     %x(ln -sf #{vim_path} ~/.vim)
   end
@@ -23,7 +23,7 @@ namespace :install do
   task :gems => :configs do
     %x(source ~/.rvm/scripts/rvm; for ruby in $(rvm list strings) ; do rvm ${ruby}@global ; echo "Importing global gems into $ruby" ; rvm gemset import ~/.rvm/gemsets/global.gems ; done)
   end
-  
+
   desc "Installs vim bundles"
   task :bundle do
     git_bundles = [ 
@@ -54,16 +54,16 @@ namespace :install do
       "git://github.com/kchmck/vim-coffee-script.git",
       "git://github.com/tsaleh/vim-align.git"
     ]
-    
+
     vim_org_scripts = [
       #["jquery",        "12107", "syntax"],
     ]
-    
+
     require 'fileutils'
     require 'open-uri'
 
     bundle_dir = File.expand_path('../vim/bundle', __FILE__)
-        
+
     # wipe the directory so we get a fresh start
     # so only the listed plugins are installed
     # except peepopen
@@ -72,7 +72,7 @@ namespace :install do
         %x(rm -rf #{dir})
       end
     end
-      
+
     git_bundles.each do |url|
       `cd #{bundle_dir} ; git clone #{url}`
     end
@@ -86,7 +86,7 @@ namespace :install do
       end
     end
   end
-  
+
   desc "Install generated version of Gitignore from templates"
   task :gitignore do
     git_ignore_path = File.expand_path '../gitignore.global', __FILE__
