@@ -2,3 +2,4 @@ gitignore.global
 vim/bundle/*
 vim/vim
 !vim/bundle/vim-peepopen
+vim/.netrwhist

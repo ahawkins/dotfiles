@@ -9,7 +9,8 @@ namespace :install do
       'gvimrc' => '~/.gvimrc',
       'rdebugrc' => '~/.rdebugrc',
       'global.gems' => '~/.rvm/gemsets/',
-      'profile' => '~/.profile'
+      'profile' => '~/.profile',
+      'rspec' => '~/.rspec'
     }.each_pair do |source, destination|
       puts "Linking #{source} => #{destination}"
       real_path = File.expand_path "../#{source}", __FILE__    
