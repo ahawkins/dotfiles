@@ -66,6 +66,9 @@ endfunction
 " Thorfile, Rakefile and Gemfile are Ruby
 au BufRead,BufNewFile {Vagrantfile,Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
 
+" Custom Ruby Extensions
+au BufRead,BufNewFile *{god,dropzone}  set ft=ruby
+
 " md, markdown, and mk are markdown and define buffer-local preview
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 
