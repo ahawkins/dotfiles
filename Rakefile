@@ -7,6 +7,7 @@ namespace :install do
       'rvmrc' => '~/.rvmrc',
       'vimrc' => '~/.vimrc',
       'gvimrc' => '~/.gvimrc',
+      'rdebugrc' => '~/.rdebugrc',
       'global.gems' => '~/.rvm/gemsets/',
       'profile' => '~/.profile'
     }.each_pair do |source, destination|
