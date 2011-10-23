@@ -97,17 +97,22 @@ namespace :install do
     end
 
     # create a new file to write the templates into
-    %x(touch #{git_ignore_path})
+    git_ignore = File.open git_ignore_path, "w"
 
     # copy templates into file
     templates = %w(Ruby Rails Global/OSX Global/vim Global/TextMate)
     templates.each do |template|
       template_path = File.expand_path "../gitignore/#{template}.gitignore", __FILE__
       puts "Installing #{template_path}"
-      %x(cat #{template_path} >> #{git_ignore_path})
+      git_ignore.puts File.read(template_path)
     end
 
+    # custom ignores
+    git_ignore.puts File.read(File.expand_path('../gitignore.custom', __FILE__))
+
     %x(git config --global core.excludesfile #{git_ignore_path})
+
+    git_ignore.close
   end
 
   task :all => [:bundle, :configs, :gems, :gitignore]
