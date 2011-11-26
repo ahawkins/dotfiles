@@ -11,3 +11,7 @@ export PATH=./bin:${PATH//:\.\/bin:}
 touch "$HOME/.env"
 
 source "$HOME/.env"
+
+function geotag () {
+  exiftool -GPSLatitude=$1 -GPSLongitude=$2 -overwrite_original $3
+}
