@@ -15,3 +15,7 @@ source "$HOME/.env"
 function geotag () {
   exiftool -GPSLatitude=$1 -GPSLongitude=$2 -overwrite_original $3
 }
+
+alias bi="bundle install"
+alias be="bundle exec"
+alias bes="bundle exec rake spec"
