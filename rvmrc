@@ -1,5 +1,0 @@
-rvm_gemset_create_on_use_flag=1
-rvm_make_opts="-j 8"
-rvm_install_on_use_flag=1
-rvm_trust_rvmrcs_flag=1
-export rvm_path="/Users/adam/.rvm"

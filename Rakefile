@@ -9,7 +9,7 @@ namespace :install do
       'gvimrc' => '~/.gvimrc',
       'rdebugrc' => '~/.rdebugrc',
       'global.gems' => '~/.rvm/gemsets/',
-      'profile' => '~/.profile',
+      'zshrc' => '~/.zshrc',
       'rspec' => '~/.rspec'
     }.each_pair do |source, destination|
       puts "Linking #{source} => #{destination}"
@@ -19,11 +19,6 @@ namespace :install do
 
     vim_path = File.expand_path '../vim', __FILE__
     %x(ln -sf #{vim_path} ~/.vim)
-  end
-
-  desc "Install global gems"
-  task :gems => :configs do
-    %x(source ~/.rvm/scripts/rvm; for ruby in $(rvm list strings) ; do rvm ${ruby}@global ; echo "Importing global gems into $ruby" ; rvm gemset import ~/.rvm/gemsets/global.gems ; done)
   end
 
   desc "Installs vim bundles"
@@ -115,7 +110,7 @@ namespace :install do
     git_ignore.close
   end
 
-  task :all => [:bundle, :configs, :gems, :gitignore]
+  task :all => [:bundle, :configs, :gitignore]
 end
 
 task :default => 'install:all'
