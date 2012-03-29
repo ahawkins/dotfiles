@@ -64,7 +64,7 @@ function s:setupMarkup()
 endfunction
 
 " Thorfile, Rakefile and Gemfile are Ruby
-au BufRead,BufNewFile {Vagrantfile,Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
+au BufRead,BufNewFile {AssetFile,Vagrantfile,Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
 
 " Custom Ruby Extensions
 au BufRead,BufNewFile *{god,dropzone}  set ft=ruby

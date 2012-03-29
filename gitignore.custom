@@ -1,2 +1,4 @@
 !vendor/cache/*.gem
 .DS_Store
+.rspec
+.infinity_test

@@ -15,7 +15,7 @@ ZSH_THEME="adman65"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -39,9 +39,18 @@ function geotag () {
   exiftool -GPSLatitude=$1 -GPSLongitude=$2 -overwrite_original $3
 }
 
+export BUNDLER_EDITOR=mate
+
 alias bi="bundle install"
 alias be="bundle exec"
 alias ber="bundle exec rake"
 alias bers="bundle exec rake spec"
+alias berdm="bundle exec rake db:migrate"
+alias bedr="bundle exec rake db:reset"
+alias berg="bundle exec rails g"
 
 alias download="curl -OJ"
+
+if [[ -a ~/.env_variables ]]; then
+  source ~/.env_variables
+fi
