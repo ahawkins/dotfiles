@@ -33,7 +33,7 @@ set list listchars=tab:\ \ ,trail:·
 " Folding
 if has("folding")
  set foldenable
- set foldmethod=syntax
+ set foldmethod=manual
  set foldlevel=1
  set foldnestmax=2
 endif
