@@ -36,10 +36,14 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 function geotag () {
-  exiftool -GPSLatitude=$1 -GPSLongitude=$2 -overwrite_original $3
+  exiftool -GPSLatitude=$2 -GPSLongitude=$3 -overwrite_original $1
 }
 
+alias radium="curl -H 'X-Radium-Developer-Api-Key: $RADIUM_DEVELOPER_API_KEY' -H 'X-Radium-User-Api-Key: $RADIUM_USER_API_KEY'"
+
 export BUNDLER_EDITOR=mate
+
+export PATH=~/bin:$PATH
 
 alias bi="bundle install"
 alias be="bundle exec"
@@ -48,9 +52,20 @@ alias bers="bundle exec rake spec"
 alias berdm="bundle exec rake db:migrate"
 alias bedr="bundle exec rake db:reset"
 alias berg="bundle exec rails g"
+alias berc="bundle exec rails c"
+alias berup="bundle exec rackup"
 
 alias download="curl -OJ"
 
 if [[ -a ~/.env_variables ]]; then
   source ~/.env_variables
 fi
+
+# Make Rails Faster
+export RUBY_HEAP_MIN_SLOTS=1000000
+export RUBY_HEAP_SLOTS_INCREMENT=1000000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=1000000000
+export RUBY_HEAP_FREE_MIN=500000
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
