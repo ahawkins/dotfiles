@@ -60,6 +60,7 @@ namespace :install do
     require 'open-uri'
 
     bundle_dir = File.expand_path('../vim/bundle', __FILE__)
+    FileUtils.mkdir_p bundle_dir
 
     # wipe the directory so we get a fresh start
     # so only the listed plugins are installed
