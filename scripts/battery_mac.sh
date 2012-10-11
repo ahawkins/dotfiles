@@ -19,7 +19,7 @@ case $(uname -s) in
                 if [[ "$curcap" == "$maxcap" ]]; then
                   echo "Charged"
                 else
-                  echo Charging... $(( 100 * $curcap / $maxcap ))"%"
+                  echo $(( 100 * $curcap / $maxcap ))"%"
                 fi
                 break
             fi
