@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# USAGE: dev-env path/to/project.
+# Creates a new tmux session named "project".
+
+project_name=`basename "$1"`
+
+# Create the new tmux session
+tmux new-session -s "$project_name" -n editor -d
+
+# Go into the project directory
+tmux send-keys -t "$project_name" "cd \"$1\"" C-m
+
+# Open vim
+tmux send-keys -t "$project_name" 'vim' C-m
+
+# Split the window
+tmux split-window -v -t "$project_name"
+
+tmux select-layout -t "$project_name" main-horizontal
+
+# in the terminal window, move to the project directory
+# this is the small terminal window. 
+tmux send-keys -t "$project_name":1.2 "cd \"$1\"" C-m
+
+# Create a full screen console
+tmux new-window -n console -t "$project_name"
+tmux send-keys -t "$project_name:2" "cd \"$1\"" C-m
+
+# Select the first window (with vim and small terminal)
+tmux select-window -t "$project_name:1"
+tmux attach -t "$project_name"
