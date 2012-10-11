@@ -2,7 +2,6 @@
 set transparency=10
 set guifont=Monaco:h12
 set guioptions-=T
-colorscheme vividchalk
 
 if has("gui_macvim")
   " Fullscreen takes up entire screen
