@@ -39,13 +39,11 @@ namespace :install do
       "git://github.com/tsaleh/vim-supertab.git",
       "git://github.com/ddollar/nerdcommenter.git",
       "git://github.com/vim-ruby/vim-ruby.git",
-      "git://github.com/hallettj/jslint.vim.git",
       "git://github.com/pangloss/vim-javascript.git",
       "git://github.com/mileszs/ack.vim.git",
       "git://github.com/tpope/vim-endwise.git",
       "git://github.com/robgleeson/vim-markdown-preview.git",
       "git://github.com/mattn/gist-vim.git",
-      "git://github.com/hallettj/jslint.vim.git",
       "git://github.com/taq/vim-rspec.git",
       "git://github.com/ajf/puppet-vim.git",
       "git://github.com/kchmck/vim-coffee-script.git",
@@ -111,7 +109,7 @@ namespace :install do
     git_ignore.close
   end
 
-  task :all => [:bundle, :configs, :gitignore]
+  task :all => [:bundle, :gitignore, :configs]
 end
 
 task :default => 'install:all'
