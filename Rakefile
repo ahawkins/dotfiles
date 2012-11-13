@@ -49,10 +49,9 @@ namespace :install do
       "git://github.com/mileszs/ack.vim.git",
       "git://github.com/tpope/vim-endwise.git",
       "git://github.com/tpope/vim-repeat.git",
-      "git://github.com/godlygeek/tabular.git"
+      "git://github.com/godlygeek/tabular.git",
 
       # Misc Addons
-      "git://github.com/robgleeson/vim-markdown-preview.git",
     ]
 
     vim_org_scripts = [
