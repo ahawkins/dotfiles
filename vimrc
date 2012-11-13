@@ -121,3 +121,6 @@ vmap <Leader>{ c{<C-R>"}<ESC>
 " <Leader>` Surround a word with `brackets`
 map <Leader>` ysiw`
 vmap <Leader>` c`<C-R>"`<ESC>
+
+" Gary B's Hash rocket
+imap <c-l> <space>=><space>
