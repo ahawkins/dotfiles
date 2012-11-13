@@ -24,30 +24,33 @@ namespace :install do
   desc "Installs vim bundles"
   task :bundle do
     git_bundles = [ 
-      "git://github.com/airblade/vim-rooter",
-      "https://github.com/scrooloose/nerdtree.git",
-      "git://github.com/timcharper/textile.vim.git",
+      # Language related plugins for syntax highlighting
       "git://github.com/tpope/vim-cucumber.git",
-      "git://github.com/tpope/vim-fugitive.git",
-      "git://github.com/tpope/vim-git.git",
+      "git://github.com/timcharper/textile.vim.git",
+      "git://github.com/vim-ruby/vim-ruby.git",
+      "git://github.com/pangloss/vim-javascript.git",
+      "git://github.com/taq/vim-rspec.git",
+      "git://github.com/kchmck/vim-coffee-script.git",
       "git://github.com/tpope/vim-haml.git",
       "git://github.com/tpope/vim-markdown.git",
       "git://github.com/tpope/vim-rails.git",
-      "git://github.com/tpope/vim-surround.git",
+
+      # Themes
       "git://github.com/tpope/vim-vividchalk.git",
-      "git://github.com/tsaleh/vim-align.git",
-      "git://github.com/tsaleh/vim-supertab.git",
+
+      # General Plugins
+      "git://github.com/airblade/vim-rooter",
+      "https://github.com/scrooloose/nerdtree.git",
+      "git://github.com/tpope/vim-fugitive.git",
+      "git://github.com/tpope/vim-git.git",
+      "git://github.com/tpope/vim-surround.git",
       "git://github.com/ddollar/nerdcommenter.git",
-      "git://github.com/vim-ruby/vim-ruby.git",
-      "git://github.com/pangloss/vim-javascript.git",
       "git://github.com/mileszs/ack.vim.git",
       "git://github.com/tpope/vim-endwise.git",
+      "git://github.com/godlygeek/tabular.git"
+
+      # Misc Addons
       "git://github.com/robgleeson/vim-markdown-preview.git",
-      "git://github.com/mattn/gist-vim.git",
-      "git://github.com/taq/vim-rspec.git",
-      "git://github.com/ajf/puppet-vim.git",
-      "git://github.com/kchmck/vim-coffee-script.git",
-      "git://github.com/tsaleh/vim-align.git"
     ]
 
     vim_org_scripts = [
