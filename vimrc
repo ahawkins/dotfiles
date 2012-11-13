@@ -30,6 +30,11 @@ set softtabstop=2
 set expandtab
 set list listchars=tab:\ \ ,trail:·
 
+" Persisent undo
+silent !mkdir ~/.vim/backups > /dev/null 2>&1
+set undodir=~/.vim/backups
+set undofile
+
 " Folding
 if has("folding")
  set foldenable
@@ -54,8 +59,7 @@ syntax on
 
 function s:setupWrapping()
   set wrap
-  set wm=2
-  set textwidth=72
+  set textwidth=70
 endfunction
 
 function s:setupMarkup()
@@ -63,8 +67,9 @@ function s:setupMarkup()
   map <buffer> <Leader>m :Mm <CR>
 endfunction
 
-" Thorfile, Rakefile and Gemfile are Ruby
+" Set file types for custom files
 au BufRead,BufNewFile {AssetFile,Vagrantfile,Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
+au BufRead,BufNewFile *.handlebars,*.hbs,*.hjs set ft=handlebars
 
 " Custom Ruby Extensions
 au BufRead,BufNewFile *{god,dropzone}  set ft=ruby
@@ -81,3 +86,38 @@ set backspace=indent,eol,start
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
+
+" <Leader># Surround a word with #{ruby interpolation}
+map <Leader># ysiw#
+vmap <Leader># c#{<C-R>"}<ESC>
+
+" <Leader>" Surround a word with "quotes"
+map <Leader>" ysiw"
+vmap <Leader>" c"<C-R>""<ESC>
+
+" <Leader>' Surround a word with 'single quotes'
+map <Leader>' ysiw'
+vmap <Leader>' c'<C-R>"'<ESC>
+
+" <Leader>) or <Leader>( Surround a word with (parens)
+" The difference is in whether a space is put in
+map <Leader>( ysiw(
+map <Leader>) ysiw)
+vmap <Leader>( c( <C-R>" )<ESC>
+vmap <Leader>) c(<C-R>")<ESC>
+
+" <Leader>[ Surround a word with [brackets]
+map <Leader>] ysiw]
+map <Leader>[ ysiw[
+vmap <Leader>[ c[ <C-R>" ]<ESC>
+vmap <Leader>] c[<C-R>"]<ESC>
+
+" <Leader>{ Surround a word with {braces}
+map <Leader>} ysiw}
+map <Leader>{ ysiw{
+vmap <Leader>} c{ <C-R>" }<ESC>
+vmap <Leader>{ c{<C-R>"}<ESC>
+
+" <Leader>` Surround a word with `brackets`
+map <Leader>` ysiw`
+vmap <Leader>` c`<C-R>"`<ESC>
