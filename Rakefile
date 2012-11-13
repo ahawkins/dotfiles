@@ -34,6 +34,7 @@ namespace :install do
       "git://github.com/tpope/vim-haml.git",
       "git://github.com/tpope/vim-markdown.git",
       "git://github.com/tpope/vim-rails.git",
+      "git://github.com/nono/vim-handlebars.git",
 
       # Themes
       "git://github.com/tpope/vim-vividchalk.git",
