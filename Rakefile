@@ -47,6 +47,7 @@ namespace :install do
       "git://github.com/ddollar/nerdcommenter.git",
       "git://github.com/mileszs/ack.vim.git",
       "git://github.com/tpope/vim-endwise.git",
+      "git://github.com/tpope/vim-repeat.git",
       "git://github.com/godlygeek/tabular.git"
 
       # Misc Addons
