@@ -6,26 +6,24 @@ namespace :install do
       'irbrc' => '~/.irbrc',
       'rvmrc' => '~/.rvmrc',
       'vimrc' => '~/.vimrc',
+      'vim' => '~/.vim',
       'gvimrc' => '~/.gvimrc',
       'rdebugrc' => '~/.rdebugrc',
       'global.gems' => '~/.rvm/gemsets/',
       'zshrc' => '~/.zshrc',
-      'rspec' => '~/.rspec'
+      'rspec' => '~/.rspec',
+      'ackrc' => '~/.ackrc'
     }.each_pair do |source, destination|
       puts "Linking #{source} => #{destination}"
       real_path = File.expand_path "../#{source}", __FILE__    
       %x(ln -sf #{real_path} #{destination})
     end
-
-    vim_path = File.expand_path '../vim', __FILE__
-    %x(ln -sf #{vim_path} ~/.vim)
   end
 
   desc "Installs vim bundles"
   task :bundle do
     git_bundles = [ 
       # Language related plugins for syntax highlighting
-      "git://github.com/tpope/vim-cucumber.git",
       "git://github.com/timcharper/textile.vim.git",
       "git://github.com/vim-ruby/vim-ruby.git",
       "git://github.com/pangloss/vim-javascript.git",
@@ -40,6 +38,7 @@ namespace :install do
       "git://github.com/tpope/vim-vividchalk.git",
 
       # General Plugins
+      "git://github.com/wincent/Command-T.git",
       "git://github.com/airblade/vim-rooter",
       "https://github.com/scrooloose/nerdtree.git",
       "git://github.com/tpope/vim-fugitive.git",
