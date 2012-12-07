@@ -1,5 +1,8 @@
 call pathogen#runtime_append_all_bundles()
 
+" Disable the bell
+set vb
+
 " Set encoding
 set encoding=utf-8
 
