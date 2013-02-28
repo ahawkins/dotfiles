@@ -1,3 +1,9 @@
+require_relative 'tasks/sync'
+require_relative 'tasks/convert'
+require_relative 'tasks/seedbox'
+require_relative 'tasks/music/organize'
+require_relative 'tasks/music/clean'
+
 namespace :install do
   desc "Symlinks config files to the apporitate locations" 
   task :configs do

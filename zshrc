@@ -70,3 +70,7 @@ export RUBY_HEAP_FREE_MIN=500000
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/dotfiles/scripts
+PATH=$PATH:/usr/local/share/npm/bin # NPM -g
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

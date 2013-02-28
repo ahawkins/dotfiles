@@ -46,9 +46,9 @@ if has("folding")
  set foldnestmax=2
 endif
 
-" Tap completion
+" Tab completion
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc
+set wildignore+=*.o,*.obj,.git,*.rbc,tmp
 
 " Leader/Remaps
 let mapleader=','
