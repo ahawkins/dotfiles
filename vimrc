@@ -127,3 +127,13 @@ vmap <Leader>` c`<C-R>"`<ESC>
 
 " Gary B's Hash rocket
 imap <c-l> <space>=><space>
+
+" use ctrl h/j/k/l to switch between windows
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" more natural splitting
+set splitbelow
+set splitright
