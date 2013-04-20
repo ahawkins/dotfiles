@@ -17,6 +17,7 @@ namespace :install do
       'rdebugrc' => '~/.rdebugrc',
       'global.gems' => '~/.rvm/gemsets/',
       'zshrc' => '~/.zshrc',
+      'zshenv' => '~/.zshenv',
       'rspec' => '~/.rspec',
       'ackrc' => '~/.ackrc'
     }.each_pair do |source, destination|
