@@ -35,9 +35,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-function geotag () {
-  exiftool -GPSLatitude="$2" -GPSLongitude="$3" -overwrite_original "$1"
-}
 
 alias radium="curl -H 'X-Radium-Developer-Api-Key: $RADIUM_DEVELOPER_API_KEY' -H 'X-Radium-User-Api-Key: $RADIUM_USER_API_KEY'"
 
@@ -74,3 +71,20 @@ PATH=$PATH:/usr/local/share/npm/bin # NPM -g
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Custom scripts!
+geotag() {
+  exiftool -GPSLatitude="$2" -GPSLongitude="$3" -overwrite_original "$1"
+}
+
+gifify() {
+  if [[ -n "$1" ]]; then
+    ffmpeg -i $1 -r 20 -vcodec png out-static-%05d.png
+    time convert -verbose +dither -layers Optimize -resize 600x600\> out-static*.png  GIF:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile - > $1.gif
+    rm out-static*.png
+  else
+    echo "proper usage: gifify <input_movie.mov>. You DO need to include extension."
+  fi
+}
+
+eval "$(hub alias -s)"
