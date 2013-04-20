@@ -5,3 +5,4 @@
 --ignore-dir=vendor
 --ignore-dir=site
 --ignore-dir=dist
+--ignore-dir=coverage
