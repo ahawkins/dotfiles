@@ -56,6 +56,7 @@ namespace :install do
       "git://github.com/tpope/vim-endwise.git",
       "git://github.com/tpope/vim-repeat.git",
       "git://github.com/godlygeek/tabular.git",
+      "git://github.com/tpope/vim-dispatch.git"
 
       # Misc Addons
     ]
