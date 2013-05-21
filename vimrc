@@ -48,7 +48,7 @@ endif
 
 " Tab completion
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,tmp
+set wildignore+=*.o,*.obj,.git,*.rbc,tmp,node_modules
 
 " Leader/Remaps
 let mapleader=','
@@ -137,3 +137,24 @@ nnoremap <C-H> <C-W><C-H>
 " more natural splitting
 set splitbelow
 set splitright
+
+au BufRead,BufNewFile *_test.rb let b:dispatch = 'testrb %'
+au BufRead,BufNewFile *_spec.rb let b:dispatch = 'rspec %'
+
+" Map Enter in normal mode on regular windows to :Dispatch
+" autocmd! CmdwinEnter * unmap <buffer> <CR>
+" autocmd! CmdwinLeave * call s:MapCR()
+" function! s:MapCR()
+"   if mapcheck('<CR>', 'n') == ''
+"     nmap <buffer> <CR> :Dispatch<CR>
+"   endif
+" endfunction
+" call s:MapCR()"
+
+" Map <Leader>d to :Dispatch
+map <Leader>d :Dispatch <CR>
+vmap <Leader>d :Dispatch <CR>
+
+" Save buffer after a certain time after leaving insert mode
+set updatetime=200
+autocmd BufLeave,CursorHold,InsertLeave * silent! wa
