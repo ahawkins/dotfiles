@@ -1,6 +1,8 @@
 set nocompatible
 
 " this must be turned off for vundle, but is renabled later
+" See: http://tooky.co.uk/2010/04/08/there-was-a-problem-with-the-editor-vi-git-on-mac-os-x.html
+filetype on
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
