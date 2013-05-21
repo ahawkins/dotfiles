@@ -1,9 +1,3 @@
-require_relative 'tasks/sync'
-require_relative 'tasks/convert'
-require_relative 'tasks/seedbox'
-require_relative 'tasks/music/organize'
-require_relative 'tasks/music/clean'
-
 namespace :install do
   desc "Symlinks config files to the apporitate locations" 
   task :configs do
@@ -19,7 +13,8 @@ namespace :install do
       'zshrc' => '~/.zshrc',
       'zshenv' => '~/.zshenv',
       'rspec' => '~/.rspec',
-      'ackrc' => '~/.ackrc'
+      'ackrc' => '~/.ackrc',
+      'Gemfile' => '~/Gemfile'
     }.each_pair do |source, destination|
       puts "Linking #{source} => #{destination}"
       real_path = File.expand_path "../#{source}", __FILE__    
