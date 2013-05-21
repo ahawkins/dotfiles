@@ -51,6 +51,10 @@ endif
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,,*.rbc,tmp,node_modules
 
+" more natural splitting
+set splitbelow
+set splitright
+
 " Leader/Remaps
 let mapleader=','
 
@@ -135,10 +139,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" more natural splitting
-set splitbelow
-set splitright
+" Map space in normal mode to CtrlP
+map <Space> :CtrlP <CR>
 
+" Map <Leader>-t to open CtrlP
+map <Leader>t :CtrlP<CR>
+vmap <Leader>t :CtrlP<CR>
+
+" Configure build command for specific types of files
 au BufRead,BufNewFile *_test.rb let b:dispatch = 'testrb %'
 au BufRead,BufNewFile *_spec.rb let b:dispatch = 'rspec %'
 

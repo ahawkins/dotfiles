@@ -35,6 +35,7 @@ Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-repeat"
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-dispatch"
+Bundle "kien/ctrlp.vim"
 
 " Required by vundle
 filetype plugin indent on
