@@ -30,8 +30,7 @@ namespace :install do
       'global.gems' => '~/.rvm/gemsets/',
       'zshrc' => '~/.zshrc',
       'zshenv' => '~/.zshenv',
-      'rspec' => '~/.rspec',
-      'ackrc' => '~/.ackrc'
+      'rspec' => '~/.rspec'
     }.each_pair do |source, destination|
       puts "Linking #{source} => #{destination}"
       real_path = File.expand_path "../#{source}", __FILE__    

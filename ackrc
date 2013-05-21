@@ -1,8 +1,0 @@
---type-add=html=.html.erb,.html.haml,.handlebars,.hbs
---type-add=js=.coffee
---type-add=css=.scss,.sass
---ignore-dir=tmp
---ignore-dir=vendor
---ignore-dir=site
---ignore-dir=dist
---ignore-dir=coverage
