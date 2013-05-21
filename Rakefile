@@ -6,15 +6,13 @@ namespace :install do
       'irbrc' => '~/.irbrc',
       'rvmrc' => '~/.rvmrc',
       'vimrc' => '~/.vimrc',
-      'vim' => '~/.vim',
       'gvimrc' => '~/.gvimrc',
       'rdebugrc' => '~/.rdebugrc',
       'global.gems' => '~/.rvm/gemsets/',
       'zshrc' => '~/.zshrc',
       'zshenv' => '~/.zshenv',
       'rspec' => '~/.rspec',
-      'ackrc' => '~/.ackrc',
-      'Gemfile' => '~/Gemfile'
+      'ackrc' => '~/.ackrc'
     }.each_pair do |source, destination|
       puts "Linking #{source} => #{destination}"
       real_path = File.expand_path "../#{source}", __FILE__    
