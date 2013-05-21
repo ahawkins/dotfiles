@@ -1,4 +1,5 @@
-call pathogen#runtime_append_all_bundles()
+" Vundle
+source ~/dotfiles/bundle.vim
 
 " Disable the bell
 set vb
@@ -48,7 +49,7 @@ endif
 
 " Tab completion
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,tmp,node_modules
+set wildignore+=*.o,*.obj,,*.rbc,tmp,node_modules
 
 " Leader/Remaps
 let mapleader=','
