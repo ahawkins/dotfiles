@@ -177,3 +177,7 @@ vmap <Leader>d :Dispatch <CR>
 " Save buffer after a certain time after leaving insert mode
 set updatetime=200
 autocmd BufLeave,CursorHold,InsertLeave * silent! wa
+
+" Indent and outdent keep visual selection
+vnoremap > >gv
+vnoremap < <gv
