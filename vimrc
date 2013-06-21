@@ -49,7 +49,17 @@ endif
 
 " Tab completion
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,,*.rbc,tmp,node_modules
+set wildignore+=*.o,*.obj,*.rbc,
+set wildignore+=*/node_modules/*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*/_site/*
+set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*/coverage/*
+set wildignore+=*.gem
+set wildignore+=*/tmp/*
+set wildignore+=*/log/*
+
 
 " more natural splitting
 set splitbelow
