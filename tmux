@@ -39,18 +39,25 @@ bind \ split-window -h # Because shift is hart
 bind - split-window -v
 # END:panesplit
 
+# smart pane switching with awareness of vim splits
+bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-h) || tmux select-pane -L"
+bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-j) || tmux select-pane -D"
+bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-k) || tmux select-pane -U"
+bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
+bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
+
 # moving between panes
 # START:paneselect
-bind h select-pane -L 
-bind j select-pane -D 
-bind k select-pane -U
-bind l select-pane -R    
+# bind h select-pane -L 
+# bind j select-pane -D 
+# bind k select-pane -U
+# bind l select-pane -R    
 # END:paneselect
 
 # Quick pane selection
 # START:panetoggle
-bind -r C-h select-window -t :-
-bind -r C-l select-window -t :+
+# bind -r C-h select-window -t :-
+# bind -r C-l select-window -t :+
 # END:panetoggle
 
 # Pane resizing
@@ -146,5 +153,5 @@ set -g status-justify centre
 # START:vikeys
 setw -g mode-keys vi
 # END:vikeys
-#
+
 set-window-option -g automatic-rename off

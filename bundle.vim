@@ -41,6 +41,7 @@ Bundle "tpope/vim-repeat"
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-dispatch"
 Bundle "kien/ctrlp.vim"
+Bundle "christoomey/vim-tmux-navigator"
 
 " Required by vundle
 filetype plugin indent on
