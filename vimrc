@@ -181,3 +181,6 @@ autocmd BufLeave,CursorHold,InsertLeave * silent! wa
 " Indent and outdent keep visual selection
 vnoremap > >gv
 vnoremap < <gv
+
+" Mapping for Ag.vim
+map <leader>f :Ag<space>
