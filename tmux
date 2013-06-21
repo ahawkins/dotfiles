@@ -35,6 +35,7 @@ bind r source-file ~/.tmux.conf \; display "Reloaded!"
 # splitting panes
 # START:panesplit
 bind | split-window -h
+bind \ split-window -h # Because shift is hart
 bind - split-window -v
 # END:panesplit
 
@@ -59,13 +60,13 @@ bind -r J resize-pane -D 5
 bind -r K resize-pane -U 5 
 bind -r L resize-pane -R 5
 # END:paneresize
-# mouse support - set to on if you want to use the mouse
+
 # START:mouse
-setw -g mode-mouse off 
+setw -g mode-mouse on 
 # END:mouse
-set -g mouse-select-pane off 
-set -g mouse-resize-pane off 
-set -g mouse-select-window off
+set -g mouse-select-pane on
+set -g mouse-resize-pane on
+set -g mouse-select-window on
 
 # Set the default terminal mode to 256color mode
 # START:termcolor
