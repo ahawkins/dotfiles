@@ -42,6 +42,7 @@ Bundle "godlygeek/tabular"
 Bundle "tpope/vim-dispatch"
 Bundle "kien/ctrlp.vim"
 Bundle "christoomey/vim-tmux-navigator"
+Bundle "rking/ag.vim"
 
 " Required by vundle
 filetype plugin indent on
