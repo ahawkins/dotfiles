@@ -1,6 +1,6 @@
 namespace :install do
   desc "Clones the vundler plugin into ~/.vim/bundle" 
-  task :install_vundler do
+  task :vundler do
     commands = [
       "mkdir -p ~/.vim/bundle",
       "rm -rf ~/.vim/bundle/vundle",
@@ -14,7 +14,7 @@ namespace :install do
   end
 
   desc "Update bundled vim plugins"
-  task :vundle do
+  task :vundle => :vundler do
     `vim -u bundle.vim +BundleInstall +qall`
   end
 
@@ -30,8 +30,9 @@ namespace :install do
       'global.gems' => '~/.rvm/gemsets/',
       'zshrc' => '~/.zshrc',
       'zshenv' => '~/.zshenv',
-      'rspec' => '~/.rspec'
-      'tmux' => '~/.tmux.conf'
+      'rspec' => '~/.rspec',
+      'tmux' => '~/.tmux.conf',
+      'oh-my-zsh/themes/ahawkins.zsh-theme' => '~/.oh-my-zsh/themes'
     }.each_pair do |source, destination|
       puts "Linking #{source} => #{destination}"
       real_path = File.expand_path "../#{source}", __FILE__    
