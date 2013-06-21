@@ -49,7 +49,7 @@ endif
 
 " Tab completion
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,*.rbc,
+set wildignore+=*.o,*.obj,*.rbc
 set wildignore+=*/node_modules/*
 set wildignore+=vendor/rails/**
 set wildignore+=vendor/cache/**
