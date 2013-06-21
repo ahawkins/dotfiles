@@ -14,6 +14,9 @@ Bundle "gmarik/vundle"
 
 " Themes
 Bundle "tpope/vim-vividchalk"
+Bundle "altercation/vim-colors-solarized"
+Bundle "Lokaltog/vim-distinguished"
+Bundle "ahawkins/vim-candy"
 
 " Language & Project specific plugins
 Bundle "timcharper/textile.vim"
