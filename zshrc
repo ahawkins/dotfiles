@@ -38,7 +38,6 @@ source $ZSH/oh-my-zsh.sh
 # Make things look pretty
 export TERM="xterm-256color"
 
-
 alias radium="curl -H 'X-Radium-Developer-Api-Key: $RADIUM_DEVELOPER_API_KEY' -H 'X-Radium-User-Api-Key: $RADIUM_USER_API_KEY'"
 
 export BUNDLER_EDITOR=mate
@@ -68,7 +67,6 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_HEAP_FREE_MIN=500000
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/dotfiles/scripts
 PATH=$PATH:/usr/local/share/npm/bin # NPM -g
 
@@ -91,3 +89,7 @@ gifify() {
 }
 
 eval "$(hub alias -s)"
+
+# rbenv
+# export RBENV_ROOT=/usr/local/var/rbenv
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

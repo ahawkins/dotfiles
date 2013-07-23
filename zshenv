@@ -1,3 +1,6 @@
-# Ensure RVM is loaded through VIM (and perhaps other things
-# that don't load ~/.zsrhc
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+export RBENV_ROOT=/usr/local/var/rbenv
+# Initialize rbenv
+eval "$(rbenv init -)"
+
+# Add rbenv to path
+export PATH=$(rbenv root)/shims:$(rbenv root)/bin:$PATH

@@ -23,11 +23,9 @@ namespace :install do
     paths = {
       'gemrc' => '~/.gemrc',
       'irbrc' => '~/.irbrc',
-      'rvmrc' => '~/.rvmrc',
       'vimrc' => '~/.vimrc',
       'gvimrc' => '~/.gvimrc',
       'rdebugrc' => '~/.rdebugrc',
-      'global.gems' => '~/.rvm/gemsets/',
       'zshrc' => '~/.zshrc',
       'zshenv' => '~/.zshenv',
       'rspec' => '~/.rspec',
