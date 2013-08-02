@@ -4,3 +4,5 @@ eval "$(rbenv init -)"
 
 # Add rbenv to path
 export PATH=$(rbenv root)/shims:$(rbenv root)/bin:$PATH
+
+export AWS_CREDENTIAL_FILE="$HOME/.aws_credentials"
