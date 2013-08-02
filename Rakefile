@@ -30,7 +30,8 @@ namespace :install do
       'zshenv' => '~/.zshenv',
       'rspec' => '~/.rspec',
       'tmux' => '~/.tmux.conf',
-      'oh-my-zsh/themes/ahawkins.zsh-theme' => '~/.oh-my-zsh/themes'
+      'oh-my-zsh/themes/ahawkins.zsh-theme' => '~/.oh-my-zsh/themes',
+      'irssi' => '~.irssi'
     }.each_pair do |source, destination|
       puts "Linking #{source} => #{destination}"
       real_path = File.expand_path "../#{source}", __FILE__    

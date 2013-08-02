@@ -1,0 +1,189 @@
+# vim:ft=config
+
+servers = (
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    use_ssl = "yes";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = { freenode = { type = "IRC"; nick = "ahawkins"; }; };
+
+channels = (
+  { name = "#rubyonrails"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#ruby"; chatnet = "freenode"; autojoin = "Yes"; },
+  {
+    name = "#rubyonrails-offtopic";
+    chatnet = "freenode";
+    autojoin = "Yes";
+  },
+  { name = "#saltside"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#haskell"; chatnet = "freenode"; autojoin = "Yes"; }
+);
+
+aliases = { J = "join"; LEAVE = "part"; EXIT = "quit"; };
+
+statusbar = {
+  items = {
+    time = "{sb $Z}       ";
+    window = ":: {sb [$winref] $tag $itemname} ";
+    window_empty = ":: {sb [$winref] $tag $itemname} ";
+
+    prompt = "{prompt}";
+    prompt_empty = "{prompt}";
+  };
+
+  default = {
+    window = {
+      type = "window";
+      placement = "top";
+      visible = "active";
+      items = { window = { }; window_empty = { }; typing_notice = { }; };
+    };
+
+    window_inact = {
+      type = "window";
+      placement = "top";
+      visible = "inactive";
+      items = { window = { }; window_empty = { }; };
+    };
+
+    prompt = {
+      type = "root";
+      placement = "bottom";
+      position = "100";
+      visible = "always";
+
+      items = {
+        time = { };
+        user = { };
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
+
+        input = { priority = "10"; };
+      };
+    };
+
+    topic = {
+      type = "root";
+      placement = "bottom";
+      position = "1";
+      visible = "always";
+      items = { topic = { }; topic_empty = { }; };
+    };
+
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
+
+settings = {
+  core = {
+    real_name = "Adam Hawkins";
+    user_name = "adam";
+    nick = "ahawkins";
+    awaylog_file = "/dev/null";
+    recode_autodetect_utf8 = "yes";
+    recode_fallback = "CP1252";
+  };
+
+  "fe-text" = { actlist_sort = "refnum"; };
+
+  "fe-common/core" = {
+    emphasis = "OFF";
+    theme = "ahawkins";
+    beep_msg_level = "NOTICE MSGS HILIGHT";
+    bell_beeps = "no";
+    hilight_nick_matches = "yes";
+    autolog = "no";
+  };
+
+  "perl/core/scripts" = {
+    neat_maxlength = "15";
+    # remove y since that's for us only
+    neat_colors = "rRgGYbBmMcC";
+    neat_ignorechars = "[_]";
+    awl_display_key = "%W$H$N.$C$S";
+    awl_display_nokey = "%W$H$N.$C$S";
+    awl_display_key_active = "%B$H$N.$C$S";
+    awl_display_nokey_active = "%B$H$N.$C$S";
+    awl_position = "0";
+    awl_sbar_maxlength = "no";
+    awl_maxlines = "1";
+    hilightwin_showprivmsg = "no";
+    lt_in_queries = "yes";
+    neat_left_actions = "no";
+    neat_right_mode = "yes";
+  };
+};
+
+ignores = ( { level = "JOINS PARTS QUITS MODES"; } );
+
+hilights = (
+  { text = "ahawkins"; nick = "no"; word = "yes"; fullword = "yes"; },
+  { text = "@adman65"; nick = "no"; word = "yes"; fullword = "yes"; },
+  { text = "hawkins.io"; nick = "no"; word = "yes"; fullword = "no"; }
+);
+
+logs = { };
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#rubyonrails";
+        tag = "freenode";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#rubyonrails-offtopic";
+        tag = "freenode";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#ruby";
+        tag = "freenode";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#emberjs";
+        tag = "freenode";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#saltside";
+        tag = "freenode";
+      }
+    );
+  };
+};
