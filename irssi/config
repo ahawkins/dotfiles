@@ -37,20 +37,6 @@ statusbar = {
   };
 
   default = {
-    window = {
-      type = "window";
-      placement = "top";
-      visible = "active";
-      items = { window = { }; window_empty = { }; typing_notice = { }; };
-    };
-
-    window_inact = {
-      type = "window";
-      placement = "top";
-      visible = "inactive";
-      items = { window = { }; window_empty = { }; };
-    };
-
     prompt = {
       type = "root";
       placement = "bottom";
@@ -64,22 +50,6 @@ statusbar = {
         prompt_empty = { priority = "-1"; };
 
         input = { priority = "10"; };
-      };
-    };
-
-    topic = {
-      type = "root";
-      placement = "bottom";
-      position = "1";
-      visible = "always";
-      items = { topic = { }; topic_empty = { }; };
-    };
-
-    awl_0 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_0 = { };
-        barend = { priority = "100"; alignment = "right"; };
       };
     };
   };
@@ -185,5 +155,18 @@ windows = {
         tag = "freenode";
       }
     );
+  };
+};
+
+statusbar = {
+  default = {
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    window = { disabled = "yes"; };
   };
 };
