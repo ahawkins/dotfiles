@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Start the server is not already running
+# this ensures we can check sessions
+tmux start
+
+tmux has-session -t "harness"
+if [ $? != 0 ] ; then
+  # Go to into project directory so all tmux windows open up there
+  cd ~/projects/harness
+
+  # Create a new session for this project
+  tmux new-session -s "harness" -n editor -d
+  tmux send-keys -t "harness" 'vim' C-m
+
+  # create a split on the right for whatever
+  tmux split-window -h -p 35 -t "harness"
+
+  # Trigger a propmpt redraw (this is buggy in ZSH)
+  tmux send-keys -t "harness:1.2" "clear" C-m
+
+  # select the main window
+  tmux select-window -t "harness:1"
+fi
+
+tmux has-session -t "dotfiles"
+if [ $? != 0 ] ; then
+  # Go to into project directory so all tmux windows open up there
+  cd ~/dotfiles
+
+  # Create a new session for this project
+  tmux new-session -s "dotfiles" -n editor -d
+  tmux send-keys -t "dotfiles" 'vim' C-m
+
+  # create a split on the right for whatever
+  tmux split-window -h -p 35 -t "dotfiles"
+
+  # Trigger a propmpt redraw (this is buggy in ZSH)
+  tmux send-keys -t "dotfiles:1.2" "clear" C-m
+
+  # select the main window
+  tmux select-window -t "dotfiles:1"
+fi
+
+tmux has-session -t "blog"
+if [ $? != 0 ] ; then
+  # Go to into project directory so all tmux windows open up there
+  cd ~/projects/hawkins.io
+
+  # Create a new session for this project
+  tmux new-session -s "blog" -n editor -d
+  tmux send-keys -t "blog" 'vim' C-m
+
+  # create a split on the right for whatever
+  tmux split-window -h -p 35 -t "blog"
+
+  # Trigger a propmpt redraw (this is buggy in ZSH)
+  tmux send-keys -t "blog:1.2" "clear" C-m
+
+  # select the main window
+  tmux select-window -t "blog:1"
+fi

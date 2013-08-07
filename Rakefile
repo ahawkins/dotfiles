@@ -31,7 +31,8 @@ namespace :install do
       'rspec' => '~/.rspec',
       'tmux' => '~/.tmux.conf',
       'oh-my-zsh/themes/ahawkins.zsh-theme' => '~/.oh-my-zsh/themes',
-      'irssi' => '~.irssi'
+      'irssi' => '~/.irssi',
+      'workspace' => '~/workspace'
     }.each_pair do |source, destination|
       puts "Linking #{source} => #{destination}"
       real_path = File.expand_path "../#{source}", __FILE__    
