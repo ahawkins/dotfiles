@@ -49,7 +49,7 @@ setw -g monitor-activity on
 set -g visual-activity on
 
 # set the status line's colors
-set -g status-bg colour233
+set -g status-bg colour235
 
 # set the color of the window list
 setw -g window-status-fg colour238
@@ -60,14 +60,14 @@ setw -g window-status-current-bg colour021
 setw -g window-status-current-format "[ #I:#W#F ]"
 
 # pane colors
-set -g pane-border-fg colour238
-set -g pane-border-bg colour238
+set -g pane-border-fg colour235
+set -g pane-border-bg colour235
 set -g pane-active-border-fg colour255
 set -g pane-active-border-bg colour021
 
 # Status line left side
 # user | session | window.pane
-set -g status-left-length 40 
+set -g status-left-length 40
 set -g status-left "#[fg=colour000, bg=colour253] #(whoami) @ #h #[fg=colour000, bg=colour244] #S #[fg=colour000, bg=colour238] #I.#P "
 
 
