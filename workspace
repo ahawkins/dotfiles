@@ -10,7 +10,7 @@ if [ $? != 0 ] ; then
   cd ~/projects/harness
 
   # Create a new session for this project
-  tmux new-session -s "harness" -n editor -d
+  tmux new-session -s "harness" -n vim -d
   tmux send-keys -t "harness" 'vim' C-m
 
   # create a split on the right for whatever
@@ -29,7 +29,7 @@ if [ $? != 0 ] ; then
   cd ~/dotfiles
 
   # Create a new session for this project
-  tmux new-session -s "dotfiles" -n editor -d
+  tmux new-session -s "dotfiles" -n vim -d
   tmux send-keys -t "dotfiles" 'vim' C-m
 
   # create a split on the right for whatever
@@ -48,7 +48,7 @@ if [ $? != 0 ] ; then
   cd ~/projects/hawkins.io
 
   # Create a new session for this project
-  tmux new-session -s "blog" -n editor -d
+  tmux new-session -s "blog" -n vim -d
   tmux send-keys -t "blog" 'vim' C-m
 
   # create a split on the right for whatever
@@ -59,4 +59,29 @@ if [ $? != 0 ] ; then
 
   # select the main window
   tmux select-window -t "blog:1"
+fi
+
+tmux has-session -t "radium"
+if [ $? != 0 ] ; then
+  # Go to into project directory so all tmux windows open up there
+  cd ~/radium/radium
+
+  # Create a new session for this project
+  tmux new-session -s "radium" -n vim -d
+  tmux send-keys -t "radium" 'vim' C-m
+
+  # create a split on the right for whatever
+  tmux split-window -h -p 35 -t "radium"
+
+  # Trigger a propmpt redraw (this is buggy in ZSH)
+  tmux send-keys -t "radium:1.2" "clear" C-m
+
+  # open a window for the console
+  tmux new-window -n "console" -t "radium"
+
+  # open a window for the console
+  tmux new-window -n "log" -t "radium"
+
+  # select the main window
+  tmux select-window -t "radium:1"
 fi
