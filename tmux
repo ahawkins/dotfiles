@@ -10,7 +10,7 @@ unbind C-b
 # END:unbind
 #setting the delay between prefix and command
 # START:delay
-set -s escape-time 1
+set -sg escape-time 0
 # END:delay
 # Ensure that we can send Ctrl-A to other apps
 # START:bind_prefix
