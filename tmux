@@ -1,3 +1,5 @@
+# vim:ft=conf:
+
 set -g prefix C-a
 
 unbind C-b
