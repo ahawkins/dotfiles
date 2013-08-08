@@ -7,7 +7,7 @@ unbind C-b
 set-window-option -g automatic-rename off
 
 # This fixs escape in vim insert mode
-set -sg escape-time 0
+set -sg escape-time 50
 
 set -g base-index 1
 
