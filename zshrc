@@ -35,9 +35,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-# Make things look pretty
-export TERM="xterm-256color"
-
 alias radium="curl -H 'X-Radium-Developer-Api-Key: $RADIUM_DEVELOPER_API_KEY' -H 'X-Radium-User-Api-Key: $RADIUM_USER_API_KEY'"
 
 export BUNDLER_EDITOR=mate
