@@ -52,6 +52,14 @@ statusbar = {
         input = { priority = "10"; };
       };
     };
+    window = { disabled = "yes"; };
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 
@@ -158,15 +166,3 @@ windows = {
   };
 };
 
-statusbar = {
-  default = {
-    awl_0 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_0 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
-    window = { disabled = "yes"; };
-  };
-};
