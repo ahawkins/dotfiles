@@ -20,8 +20,9 @@ channels = (
     chatnet = "freenode";
     autojoin = "Yes";
   },
-  { name = "#saltside"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#haskell"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#emberjs"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#emberjs-dev"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#saltside"; chatnet = "freenode"; autojoin = "Yes"; }
 );
 
 aliases = { J = "join"; LEAVE = "part"; EXIT = "quit"; };
