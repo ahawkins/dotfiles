@@ -1,43 +1,21 @@
-# Our .tmux.conf file
+set -g prefix C-a
 
-# Setting the prefix from C-b to C-a
-# START:prefix
-set -g prefix C-a  
-# END:prefix
-# Free the original Ctrl-b prefix keybinding
-# START:unbind
-unbind C-b 
-# END:unbind
-#setting the delay between prefix and command
-# START:delay
+unbind C-b
+
+set-window-option -g automatic-rename off
+
+# This fixs escape in vim insert mode
 set -sg escape-time 0
-# END:delay
-# Ensure that we can send Ctrl-A to other apps
-# START:bind_prefix
-#bind C-a send-prefix
-# END:bind_prefix
 
-# Set the base index for windows to 1 instead of 0
-# START:index
 set -g base-index 1
-# END:index
 
-# Set the base index for panes to 1 instead of 0
-# START:panes_index
 setw -g pane-base-index 1
-# END:panes_index
 
-# Reload the file with Prefix r
-# START:reload
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
-# END:reload
 
-# splitting panes
-# START:panesplit
 bind | split-window -h
-bind \ split-window -h # Because shift is hart
+bind \ split-window -h # Because shift is hard
 bind - split-window -v
-# END:panesplit
 
 # smart pane switching with awareness of vim splits
 bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-h) || tmux select-pane -L"
@@ -49,113 +27,62 @@ bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq v
 # bring back C-l
 bind C-l send-keys 'C-l'
 
-# moving between panes
-# START:paneselect
-# bind h select-pane -L 
-# bind j select-pane -D 
-# bind k select-pane -U
-# bind l select-pane -R    
-# END:paneselect
 
-# Quick pane selection
-# START:panetoggle
-# bind -r C-h select-window -t :-
-# bind -r C-l select-window -t :+
-# END:panetoggle
-
-# Pane resizing
-# START:paneresize
-bind -r H resize-pane -L 5 
-bind -r J resize-pane -D 5 
-bind -r K resize-pane -U 5 
+# Resize panes with vim like things
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
 bind -r L resize-pane -R 5
-# END:paneresize
 
-# START:mouse
-setw -g mode-mouse on 
-# END:mouse
+# Use the mouse, this isn't 1968
+setw -g mode-mouse on
 set -g mouse-select-pane on
 set -g mouse-resize-pane on
 set -g mouse-select-window on
 
-# Set the default terminal mode to 256color mode
-# START:termcolor
+# Use 256color screen. This makes vim look pretty
 set -g default-terminal "screen-256color"
-# END:termcolor
 
-# enable activity alerts
-#START:activity
 setw -g monitor-activity on
 set -g visual-activity on
-#END:activity
 
 # set the status line's colors
-# START:statuscolor
 set -g status-bg colour233
-# END:statuscolor
 
 # set the color of the window list
-# START:windowstatuscolor
 setw -g window-status-fg colour238
-# setw -g window-status-bg white
-# END:windowstatuscolor
 
 # set colors for the active window
-# START:activewindowstatuscolor
-setw -g window-status-current-fg colour250 
-setw -g window-status-current-bg colour021 # colour233
+setw -g window-status-current-fg colour250
+setw -g window-status-current-bg colour021
 setw -g window-status-current-format "[ #I:#W#F ]"
-# END:activewindowstatuscolor
 
 # pane colors
-# START:panecolors
 set -g pane-border-fg colour238
 set -g pane-border-bg colour238
 set -g pane-active-border-fg colour255
 set -g pane-active-border-bg colour021
-# END:panecolors
-
-# Command / message line
-# START:cmdlinecolors
-# set -g message-fg black
-# set -g message-bg white
-# set -g message-attr bright
-# END:cmdlinecolors
-#
 
 # Status line left side
-# START:statusleft
+# user | session | window.pane
 set -g status-left-length 40 
 set -g status-left "#[fg=colour000, bg=colour253] #(whoami) @ #h #[fg=colour000, bg=colour244] #S #[fg=colour000, bg=colour238] #I.#P "
 
-# END:statusleft
 
-#START:utf8
 set -g status-utf8 on
-#END:utf8
 
 # Status line right side
-# 15% | 28 Nov 18:15
-# START: statusright
+# now playing in iTunes | battery % | 28 Nov 18:15
 set -g status-right-length 90
 set -g status-right "#[fg=colour000, bg=colour238] #(~/dotfiles/scripts/np_itunes_mac.sh) #[fg=colour000, bg=colour244] #(~/dotfiles/scripts/battery_mac.sh) #[fg=colour000, bg=colour253] %d %b %R "
-# set -g status-right "#[fg=cyan]%d %b %R"
-# END:statusright
 
 # Update the status bar every 2 seconds
-# START:updateinterval
 set -g status-interval 2
-# END:updateinterval
 
-# Center the window list
-# START:centerwindowlist
 set -g status-justify centre
-# END:centerwindowlist
 
 # enable vi keys.
-# START:vikeys
 setw -g mode-keys vi
-# END:vikeys
 
 # Copy paste stuff
 # http://robots.thoughtbot.com/post/55885045171/tmux-copy-paste-on-os-x-a-better-future
@@ -166,5 +93,3 @@ bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 # Update default binding of `Enter` to also use copy-pipe
 unbind -t vi-copy Enter
 bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
-
-set-window-option -g automatic-rename off
