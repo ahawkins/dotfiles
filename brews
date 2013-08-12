@@ -1,11 +1,9 @@
 zsh
 the_silver_searcher
 haskell-platform
-elixer
-erlang
 node
 tmux
-reattach-to-userspace
+reattach-to-user-namespace
 rbenv
 ruby-build
 flac
