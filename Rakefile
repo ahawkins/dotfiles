@@ -28,7 +28,6 @@ namespace :install do
   task :configs do
     paths = {
       'gemrc' => '~/.gemrc',
-      'irbrc' => '~/.irbrc',
       'vimrc' => '~/.vimrc',
       'gvimrc' => '~/.gvimrc',
       'rdebugrc' => '~/.rdebugrc',
