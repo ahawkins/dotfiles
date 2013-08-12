@@ -21,7 +21,7 @@ namespace :install do
   desc "Install all listed brews"
   task :brews do
     brews = File.new(File.expand_path('../brews', __FILE__)).each_line.map(&:strip).to_a
-    `brew install #{brews.join(' ')}`
+    exec "brew install #{brews.join(' ')}"
   end
 
   desc "Symlinks config files to the apporitate locations" 
