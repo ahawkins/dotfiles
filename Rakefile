@@ -36,7 +36,6 @@ namespace :install do
       'zshenv' => '~/.zshenv',
       'rspec' => '~/.rspec',
       'tmux' => '~/.tmux.conf',
-      'oh-my-zsh/themes/ahawkins.zsh-theme' => '~/.oh-my-zsh/themes',
       'irssi' => '~/.irssi',
       'workspace' => '~/workspace'
     }.each_pair do |source, destination|

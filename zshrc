@@ -1,3 +1,7 @@
+autoload -U colors && colors
+# $name @ $host in $dir
+PS1="%{%B%}%{%F{magenta}%}%n%{%f%}%{%b%} at %{%F{yellow}%}%m%{%f%} in %{%B%}%{%F{green}%}%c%{%f%}%{%b%} "
+
 export BUNDLER_EDITOR=mate
 
 export PATH=~/bin:$PATH
@@ -47,7 +51,3 @@ gifify() {
 }
 
 eval "$(hub alias -s)"
-
-# rbenv
-# export RBENV_ROOT=/usr/local/var/rbenv
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
