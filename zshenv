@@ -5,6 +5,9 @@ eval "$(rbenv init -)"
 # Add rbenv to path
 export PATH=$(rbenv root)/shims:$(rbenv root)/bin:$PATH
 
+# For homebrew formulas that install sbins
+export PATH=$PATH:/usr/local/sbin
+
 export AWS_CREDENTIAL_FILE="$HOME/.aws_credentials"
 
 export REDIS_URL="redis://localhost:6379"
