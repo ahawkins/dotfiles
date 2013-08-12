@@ -49,7 +49,7 @@ namespace :install do
     %x(git config --global core.excludesfile ~/dotfiles/gitignore.global)
   end
 
-  task :all => [:install_vundler, :gitignore, :configs, :vundle]
+  task :all => [:vundler, :gitignore, :configs, :vundle]
 end
 
 task :default => 'install:all'
