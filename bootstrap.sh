@@ -48,7 +48,8 @@ ln -sf "$script_dir/zshrc" ~/.zshrc
 ln -sf "$script_dir/zshenv" ~/.zshenv
 ln -sf "$script_dir/rspec" ~/.rspec
 ln -sf "$script_dir/tmux" ~/.tmux
-ln -sf "$script_dir/irssi" ~/.irssi
+rm -rf ~/.irssi
+ln -sf "$script_dir/irssi/" ~/.irssi
 
 echo "Setting global git ingore file"
 git config --global core.excludesfile "$script_dir/gitignore"
