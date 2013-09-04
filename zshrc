@@ -4,8 +4,6 @@ PS1="%{%B%}%{%F{magenta}%}%n%{%f%}%{%b%} at %{%F{yellow}%}%m%{%f%} in %{%B%}%{%F
 
 export BUNDLER_EDITOR=mate
 
-export PATH=~/bin:$PATH
-
 alias bi="bundle install"
 alias be="bundle exec"
 alias ber="bundle exec rake"
