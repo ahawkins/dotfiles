@@ -39,6 +39,9 @@ silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set undodir=~/.vim/backups
 set undofile
 
+" Make yank work with system clipboard
+set clipboard=unnamed
+
 " Folding
 if has("folding")
  set foldenable
