@@ -1,3 +1,8 @@
+" Vim needs a POSIX-Compliant shell. Fish is not.
+if $SHELL =~ 'bin/fish'
+  set shell=/bin/sh
+endif
+
 " Vundle
 source ~/dotfiles/bundle.vim
 
@@ -38,9 +43,6 @@ set list listchars=tab:\ \ ,trail:·
 silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set undodir=~/.vim/backups
 set undofile
-
-" Make yank work with system clipboard
-set clipboard=unnamed
 
 " Folding
 if has("folding")

@@ -1,10 +1,9 @@
-zsh
+fish
 the_silver_searcher
 haskell-platform
 node
 tmux
 reattach-to-user-namespace
-rbenv
 ruby-build
 flac
 lame
@@ -13,5 +12,4 @@ youtube-dl
 gifsicle
 faac
 hub
-id3tool
 id3v2

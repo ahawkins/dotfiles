@@ -1,8 +1,8 @@
 namespace :install do
   desc "Clones the vundler plugin into ~/.vim/bundle" 
   task :vundler do
-    sh "rm -rf ~/.vim/bundle",
-    sh  "mkdir -p ~/.vim/bundle",
+    sh "rm -rf ~/.vim/bundle"
+    sh  "mkdir -p ~/.vim/bundle"
     sh "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
   end
 
@@ -24,15 +24,15 @@ namespace :install do
       'vimrc' => '~/.vimrc',
       'gvimrc' => '~/.gvimrc',
       'rdebugrc' => '~/.rdebugrc',
-      'zshrc' => '~/.zshrc',
-      'zshenv' => '~/.zshenv',
       'rspec' => '~/.rspec',
       'tmux' => '~/.tmux.conf',
-      'irssi' => '~/.irssi',
+      'irssi' => '~/.irssi'
+      'fish' => '~/.config/fish',
       'workspace' => '~/workspace'
     }.each_pair do |source, destination|
       real_path = File.expand_path "../#{source}", __FILE__
-      sh "ln -sf #{real_path} #{destination})";w
+      sh "rm -rf #{destination}"
+      sh "ln -s #{real_path} #{destination}"
     end
   end
 

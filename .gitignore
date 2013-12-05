@@ -1,1 +1,3 @@
 *.log
+fish/fish_history
+fish/fishd.*
