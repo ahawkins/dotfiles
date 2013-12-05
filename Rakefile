@@ -1,27 +1,20 @@
 namespace :install do
   desc "Clones the vundler plugin into ~/.vim/bundle" 
   task :vundler do
-    commands = [
-      "mkdir -p ~/.vim/bundle",
-      "rm -rf ~/.vim/bundle/vundle",
-      "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
-    ]
-
-    command = commands.join " ; "
-    puts "Running: #{command}"
-
-    `#{command}`
+    sh "rm -rf ~/.vim/bundle",
+    sh  "mkdir -p ~/.vim/bundle",
+    sh "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
   end
 
   desc "Update bundled vim plugins"
   task :vundle => :vundler do
-    `vim -u bundle.vim +BundleInstall +qall`
+    sh "vim -u bundle.vim +BundleInstall +qall"
   end
 
   desc "Install all listed brews"
   task :brews do
     brews = File.new(File.expand_path('../brews', __FILE__)).each_line.map(&:strip).to_a
-    exec "brew install #{brews.join(' ')}"
+    sh "brew install #{brews.join(' ')}"
   end
 
   desc "Symlinks config files to the apporitate locations" 
@@ -38,18 +31,17 @@ namespace :install do
       'irssi' => '~/.irssi',
       'workspace' => '~/workspace'
     }.each_pair do |source, destination|
-      puts "Linking #{source} => #{destination}"
-      real_path = File.expand_path "../#{source}", __FILE__    
-      %x(ln -sf #{real_path} #{destination})
+      real_path = File.expand_path "../#{source}", __FILE__
+      sh "ln -sf #{real_path} #{destination})";w
     end
   end
 
   desc "Install generated version of Gitignore from templates"
   task :gitignore do
-    %x(git config --global core.excludesfile ~/dotfiles/gitignore.global)
+    sh "git config --global core.excludesfile ~/dotfiles/gitignore.global"
   end
 
-  task :all => [:vundler, :gitignore, :configs, :vundle]
+  task :all => [:vundle, :gitignore, :configs]
 end
 
 task :default => 'install:all'
