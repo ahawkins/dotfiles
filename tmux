@@ -29,7 +29,6 @@ bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq v
 # bring back C-l
 bind C-l send-keys 'C-l'
 
-
 # Resize panes with vim like things
 bind -r H resize-pane -L 5
 bind -r J resize-pane -D 5
@@ -69,7 +68,6 @@ set -g pane-active-border-bg colour021
 # user | session | window.pane
 set -g status-left-length 40
 set -g status-left "#[fg=colour000, bg=colour253] #(whoami) @ #h #[fg=colour000, bg=colour244] #S #[fg=colour000, bg=colour238] #I.#P "
-
 
 set -g status-utf8 on
 
