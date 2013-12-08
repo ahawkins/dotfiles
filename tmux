@@ -89,6 +89,7 @@ setw -g mode-keys vi
 # Copy paste stuff
 # http://robots.thoughtbot.com/post/55885045171/tmux-copy-paste-on-os-x-a-better-future
 # Setup 'v' to begin selection as in Vim
+set-option -g default-command "reattach-to-user-namespace -l $SHELL"
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 

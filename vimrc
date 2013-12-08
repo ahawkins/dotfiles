@@ -39,6 +39,9 @@ set softtabstop=2
 set expandtab
 set list listchars=tab:\ \ ,trail:·
 
+" Share with system cliboard
+set clipboard=unnamed
+
 " Persisent undo
 silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set undodir=~/.vim/backups
