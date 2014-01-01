@@ -15,9 +15,9 @@ vim -u bundle.vim +BundleInstall +qall
 
 echo "Installing development brews"
 brew install git
-brew install zsh 
+brew install fish
 brew install tmux reattach-to-user-namespace
-brew install rbenv ruby-build
+brew install ruby-build
 brew install node haskell-platform
 brew install the_silver_searcher
 brew install mongodb
@@ -45,7 +45,6 @@ echo "Linking configs"
 ln -sf "$script_dir/gemrc" ~/.gemrc
 ln -sf "$script_dir/vimrc" ~/.vimrc
 ln -sf "$script_dir/redbugrc" ~/.rdebugrc
-ln -sf "$script_dir/zshrc" ~/.zshrc
 ln -sf "$script_dir/zshenv" ~/.zshenv
 ln -sf "$script_dir/rspec" ~/.rspec
 ln -sf "$script_dir/tmux" ~/.tmux
@@ -56,4 +55,4 @@ echo "Setting global git ingore file"
 git config --global core.excludesfile "$script_dir/gitignore.global"
 
 echo "Time to enter ZSH"
-chsh -s $(which zsh)
+chsh -s $(which fish)
