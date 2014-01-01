@@ -28,6 +28,7 @@ brew install rabbitmq
 brew install redis
 brew install wget
 brew install hub
+brew install irssi
 
 echo "Installing personal brews"
 brew install flac lame id3tool id3v2
@@ -52,7 +53,7 @@ rm -rf ~/.irssi
 ln -sf "$script_dir/irssi/" ~/.irssi
 
 echo "Setting global git ingore file"
-git config --global core.excludesfile "$script_dir/gitignore"
+git config --global core.excludesfile "$script_dir/gitignore.global"
 
 echo "Time to enter ZSH"
 chsh -s $(which zsh)
