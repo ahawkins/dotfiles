@@ -47,6 +47,7 @@ set list listchars=tab:\ \ ,trail:·
 
 " Share with system cliboard
 set clipboard=unnamed
+set pastetoggle=<Leader>v
 
 " Persisent undo
 silent !mkdir ~/.vim/backups > /dev/null 2>&1
