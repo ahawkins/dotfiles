@@ -1,6 +1,6 @@
 function rebrew
   brew update
-  brew clean
+  brew cleanup
   set -lx outdated_brews (brew outdated)
   if count $outdated_brews
     brew unlink $outdated_brews
