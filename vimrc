@@ -6,6 +6,12 @@ endif
 " Vundle
 source ~/dotfiles/bundle.vim
 
+" Leader/Remaps
+let mapleader=','
+
+nnoremap ; :
+inoremap <S-CR> <Esc>
+
 " Disable the bell
 set vb
 
@@ -68,16 +74,9 @@ set wildignore+=*.gem
 set wildignore+=*/tmp/*
 set wildignore+=*/log/*
 
-
 " more natural splitting
 set splitbelow
 set splitright
-
-" Leader/Remaps
-let mapleader=','
-
-nnoremap ; :
-inoremap <S-CR> <Esc>
 
 " File types / syntax stuff
 filetype plugin indent on
