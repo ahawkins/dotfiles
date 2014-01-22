@@ -52,7 +52,6 @@ mkdir -p ~/.config
 ln -sf "$script_dir/gemrc" ~/.gemrc
 ln -sf "$script_dir/vimrc" ~/.vimrc
 ln -sf "$script_dir/redbugrc" ~/.rdebugrc
-ln -sf "$script_dir/zshenv" ~/.zshenv
 ln -sf "$script_dir/rspec" ~/.rspec
 ln -sf "$script_dir/tmux" ~/.tmux
 ln -sf "$script_dir/gitignore" ~/.gitignore
