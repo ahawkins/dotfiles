@@ -1,0 +1,16 @@
+[user]
+  name = ahawkins
+  email = adam@hawkins.io
+[core]
+  excludesfile = ~/.gitignore
+[push]
+  default = simple
+[branch]
+  # git checkout -t <branch> will use --rebase with
+  # all future pulls
+  autosetuprebase = always
+[branch "master"]
+  # git pull always uses --rebase
+  rebase = true
+[github]
+  user = ahawkins

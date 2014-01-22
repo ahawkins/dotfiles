@@ -55,13 +55,12 @@ ln -sf "$script_dir/redbugrc" ~/.rdebugrc
 ln -sf "$script_dir/zshenv" ~/.zshenv
 ln -sf "$script_dir/rspec" ~/.rspec
 ln -sf "$script_dir/tmux" ~/.tmux
+ln -sf "$script_dir/gitignore" ~/.gitignore
+ln -sf "$script_dir/gitconfig" ~/.gitconfig
 rm -rf ~/.irssi
 ln -sf "$script_dir/irssi/" ~/.irssi
 rm -rf ~/.config/fish
 ln -sf "$script_dir/fish/" ~/.config/fish
-
-echo "Setting global git ingore file"
-git config --global core.excludesfile "$script_dir/gitignore.global"
 
 if [ "$SHELL" !=  "$(which fish)" ]; then
   echo "Time to enter Fish"
