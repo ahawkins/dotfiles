@@ -18,6 +18,8 @@ set PATH $HOME/.rbenv/shims $PATH
 
 set AWS_CREDENTIAL_FILE "$HOME/.aws_credentials"
 
+. ~/.config/fish/abbrevations.fish
+
 # Allow each machine to specify unique configuration
 # information
 if test -f ~/.computer
