@@ -16,6 +16,8 @@ set -U fish_user_abbreviations \
     'gb=git branch' \
     'gco=git checkout' \
     'gcb=git checkout -b' \
+    'gcom=git checkout master' \
+    'gcbf=gcfb' \
     'gs=git status -sb' \
     'gh=git head' \
     'gl=git l' \
@@ -27,6 +29,7 @@ set -U fish_user_abbreviations \
     'gc=git commit -v' \
     'gca=git commit -v -a' \
     'gcm=git commit -m' \
+    'gcma=git commit -am' \
     'gf=git fetch' \
     'gfa=git fetch --all' \
     'gm=git merge' \
