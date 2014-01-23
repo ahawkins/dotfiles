@@ -15,6 +15,7 @@ set -U fish_user_abbreviations \
     'gs=git status' \
     'gb=git branch' \
     'gco=git checkout' \
+    'gcb=git checkout -b' \
     'gs=git status -sb' \
     'gh=git head' \
     'gl=git l' \
