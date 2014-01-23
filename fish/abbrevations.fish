@@ -11,7 +11,7 @@ set -U fish_user_abbreviations \
     'g=git' \
     'ga=git add' \
     'gaa=git add -A' \
-    'gp=git pull' \
+    'gp=git push' \
     'gs=git status' \
     'gb=git branch' \
     'gco=git checkout' \
@@ -34,4 +34,5 @@ set -U fish_user_abbreviations \
     'gfa=git fetch --all' \
     'gm=git merge' \
     'gr=git rebase' \
-    'gcp=git cherry-pick'
+    'gcp=git cherry-pick' \
+    'gpl=git pull'
