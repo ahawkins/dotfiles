@@ -3,6 +3,9 @@ set -g fish_greeting ''
 set EDITOR /usr/local/bin/vim
 set BUNDLE_EDITOR mate
 
+# Local Bin
+set PATH "$HOME/bin" $PATH
+
 # Homebrew
 set PATH /usr/local/bin $PATH
 set PATH /usr/local/sbin $PATH
