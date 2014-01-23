@@ -10,7 +10,7 @@ set -U fish_user_abbreviations \
     'tf=tail -f' \
     'g=git' \
     'ga=git add' \
-    'gaa=git add -a' \
+    'gaa=git add -A' \
     'gp=git pull' \
     'gs=git status' \
     'gb=git branch' \
