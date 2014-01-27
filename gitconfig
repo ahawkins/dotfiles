@@ -3,6 +3,14 @@
   email = adam@hawkins.io
 [core]
   excludesfile = ~/.gitignore
+[alias]
+  unstage  = reset HEAD
+  uncommit = reset --soft HEAD^
+  recommit = commit --amend
+  wc       = whatchanged -p --abbrev-commit --pretty=medium
+
+  # Super fancy pretty log
+  l        = log --all --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)<%an>%C(reset)%C(bold yellow)%d%C(reset)'
 [push]
   default = simple
 [branch]
