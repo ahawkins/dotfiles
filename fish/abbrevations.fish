@@ -35,4 +35,5 @@ set -U fish_user_abbreviations \
     'gm=git merge' \
     'gr=git rebase' \
     'gcp=git cherry-pick' \
-    'gpl=git pull'
+    'gpl=git pull' \
+    'gpr=git pull-request'
