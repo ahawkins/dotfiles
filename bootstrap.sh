@@ -58,7 +58,8 @@ ln -sf "$script_dir/fish/" ~/.config/fish
 rm -rf ~/.vimrc
 rm -rf ~/.vim
 mkdir -p ~/.vim
-ln -sf "$script_dir/vim/ftplugins" ~/.vim/ftplugins
+ln -sf "$script_dir/vim/ftplugin" ~/.vim/ftplugin
+ln -sf "$script_dir/vim/plugin" ~/.vim/plugin
 ln -sf "$script_dir/vim/rc" ~/.vim/rc
 ln -sf "$script_dir/vim/vimrc" ~/.vimrc
 

@@ -33,7 +33,7 @@ Bundle "tpope/vim-markdown"
 Bundle "tpope/vim-rails"
 Bundle "nono/vim-handlebars"
 
-" General plugins
+" " General plugins
 Bundle "scrooloose/nerdtree"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-git"

@@ -1,8 +1,10 @@
 " Leader/Remaps
 let mapleader=','
 
-" shift-enter = esc
-inoremap <S-CR> <Esc>
+" Tab to go next buffer
+" Shift-Tab to go previous buffer
+noremap <Tab> :bn<CR>
+noremap <S-Tab> :bp<CR>
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']
@@ -54,6 +56,19 @@ map <Space> :CtrlP <CR>
 
 " Map <Leader>d to :Dispatch
 map <Leader>d :Dispatch <CR>
+
+" Dispatch
+nnoremap <Leader>db :Dispatch bundle<CR>
+
+" Run dispatch with enter
+autocmd! CmdwinEnter * unmap <buffer> <CR>
+autocmd! CmdwinLeave * call s:MapCR()
+function! s:MapCR()
+  if mapcheck('<CR>', 'n') == ''
+    nmap <buffer> <CR> :Dispatch<CR>
+  endif
+endfunction
+call s:MapCR()
 
 " Indent and outdent keep visual selection
 vnoremap > >gv
