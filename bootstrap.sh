@@ -6,18 +6,10 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
 # Rbenv
-if [ ! -d "~/.rbenv" ] ; then
+if [ ! -d "$HOME/.rbenv" ] ; then
   echo "Installing rbenv"
   git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 fi
-
-echo "Installing vundler"
-# mkdir -p ~/.vim/bundle
-# rm -rf ~/.vim/bundle/vundle
-# git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
-echo "Vundling..."
-# vim -u bundle.vim +BundleInstall +qall
 
 echo "Installing development brews"
 brew install git
@@ -50,16 +42,25 @@ ln -nfs /usr/local/opt/rabbitmq/*.plist ~/Library/LaunchAgents
 echo "Linking configs"
 mkdir -p ~/.config
 ln -sf "$script_dir/gemrc" ~/.gemrc
-ln -sf "$script_dir/vimrc" ~/.vimrc
 ln -sf "$script_dir/redbugrc" ~/.rdebugrc
 ln -sf "$script_dir/rspec" ~/.rspec
 ln -sf "$script_dir/tmux" ~/.tmux
+
 ln -sf "$script_dir/gitignore" ~/.gitignore
 ln -sf "$script_dir/gitconfig" ~/.gitconfig
+
 rm -rf ~/.irssi
 ln -sf "$script_dir/irssi/" ~/.irssi
+
 rm -rf ~/.config/fish
 ln -sf "$script_dir/fish/" ~/.config/fish
+
+rm -rf ~/.vimrc
+rm -rf ~/.vim
+mkdir -p ~/.vim
+ln -sf "$script_dir/vim/ftplugins" ~/.vim/ftplugins
+ln -sf "$script_dir/vim/rc" ~/.vim/rc
+ln -sf "$script_dir/vim/vimrc" ~/.vimrc
 
 if [ "$SHELL" !=  "$(which fish)" ]; then
   echo "Time to enter Fish"

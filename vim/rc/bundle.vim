@@ -1,3 +1,8 @@
+if !isdirectory(expand('~/.vim/bundle/vundle'))
+  !git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  let fresh_vundle = 1
+endif
+
 set nocompatible
 
 " this must be turned off for vundle, but is renabled later
@@ -43,5 +48,8 @@ Bundle "kien/ctrlp.vim"
 Bundle "christoomey/vim-tmux-navigator"
 Bundle "rking/ag.vim"
 
-" Required by vundle
-filetype plugin indent on
+if exists('fresh_vundle')
+  BundleInstall
+  unlet fresh_vundle
+  wincmd c
+endif
