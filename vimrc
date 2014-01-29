@@ -9,7 +9,6 @@ source ~/dotfiles/bundle.vim
 " Leader/Remaps
 let mapleader=','
 
-nnoremap ; :
 inoremap <S-CR> <Esc>
 
 " Disable the bell
