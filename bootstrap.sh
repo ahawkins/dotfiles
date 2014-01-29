@@ -27,6 +27,7 @@ brew install redis
 brew install wget
 brew install hub
 brew install irssi
+brew install vim
 
 echo "Installing personal brews"
 brew install flac lame id3tool id3v2
