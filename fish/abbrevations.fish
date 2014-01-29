@@ -29,11 +29,12 @@ set -U fish_user_abbreviations \
     'gc=git commit -v' \
     'gca=git commit -v -a' \
     'gcm=git commit -m' \
-    'gcma=git commit -am' \
+    'gcam=git commit -am' \
     'gf=git fetch' \
     'gfa=git fetch --all' \
     'gm=git merge' \
     'gr=git rebase' \
     'gcp=git cherry-pick' \
     'gpl=git pull' \
-    'gpr=git pull-request'
+    'gpr=git pull-request' \
+    'grpo=git remote prune origin \
