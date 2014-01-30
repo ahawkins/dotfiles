@@ -29,7 +29,6 @@ set -U fish_user_abbreviations \
     'gc=git commit -v' \
     'gca=git commit -v -a' \
     'gcm=git commit -m' \
-    'gcam=git commit -am' \
     'gf=git fetch' \
     'gfa=git fetch --all' \
     'gm=git merge' \
