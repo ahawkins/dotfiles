@@ -6,6 +6,9 @@ let mapleader=','
 noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 
+" Map 2x leader to toggle buffers
+nnoremap <Leader><Leader> <C-^>
+
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
@@ -57,6 +60,8 @@ noremap - :Switch<CR>
 " Map space in normal mode to CtrlP
 map <Space> :CtrlP <CR>
 map <Space><Space> :CtrlPCurFile<CR>
+
+
 
 " Map <Leader>d to :Dispatch
 map <Leader>d :Dispatch <CR>
