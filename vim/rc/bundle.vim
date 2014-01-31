@@ -42,9 +42,12 @@ Bundle "tpope/vim-repeat"
 Bundle "godlygeek/tabular"
 Bundle "tpope/vim-dispatch"
 Bundle "kien/ctrlp.vim"
+Bundle "tacahiroy/ctrlp-funky"
 Bundle "christoomey/vim-tmux-navigator"
 Bundle "rking/ag.vim"
 Bundle "AndrewRadev/switch.vim"
+
+let g:ctrlp_extensions = ['funky']
 
 if exists('fresh_vundle')
   BundleInstall

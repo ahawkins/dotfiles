@@ -60,6 +60,7 @@ noremap - :Switch<CR>
 " Map space in normal mode to CtrlP
 map <Space> :CtrlP <CR>
 map <Space><Space> :CtrlPCurFile<CR>
+nnoremap <Leader>f :CtrlPFunky<CR>
 
 " Autoformat file & cursors stays in same position
 nnoremap === mgg=G`m^zz
