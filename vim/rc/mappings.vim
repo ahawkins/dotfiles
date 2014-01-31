@@ -61,7 +61,8 @@ noremap - :Switch<CR>
 map <Space> :CtrlP <CR>
 map <Space><Space> :CtrlPCurFile<CR>
 
-
+" Autoformat file & cursors stays in same position
+nnoremap === mgg=G`m^zz
 
 " Map <Leader>d to :Dispatch
 map <Leader>d :Dispatch <CR>
