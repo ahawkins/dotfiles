@@ -56,6 +56,7 @@ noremap - :Switch<CR>
 
 " Map space in normal mode to CtrlP
 map <Space> :CtrlP <CR>
+map <Space><Space> :CtrlPCurFile<CR>
 
 " Map <Leader>d to :Dispatch
 map <Leader>d :Dispatch <CR>
