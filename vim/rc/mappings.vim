@@ -3,8 +3,8 @@ let mapleader=','
 
 " Tab to go next buffer
 " Shift-Tab to go previous buffer
-noremap <Tab> :bn<CR>
-noremap <S-Tab> :bp<CR>
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
 
 " Map 2x leader to toggle buffers
 nnoremap <Leader><Leader> <C-^>
