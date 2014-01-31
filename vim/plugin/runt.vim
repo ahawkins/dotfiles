@@ -72,7 +72,9 @@ function! runt#find_test_file(filename)
   let path = fnamemodify(a:filename, ':p')
   let name = path[strlen(b:runt_root)+1 : -1]
 
-  if name =~# '^lib/'
+  if name =~# '^\%(test\|spec\)/'
+    return name
+  else
     let bare = substitute(name[4:-1], '\.rb$', '', 'g')
     return runt#find_first_file(
       \'test/'.bare.'_test.rb',
@@ -81,8 +83,6 @@ function! runt#find_test_file(filename)
       \'spec/lib/'.bare.'_spec.rb',
       \'test/unit/'.bare.'_test.rb',
       \'spec/unit/'.bare.'_spec.rb')
-  else
-    return name
   endif
 endfunction
 " }}}
@@ -101,7 +101,6 @@ function! runt#run_command(bang, count, args) abort
   endif
 
   let extra = ''
-  let file = args
 
   if args =~# '^test/.*_test\.rb$'
     let compiler = 'rubyunit'
