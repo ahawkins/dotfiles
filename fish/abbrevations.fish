@@ -27,7 +27,6 @@ set -U fish_user_abbreviations \
     'gdw=git diff --color-words' \
     'gds=git diff --stat' \
     'gc=git commit -v' \
-    'gca=git commit -v -a' \
     'gcm=git commit -m' \
     'gf=git fetch' \
     'gfa=git fetch --all' \
