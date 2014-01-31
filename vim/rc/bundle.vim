@@ -44,6 +44,7 @@ Bundle "tpope/vim-dispatch"
 Bundle "kien/ctrlp.vim"
 Bundle "christoomey/vim-tmux-navigator"
 Bundle "rking/ag.vim"
+Bundle "AndrewRadev/switch.vim"
 
 if exists('fresh_vundle')
   BundleInstall

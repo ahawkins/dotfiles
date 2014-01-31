@@ -51,6 +51,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" map - to switch plugin
+noremap - :Switch<CR>
+
 " Map space in normal mode to CtrlP
 map <Space> :CtrlP <CR>
 
