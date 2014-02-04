@@ -33,10 +33,8 @@ nnoremap <Space><Space> :CtrlPFunky <CR>
 " Autoformat file & cursors stays in same position
 nnoremap === mgg=G`m^zz
 
-" Map <Leader>d to :Dispatch
-map <Leader>d :Dispatch <CR>
-
 " Dispatch
+nnoremap <Leader>d :Dispatch <CR>
 nnoremap <Leader>db :Dispatch bundle<CR>
 
 " Run dispatch with enter
@@ -53,8 +51,8 @@ call s:MapCR()
 vnoremap > >gv
 vnoremap < <gv
 
-" Mapping for Ag.vim
-map <leader>f :Ag<space>
+" Searching
+map <leader>a :Ag<space>
 
 " Make . in visual mode execute command across section in normal mode
 " aka . works in visual mode
