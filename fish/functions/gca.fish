@@ -1,3 +1,3 @@
 function gca
-  git add -A ; and git commit
+  git add -A ; and git commit $argv
 end
