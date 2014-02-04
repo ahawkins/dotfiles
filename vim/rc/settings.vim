@@ -12,6 +12,13 @@ set number
 set hlsearch
 set ruler
 
+" Speed for mappings
+" This is especially important if there is a mapping like 
+" <Space><Space> and <Space>. If the single <space> mapping is
+" wanted vim will wait for timeout. This also means that all
+" key combinations need to be entered before this timeout.
+set timeoutlen=200
+
 " Searching
 set hlsearch
 set incsearch

@@ -27,8 +27,8 @@ nnoremap <C-H> <C-W><C-H>
 noremap - :Switch<CR>
 
 " Map space in normal mode to CtrlP
-map <Space> :CtrlP <CR>
-nnoremap <Leader>f :CtrlPFunky<CR>
+nnoremap <Space> :CtrlP <CR>
+nnoremap <Space><Space> :CtrlPFunky <CR>
 
 " Autoformat file & cursors stays in same position
 nnoremap === mgg=G`m^zz
