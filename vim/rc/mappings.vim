@@ -13,10 +13,6 @@ nnoremap <Leader><Leader> <C-^>
 let NERDTreeIgnore=['\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
 
-" <Leader>` Surround a word with `brackets`
-map <Leader>` ysiw`
-vmap <Leader>` c`<C-R>"`<ESC>
-
 " use ctrl h/j/k/l to switch between windows
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
