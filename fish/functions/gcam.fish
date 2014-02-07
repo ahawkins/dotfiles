@@ -1,3 +1,3 @@
 function gcam
-  git add -A ; and git commit -m
+  git add -A ; and git commit -m $argv
 end
