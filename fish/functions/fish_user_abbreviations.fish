@@ -37,5 +37,6 @@ function fish_user_abbreviations
       'gcp=git cherry-pick' \
       'gpl=git pull' \
       'gpr=git pull-request' \
-      'grpo=git remote prune origin'
+      'grpo=git remote prune origin' \
+      'grc=git recommit'
 end
