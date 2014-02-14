@@ -45,6 +45,7 @@ Bundle "tacahiroy/ctrlp-funky"
 Bundle "christoomey/vim-tmux-navigator"
 Bundle "rking/ag.vim"
 Bundle "AndrewRadev/switch.vim"
+Bundle "milkypostman/vim-togglelist"
 
 let g:ctrlp_extensions = ['funky']
 
