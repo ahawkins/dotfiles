@@ -75,6 +75,13 @@ set splitright
 " File types / syntax stuff
 syntax on
 
+" Autoreload all files
+set autoread
+
+" Automatically write all files when exiting vim and other things
+" that may cause loss of edits
+set autowriteall
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 

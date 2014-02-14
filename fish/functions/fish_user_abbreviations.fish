@@ -40,5 +40,6 @@ function fish_user_abbreviations
       'grpo=git remote prune origin' \
       'grc=git recommit' \
       'grbm=git rebase master' \
-      'grbc=git rebase --continue'
+      'grbc=git rebase --continue' \
+      'grbi=git rebase -i'
 end
