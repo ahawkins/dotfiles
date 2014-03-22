@@ -13,15 +13,7 @@ servers = (
 chatnets = { freenode = { type = "IRC"; nick = "ahawkins"; }; };
 
 channels = (
-  { name = "#rubyonrails"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#ruby"; chatnet = "freenode"; autojoin = "Yes"; },
-  {
-    name = "#rubyonrails-offtopic";
-    chatnet = "freenode";
-    autojoin = "Yes";
-  },
-  { name = "#emberjs"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#emberjs-dev"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#microrb"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#saltside"; chatnet = "freenode"; autojoin = "Yes"; }
 );
 
@@ -120,42 +112,12 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#rubyonrails";
+        name = "#microrb";
         tag = "freenode";
       }
     );
   };
   3 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#rubyonrails-offtopic";
-        tag = "freenode";
-      }
-    );
-  };
-  4 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#ruby";
-        tag = "freenode";
-      }
-    );
-  };
-  5 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#emberjs";
-        tag = "freenode";
-      }
-    );
-  };
-  6 = {
     items = (
       {
         type = "CHANNEL";
