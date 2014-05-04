@@ -31,6 +31,7 @@ capybara-*.html
 /spec/tmp/*
 **.orig
 config/*.yml
+!config/secrets.yml
 rerun.txt
 .DS_Store
 .DS_Store?
