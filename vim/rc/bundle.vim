@@ -29,6 +29,7 @@ Bundle "tpope/vim-haml"
 Bundle "tpope/vim-markdown"
 Bundle "tpope/vim-rails"
 Bundle "nono/vim-handlebars"
+Bundle "solarnz/thrift.vim"
 
 " " General plugins
 Bundle "scrooloose/nerdtree"
