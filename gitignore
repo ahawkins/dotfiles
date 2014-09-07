@@ -50,3 +50,6 @@ tmtags
 
 !vendor/cache/*.gem
 .infinity_test
+
+.vagrant/
+npm-debug.log
