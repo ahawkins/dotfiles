@@ -30,6 +30,7 @@ Bundle "tpope/vim-markdown"
 Bundle "tpope/vim-rails"
 Bundle "nono/vim-handlebars"
 Bundle "solarnz/thrift.vim"
+Bundle "elzr/vim-json"
 
 " " General plugins
 Bundle "scrooloose/nerdtree"
