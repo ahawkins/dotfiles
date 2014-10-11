@@ -61,6 +61,7 @@ set wildignore+=*.o,*.obj,*.rbc
 set wildignore+=*/node_modules/*
 set wildignore+=vendor/rails/**
 set wildignore+=*vendor/cache/*
+set wildignore+=*vendor/bundle/*
 set wildignore+=*/_site/*
 set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*/coverage/*
