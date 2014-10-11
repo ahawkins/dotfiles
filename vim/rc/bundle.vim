@@ -31,6 +31,7 @@ Bundle "tpope/vim-rails"
 Bundle "nono/vim-handlebars"
 Bundle "solarnz/thrift.vim"
 Bundle "elzr/vim-json"
+Bundle "rodjek/vim-puppet"
 
 " " General plugins
 Bundle "scrooloose/nerdtree"
