@@ -16,7 +16,6 @@ InstalledFiles
 # YARD artifacts
 .yardoc
 _yardoc
-doc/
 *.rbc
 *.sassc
 .sass-cache
