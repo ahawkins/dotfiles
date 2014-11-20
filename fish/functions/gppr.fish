@@ -1,3 +1,3 @@
 function gppr
-  gpp ; and git pull-request
+	gpp ; and git pull-request $argv
 end
