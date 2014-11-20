@@ -6,7 +6,7 @@
 [alias]
   unstage  = reset HEAD
   uncommit = reset --soft HEAD^
-  recommit = commit --amend
+  recommit = commit --amend -v
   wc       = whatchanged -p --abbrev-commit --pretty=medium
 
   # Super fancy pretty log
