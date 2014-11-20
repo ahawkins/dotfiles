@@ -68,6 +68,7 @@ set wildignore+=*/coverage/*
 set wildignore+=*.gem
 set wildignore+=*/tmp/*
 set wildignore+=*/log/*
+set wildignore+=*dist/*
 
 " more natural splitting
 set splitbelow
