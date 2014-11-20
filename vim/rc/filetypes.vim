@@ -10,3 +10,6 @@ au BufRead,BufNewFile *{god,dropzone}  set ft=ruby
 
 " .asc => Asciidoc
 au BufRead,BufNewFile *.asc set ft=asciidoc
+
+" .bats => Shell
+au BufRead,BufNewFile *.bats set ft=sh
