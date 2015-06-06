@@ -8,7 +8,6 @@ function fish_user_abbreviations
       'bi=bundle install' \
       'bp=bundle pack' \
       'bu=bundle update' \
-      'tf=tail -f' \
       'g=git' \
       'ga=git add' \
       'gaa=git add -A' \
