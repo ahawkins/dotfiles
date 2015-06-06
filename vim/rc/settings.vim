@@ -32,11 +32,13 @@ set noswapfile
 
 " Whitespace stuff
 set nowrap
+set list listchars=tab:\ \ ,trail:·
+
+" 2 space hard tabs by default
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set expandtab
-set list listchars=tab:\ \ ,trail:·
+set noexpandtab
 
 " Share with system cliboard
 set clipboard=unnamed
@@ -49,10 +51,10 @@ set undofile
 
 " Folding
 if has("folding")
- set foldenable
- set foldmethod=manual
- set foldlevel=1
- set foldnestmax=2
+  set foldenable
+  set foldmethod=manual
+  set foldlevel=1
+  set foldnestmax=2
 endif
 
 " Tab completion
