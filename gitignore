@@ -52,3 +52,5 @@ tmtags
 
 .vagrant/
 npm-debug.log
+
+.vagrant-ssh-config
