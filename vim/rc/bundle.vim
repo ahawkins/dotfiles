@@ -32,8 +32,11 @@ Bundle "nono/vim-handlebars"
 Bundle "solarnz/thrift.vim"
 Bundle "elzr/vim-json"
 Bundle "rodjek/vim-puppet"
+Bundle "elixir-lang/vim-elixir"
+Bundle "uarun/vim-protobuf"
+Bundle "mustache/vim-mustache-handlebars"
 
-" " General plugins
+" General plugins
 Bundle "scrooloose/nerdtree"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-git"
@@ -49,6 +52,9 @@ Bundle "christoomey/vim-tmux-navigator"
 Bundle "rking/ag.vim"
 Bundle "AndrewRadev/switch.vim"
 Bundle "milkypostman/vim-togglelist"
+" Bundle "triglav/vim-visual-increment"
+" Bundle "tpope/vim-abolish"
+
 
 let g:ctrlp_extensions = ['funky']
 
