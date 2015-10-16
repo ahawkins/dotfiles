@@ -1,4 +1,4 @@
 function gi
-  gem install $argv
-  rbenv rehash
+	gem install $argv
+	rbenv rehash
 end

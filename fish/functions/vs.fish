@@ -1,3 +1,3 @@
 function vs
-  vagrant ssh
+	vagrant ssh
 end

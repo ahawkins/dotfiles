@@ -1,3 +1,3 @@
 function gcfb
-  git checkout -b "feature/$argv[1]"
+	git checkout -b "feature/$argv[1]"
 end

@@ -1,3 +1,3 @@
 function download
-  curl -OJ $argv
+	curl -OJ $argv
 end
