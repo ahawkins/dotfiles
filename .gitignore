@@ -1,5 +1,6 @@
 *.log
 fish/fish_history
+fish/fish_read_history
 fish/fishd.*
 vim/bundle
 vim/backups
