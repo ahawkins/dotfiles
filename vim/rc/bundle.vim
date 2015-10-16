@@ -35,6 +35,7 @@ Bundle "rodjek/vim-puppet"
 Bundle "elixir-lang/vim-elixir"
 Bundle "uarun/vim-protobuf"
 Bundle "mustache/vim-mustache-handlebars"
+Bundle "vim-scripts/fish.vim"
 
 " General plugins
 Bundle "scrooloose/nerdtree"
