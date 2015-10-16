@@ -10,3 +10,6 @@ end
 
 # Local Bin
 set PATH "$HOME/bin" $PATH
+
+# Put my bin dir on path
+set PATH "$HOME/bindir/bin" $PATH
