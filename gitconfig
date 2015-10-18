@@ -5,55 +5,54 @@
 	excludesfile = ~/.gitignore
 [alias]
 	# Adding
-	a				 = add
-	aa			 = add -A
+	a  = add
+	aa = add -A
 
 	# Branching
-	b				= branch
+	b = branch
 
 	# Checking out
-	co			= checkout
-	cb      = checkout -b
-	cm      = checkout master
+	co = checkout
+	cb = checkout -b
+	cm = checkout master
 
 	# Commiting
-	ci			= commit -v
-	cim			= commit -v -m
-	
-	rc = commit --amend -v
+	ci  = commit -v
+	cim = commit -v -m
+	rc  = commit --amend -v
 
 	# Diffing
-	d				 = diff
-	dc			 = diff --cached
+	d  = diff
+	dc = diff --cached
 
 	# Fetching
-	f				 = fetch
+	f = fetch
 
 	# Logging
 	# Super fancy pretty log
-	l				 = log --all --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)<%an>%C(reset)%C(bold yellow)%d%C(reset)'
+	l = log --all --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)<%an>%C(reset)%C(bold yellow)%d%C(reset)'
 
 	# Pushing
-	p       = push
-	pf      = push -f
+	p  = push
+	pf = push -f
 
 	# Pulling
-	pl      = pull
+	pl = pull
 
 	# Rebasing
-	rbm			 = rebase master
-	rbc			 = rebase --continue
-	rbi			 = rebase -i
+	rbm = rebase master
+	rbc	= rebase --continue
+	rbi	= rebase -i
 
 	# Reseting
 	unstage  = reset HEAD
 	uncommit = reset --soft HEAD^
 
 	# Status
-	s				 = git status -sb
+	s = git status -sb
 
 	# Misc
-	wc			 = whatchanged -p --abbrev-commit --pretty=medium
+	wc = whatchanged -p --abbrev-commit --pretty=medium
 [push]
 	default = simple
 [branch]
