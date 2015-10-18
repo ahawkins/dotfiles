@@ -11,6 +11,11 @@
 	# Branching
 	b				= branch
 
+	# Checking out
+	co			= checkout
+	cb      = checkout -b
+	cm      = checkout master
+
 	# Commiting
 	rc = commit --amend -v
 

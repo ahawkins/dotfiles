@@ -1,8 +1,6 @@
 function fish_user_abbreviations
 	set -U fish_user_abbreviations \
 			'g=git' \
-			'gcb=git checkout -b' \
-			'gcom=git checkout master' \
 			'gcbf=gcfb' \
 			'gh=git head' \
 			'gl=git l' \
