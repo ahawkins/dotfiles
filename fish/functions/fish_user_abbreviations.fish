@@ -1,13 +1,5 @@
 function fish_user_abbreviations
 	set -U fish_user_abbreviations \
-			'be=bundle exec' \
-			'ber=bundle exec rake' \
-			'berc=bundle exec rails c' \
-			'berg=bundle exec rails g' \
-			'berup=bundle exec rackup' \
-			'bi=bundle install' \
-			'bp=bundle pack' \
-			'bu=bundle update' \
 			'g=git' \
 			'ga=git add' \
 			'gaa=git add -A' \
