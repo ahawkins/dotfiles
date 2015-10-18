@@ -29,8 +29,5 @@ function fish_user_abbreviations
 			'gpl=git pull' \
 			'gpr=git pull-request' \
 			'grpo=git remote prune origin' \
-			'grc=git recommit' \
-			'grbm=git rebase master' \
-			'grbc=git rebase --continue' \
-			'grbi=git rebase -i'
+			'grc=git recommit'
 end

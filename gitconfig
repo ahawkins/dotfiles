@@ -10,7 +10,12 @@
   wc       = whatchanged -p --abbrev-commit --pretty=medium
 
   # Super fancy pretty log
-  l        = log --all --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)<%an>%C(reset)%C(bold yellow)%d%C(reset)'
+	l        = log --all --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)<%an>%C(reset)%C(bold yellow)%d%C(reset)'
+
+	# Rebase relating
+	rbm      = rebase master
+	rbc      = rebase --continue
+	rbi      = rebase -i
 [push]
   default = simple
 [branch]
