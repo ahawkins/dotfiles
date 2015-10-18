@@ -15,10 +15,6 @@ function fish_user_abbreviations
 			'gh=git head' \
 			'gl=git l' \
 			'gll=git ll' \
-			'gd=git diff' \
-			'gdc=git diff --cached' \
-			'gdw=git diff --color-words' \
-			'gds=git diff --stat' \
 			'gc=git commit -v' \
 			'gcm=git commit -m' \
 			'gf=git fetch' \
