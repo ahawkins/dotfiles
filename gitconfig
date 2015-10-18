@@ -53,6 +53,9 @@
 
 	# Misc
 	wc = whatchanged -p --abbrev-commit --pretty=medium
+
+	# Delete all locally merged branches
+	scrub = "!git branch --merged | grep -v -f '*' | xargs -n 1 git branch -d"
 [push]
 	default = simple
 [branch]
