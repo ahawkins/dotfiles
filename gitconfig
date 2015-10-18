@@ -26,7 +26,7 @@
 	rbi      = rebase -i
 
 	# Status
-	s        = git status
+	s        = git status -sb
 [push]
   default = simple
 [branch]

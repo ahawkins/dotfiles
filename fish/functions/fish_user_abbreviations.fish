@@ -8,7 +8,6 @@ function fish_user_abbreviations
 			'gcb=git checkout -b' \
 			'gcom=git checkout master' \
 			'gcbf=gcfb' \
-			'gs=git status -sb' \
 			'gh=git head' \
 			'gl=git l' \
 			'gll=git ll' \
