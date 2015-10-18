@@ -9,7 +9,7 @@
 	aa			 = add -A
 
 	# Commiting
-	recommit = commit --amend -v
+	rc = commit --amend -v
 
 	# Diffing
 	d				 = diff
