@@ -26,6 +26,9 @@
 	d				 = diff
 	dc			 = diff --cached
 
+	# Fetching
+	f				 = fetch
+
 	# Logging
 	# Super fancy pretty log
 	l				 = log --all --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)<%an>%C(reset)%C(bold yellow)%d%C(reset)'
