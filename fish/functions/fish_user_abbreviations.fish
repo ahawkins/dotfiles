@@ -5,7 +5,6 @@ function fish_user_abbreviations
 			'gaa=git add -A' \
 			'gp=git push' \
 			'gpf=git push -f' \
-			'gs=git status' \
 			'gb=git branch' \
 			'gco=git checkout' \
 			'gcb=git checkout -b' \

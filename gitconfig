@@ -20,6 +20,9 @@
 	rbm      = rebase master
 	rbc      = rebase --continue
 	rbi      = rebase -i
+
+	# Status
+	s        = git status
 [push]
   default = simple
 [branch]
