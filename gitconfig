@@ -17,6 +17,9 @@
 	cm      = checkout master
 
 	# Commiting
+	ci			= commit -v
+	cim			= commit -v -m
+	
 	rc = commit --amend -v
 
 	# Diffing
