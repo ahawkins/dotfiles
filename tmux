@@ -36,10 +36,7 @@ bind -r K resize-pane -U 5
 bind -r L resize-pane -R 5
 
 # Use the mouse, this isn't 1968
-setw -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
-set -g mouse-select-window on
+set-option -g mouse on
 
 # Use 256color screen. This makes vim look pretty
 set -g default-terminal "screen-256color"
