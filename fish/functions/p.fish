@@ -28,7 +28,7 @@ function p --description "Switch between projects"
 
 				if not tmux has-session -t $tmux_name
 					env TMUX= tmux new-session -d -c $project_root -s $tmux_name
-					tmux send-keys -t $tmux_name vim Enter
+					tmux send-keys -t $tmux_name $EDITOR Enter
 				end
 
 				if test -n "$TMUX"
