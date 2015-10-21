@@ -39,6 +39,9 @@
 	# Pulling
 	pl = pull
 
+	# Pull Requesting
+	pr = pull-request
+
 	# Rebasing
 	rbm = rebase master
 	rbc	= rebase --continue
@@ -49,7 +52,7 @@
 	uncommit = reset --soft HEAD^
 
 	# Status
-	s = git status -sb
+	s = status -sb
 
 	# Misc
 	wc = whatchanged -p --abbrev-commit --pretty=medium
