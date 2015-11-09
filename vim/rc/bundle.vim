@@ -1,5 +1,5 @@
-if !isdirectory(expand('~/.vim/bundle/vundle'))
-  !git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+if !isdirectory(expand('~/.vim/bundle/Vundle.vim'))
+  !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   let fresh_vundle = 1
 endif
 
@@ -10,55 +10,59 @@ set nocompatible
 filetype on
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Add vundle to runtime path
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Plugin "gmarik/vundle"
+Plugin 'VundleVim/Vundle.vim'
 
 " Themes
-Plugin "tpope/vim-vividchalk"
+Plugin 'tpope/vim-vividchalk'
 
 " Language & Project specific plugins
-Plugin "timcharper/textile.vim"
-Plugin "vim-ruby/vim-ruby"
-Plugin "pangloss/vim-javascript"
-Plugin "kchmck/vim-coffee-script"
-Plugin "tpope/vim-haml"
-Plugin "tpope/vim-markdown"
-Plugin "tpope/vim-rails"
-Plugin "nono/vim-handlebars"
-Plugin "solarnz/thrift.vim"
-Plugin "elzr/vim-json"
-Plugin "rodjek/vim-puppet"
-Plugin "elixir-lang/vim-elixir"
-Plugin "uarun/vim-protobuf"
-Plugin "mustache/vim-mustache-handlebars"
-Plugin "vim-scripts/fish.vim"
+Plugin 'timcharper/textile.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-rails'
+Plugin 'nono/vim-handlebars'
+Plugin 'solarnz/thrift.vim'
+Plugin 'elzr/vim-json'
+Plugin 'rodjek/vim-puppet'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'uarun/vim-protobuf'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'vim-scripts/fish.vim'
 
 " General plugins
-Plugin "scrooloose/nerdtree"
-Plugin "tpope/vim-fugitive"
-Plugin "tpope/vim-git"
-Plugin "tpope/vim-surround"
-Plugin "tomtom/tcomment_vim"
-Plugin "tpope/vim-endwise"
-Plugin "tpope/vim-repeat"
-Plugin "godlygeek/tabular"
-Plugin "tpope/vim-dispatch"
-Plugin "kien/ctrlp.vim"
-Plugin "tacahiroy/ctrlp-funky"
-Plugin "christoomey/vim-tmux-navigator"
-Plugin "rking/ag.vim"
-Plugin "AndrewRadev/switch.vim"
-Plugin "milkypostman/vim-togglelist"
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-surround'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-repeat'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-dispatch'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'rking/ag.vim'
+Plugin 'AndrewRadev/switch.vim'
+Plugin 'milkypostman/vim-togglelist'
 
+" Required by vundle
+call vundle#end()
+filetype plugin indent on
 
 let g:ctrlp_extensions = ['funky']
 
 if exists('fresh_vundle')
-  BundleInstall
+  PluginInstall
   unlet fresh_vundle
   wincmd c
 endif
