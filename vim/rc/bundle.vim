@@ -39,6 +39,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-scripts/fish.vim'
 
 " General plugins
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
