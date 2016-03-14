@@ -9,9 +9,8 @@ function brewup
   	echo "Everything up to date"
   end
 
-	if brew cask list -1 | grep -q dockertoolbox
-		for machine in (docker-machine ls -q)
-			echo "Stopping docker machine $machine"
+	if brew list | grep -q docker-machine
+		for machine in (docker-machine ls -q --filter "driver=virtualbox")
 			docker-machine stop $machine
 		end
 	end
