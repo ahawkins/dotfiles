@@ -3,6 +3,7 @@
 	email = hi@ahawkins.me
 [core]
 	excludesfile = ~/.gitignore
+	ignorecase = false
 [alias]
 	# Adding
 	a  = add
