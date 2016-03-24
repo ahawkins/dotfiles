@@ -10,7 +10,8 @@
 	aa = add -A
 
 	# Branching
-	b = branch
+	b  = branch
+	ba = branch -a
 
 	# Checking out
 	co = checkout
