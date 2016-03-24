@@ -21,7 +21,7 @@ function brewup
 		vagrant global-status | grep running | awk '{print $1}' | xargs -L1 vagrant halt
 	end
 
-	if brew cask list -1 | grep -q virtualbox-xxx
+	if brew cask list -1 | grep -q virtualbox
 		set -lx running_vms (vboxmanage list runningvms |  cut -d '{' -f 2 | cut -d '}' -f 1)
 
 		if count $running_vms
