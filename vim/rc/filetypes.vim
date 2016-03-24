@@ -13,6 +13,7 @@ au BufRead,BufNewFile *.asc set ft=asciidoc
 
 " .bats => Shell
 au BufRead,BufNewFile *.bats set ft=sh
+au BufRead,BufNewFile *.bats let g:is_bash=1
 
 " .fish => Fish
 au BufRead,BufNewFile *.fish set ft=fish
