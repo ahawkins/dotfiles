@@ -37,6 +37,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'uarun/vim-protobuf'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-scripts/fish.vim'
+Plugin 'asciidoc/vim-asciidoc'
 
 " General plugins
 Plugin 'editorconfig/editorconfig-vim'
