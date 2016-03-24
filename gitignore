@@ -54,3 +54,5 @@ tmtags
 npm-debug.log
 
 .vagrant-ssh-config
+
+.envrc
