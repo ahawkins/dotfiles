@@ -13,3 +13,9 @@ set PATH "$HOME/bin" $PATH
 
 # Put my bin dir on path
 set PATH "$HOME/bindir/bin" $PATH
+
+# Shutup direnv
+set -x DIRENV_LOG_FORMAT
+
+# Run hook for per-directory env variables
+eval (direnv hook fish)
