@@ -72,3 +72,5 @@
 	rebase = true
 [github]
 	user = ahawkins
+[pull]
+	rebase = true
