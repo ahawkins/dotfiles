@@ -28,7 +28,7 @@
 	dc = diff --cached
 
 	# Fetching
-	f = fetch
+	f = fetch -p
 
 	# Logging
 	# Super fancy pretty log
