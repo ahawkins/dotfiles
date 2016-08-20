@@ -16,10 +16,10 @@ ln -sf "${script_dir}/fish/" ~/.config/fish
 
 rm -rf ~/.vimrc
 
-ln -sf "${script_dir}/vim/functions" ~/.vim/functions
-ln -sf "${script_dir}/vim/ftplugin" ~/.vim/ftplugin
-ln -sf "${script_dir}/vim/plugin" ~/.vim/plugin
-ln -sf "${script_dir}/vim/rc" ~/.vim/rc
+ln -sfh "${script_dir}/vim/functions" ~/.vim/functions
+ln -sfh "${script_dir}/vim/ftplugin" ~/.vim/ftplugin
+ln -sfh "${script_dir}/vim/plugin" ~/.vim/plugin
+ln -sfh "${script_dir}/vim/rc" ~/.vim/rc
 ln -sf "${script_dir}/vim/vimrc" ~/.vimrc
 
 if [ "${SHELL}" != "$(which fish)" ]; then
