@@ -55,4 +55,8 @@ npm-debug.log
 
 .vagrant-ssh-config
 
+# Ansible artifacts
+*.retry
+
+# Shell configuration
 .envrc
