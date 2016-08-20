@@ -33,6 +33,4 @@ function brewup
 	for cask in (brew cask list -1)
 		brew cask install --force $cask
 	end
-
-	brew cask cleanup
 end
