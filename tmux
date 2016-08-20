@@ -66,8 +66,6 @@ set -g pane-active-border-bg colour021
 set -g status-left-length 40
 set -g status-left "#[fg=colour000, bg=colour253] #(whoami) @ #h #[fg=colour000, bg=colour244] #S #[fg=colour000, bg=colour238] #I.#P "
 
-set -g status-utf8 on
-
 # Status line right side
 # now playing in iTunes | battery % | 28 Nov 18:15
 set -g status-right-length 90
