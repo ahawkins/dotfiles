@@ -15,6 +15,11 @@ setw -g pane-base-index 1
 
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
+# Make tmux behave like most applications
+bind w kill-pane
+bind q kill-window
+
+# Splitting
 bind | split-window -h
 bind \ split-window -h # Because shift is hard
 bind - split-window -v
