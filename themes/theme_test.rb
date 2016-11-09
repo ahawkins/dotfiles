@@ -1,4 +1,4 @@
-require 'logger'
+#!/usr/bin/env ruby
 
 colors = {
   0 => 'Black',
@@ -23,7 +23,7 @@ end.flatten
 require 'time'
 
 colorizers.each do |colorizer|
-  2.times do 
+  2.times do
     puts "#{colorizer.call(Time.now.iso8601)}: followed by some long white text"
   end
 end
