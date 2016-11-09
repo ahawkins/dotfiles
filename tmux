@@ -44,37 +44,41 @@ set -g default-terminal "screen-256color"
 setw -g monitor-activity on
 set -g visual-activity on
 
-# set the status line's colors
-set -g status-bg colour235
+# Set status bar layouts
+set-option -g status-position top
+set -g status-justify centre
 
-# set the color of the window list
-setw -g window-status-fg colour238
+# set the status line's colors
+set -g status-bg black
+
+# Set same color for all unimportant text
+set -g status-left-fg colour245
+set -g status-right-fg colour245
+setw -g window-status-fg colour245
+
+# Use same format for current and non current windows
+# Colors differentiate them
+setw -g window-status-format "#I:#W"
+setw -g window-status-current-format "#I:#W"
 
 # set colors for the active window
-setw -g window-status-current-fg colour250
-setw -g window-status-current-bg colour021
-setw -g window-status-current-format "[ #I:#W#F ]"
+setw -g window-status-current-fg colour253
+setw -g window-status-current-bg black
 
 # pane colors
-set -g pane-border-fg colour235
-set -g pane-border-bg colour235
-set -g pane-active-border-fg colour255
-set -g pane-active-border-bg colour021
+set -g pane-border-fg colour234
+set -g pane-border-bg colour234
+set -g pane-active-border-fg colour245
+set -g pane-active-border-bg black
 
 # Status line left side
-# user | session | window.pane
-set -g status-left-length 40
-set -g status-left "#[fg=colour000, bg=colour253] #(whoami) @ #h #[fg=colour000, bg=colour244] #S #[fg=colour000, bg=colour238] #I.#P "
+set -g status-left "#S"
 
 # Status line right side
-# now playing in iTunes | battery % | 28 Nov 18:15
-set -g status-right-length 90
-set -g status-right "#[fg=colour000, bg=colour238] #(~/dotfiles/scripts/np_itunes_mac.sh) #[fg=colour000, bg=colour244] #(~/dotfiles/scripts/battery_mac.sh) #[fg=colour000, bg=colour253] %d %b %R "
+set -g status-right "%Y-%m-%d %H:%M"
 
 # Update the status bar every 2 seconds
 set -g status-interval 2
-
-set -g status-justify centre
 
 # enable vi keys.
 setw -g mode-keys vi
