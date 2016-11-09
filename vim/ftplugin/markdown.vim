@@ -1,7 +1,7 @@
 call SetupWrapping()
 
 " Soft Tabs
-setlocal noexpandtab
+setlocal expandtab
 
 au BufWritePre <buffer> :call CleanTrailingSpace()
 
