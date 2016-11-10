@@ -67,7 +67,7 @@ setw -g window-status-format "#I:#W"
 setw -g window-status-current-format "#I:#W"
 
 # set colors for the active window
-setw -g window-status-current-fg colour253
+setw -g window-status-current-fg colour250
 setw -g window-status-current-bg black
 
 # pane colors
