@@ -1,4 +1,4 @@
-function git
+function git -w git
 	if which hub > /dev/null ^/dev/null
 		hub $argv
 	else

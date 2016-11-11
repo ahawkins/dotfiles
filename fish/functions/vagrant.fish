@@ -1,4 +1,4 @@
-function vagrant
+function vagrant -w vagrant
 	switch $argv[1]
 		case teardown
 			command vagrant global-status \
