@@ -4,6 +4,8 @@
 [core]
 	excludesfile = ~/.gitignore
 	ignorecase = false
+[init]
+	templatedir = ~/dotfiles/git/templates
 [alias]
 	# Adding
 	a  = add
@@ -28,7 +30,7 @@
 	dc = diff --cached
 
 	# Fetching
-	f = fetch -p
+	f = fetch
 
 	# Logging
 	# Super fancy pretty log
@@ -74,3 +76,6 @@
 	user = ahawkins
 [pull]
 	rebase = true
+[fetch]
+	recurseSubmodules = true
+	prune = true

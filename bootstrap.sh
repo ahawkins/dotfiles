@@ -8,8 +8,8 @@ echo "Linking configs from ${script_dir}"
 mkdir -p ~/.config
 ln -sf "${script_dir}/tmux" ~/.tmux.conf
 
-ln -sf "${script_dir}/gitignore" ~/.gitignore
-ln -sf "${script_dir}/gitconfig" ~/.gitconfig
+ln -sf "${script_dir}/git/gitignore" ~/.gitignore
+ln -sf "${script_dir}/git/gitconfig" ~/.gitconfig
 
 rm -rf ~/.config/fish
 ln -sf "${script_dir}/fish/" ~/.config/fish
