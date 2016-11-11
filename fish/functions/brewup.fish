@@ -31,6 +31,6 @@ function brewup
 	end
 
 	for cask in (brew cask list -1)
-		brew cask install --force $cask
+		brew cask reinstall $cask
 	end
 end
