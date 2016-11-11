@@ -1,0 +1,6 @@
+log
+tmp
+vendor
+.git/
+.vagrant.d
+node_modules/
