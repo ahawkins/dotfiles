@@ -5,7 +5,7 @@
 	excludesfile = ~/.gitignore
 	ignorecase = false
 [init]
-	templatedir = ~/dotfiles/git/templates
+	templatedir = ~/.git-templates
 [alias]
 	# Adding
 	a  = add
