@@ -15,7 +15,7 @@ ln -sf "${script_dir}/git/gitconfig" ~/.gitconfig
 ln -sf "${script_dir}/git/templates" ~/.git-templates
 
 rm -rf ~/.config/fish
-ln -sf "${script_dir}/fish/" ~/.config/fish
+ln -sfh "${script_dir}/fish" ~/.config/fish
 
 rm -rf ~/.vimrc
 
