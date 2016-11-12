@@ -12,19 +12,19 @@ ln -sf "${script_dir}/agignore" ~/.agignore
 
 ln -sf "${script_dir}/git/gitignore" ~/.gitignore
 ln -sf "${script_dir}/git/gitconfig" ~/.gitconfig
-ln -sf "${script_dir}/git/templates" ~/.git-templates
+ln -sFh "${script_dir}/git/templates" ~/.git-templates
 
 rm -rf ~/.config/fish
-ln -sfh "${script_dir}/fish" ~/.config/fish
+ln -sFh "${script_dir}/fish" ~/.config/fish
 
 rm -rf ~/.vimrc
 
-mkdir -p ~/vim
+mkdir -p ~/.vim
 
-ln -sfh "${script_dir}/vim/functions" ~/.vim/functions
-ln -sfh "${script_dir}/vim/ftplugin" ~/.vim/ftplugin
-ln -sfh "${script_dir}/vim/plugin" ~/.vim/plugin
-ln -sfh "${script_dir}/vim/rc" ~/.vim/rc
+ln -sFh "${script_dir}/vim/functions" ~/.vim/functions
+ln -sFh "${script_dir}/vim/ftplugin" ~/.vim/ftplugin
+ln -sFh "${script_dir}/vim/plugin" ~/.vim/plugin
+ln -sFh "${script_dir}/vim/rc" ~/.vim/rc
 ln -sf "${script_dir}/vim/vimrc" ~/.vimrc
 
 
