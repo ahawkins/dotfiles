@@ -19,6 +19,8 @@ ln -sfh "${script_dir}/fish" ~/.config/fish
 
 rm -rf ~/.vimrc
 
+mkdir -p ~/vim
+
 ln -sfh "${script_dir}/vim/functions" ~/.vim/functions
 ln -sfh "${script_dir}/vim/ftplugin" ~/.vim/ftplugin
 ln -sfh "${script_dir}/vim/plugin" ~/.vim/plugin
