@@ -4,6 +4,8 @@ function s
 			command s ahawkins/dotfiles
 		case bindir
 			command s ahawkins/bindir
+		case comp
+			command s ahawkins/comp
 		case '*'
 			command s $argv
 	end
