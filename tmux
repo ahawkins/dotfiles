@@ -76,6 +76,10 @@ set -g pane-border-bg colour234
 set -g pane-active-border-fg colour245
 set -g pane-active-border-bg black
 
+# Message colors
+set-option -g message-bg colour208
+set-option -g message-fg black
+
 # Status line left side
 set -g status-left "#S"
 
