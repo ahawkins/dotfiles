@@ -82,6 +82,7 @@ set-option -g message-fg black
 
 # Status line left side
 set -g status-left "#S"
+set -g status-left-length 30
 
 # Status line right side
 set -g status-right "%Y-%m-%d %H:%M"
