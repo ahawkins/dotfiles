@@ -79,3 +79,17 @@
 [fetch]
 	recurseSubmodules = true
 	prune = true
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	insteadOf = "gh://"
+	insteadOf = "github:"
+	insteadOf = "github://"
+	insteadOf = "git://github.com/"
+	insteadOf = "https://github.com/"
+[url "git@gitlab.com:"]
+	insteadOf = "gl:"
+	insteadOf = "gl://"
+	insteadOf = "gitlab:"
+	insteadOf = "gitlab://"
+	insteadOf = "git://gitlab.com/"
+	insteadOf = "https://gitlab.com/"
