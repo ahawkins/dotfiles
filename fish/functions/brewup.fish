@@ -33,4 +33,6 @@ function brewup
 	for cask in (brew cask list -1)
 		brew cask reinstall $cask
 	end
+
+	mas upgrade
 end
