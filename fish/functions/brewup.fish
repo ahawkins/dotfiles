@@ -30,7 +30,8 @@ function brewup
 		end
 	end
 
-	for cask in (brew cask list -1)
+	# Skip zoom because it opens the app everytime it's installed.
+	for cask in (brew cask list -1 | grep -vi zoomus)
 		brew cask reinstall $cask
 	end
 
