@@ -5,9 +5,6 @@ function brewup
 
   if count $outdated_brews > /dev/null
   	brew upgrade $outdated_brews
-  	brew cleanup
-  else
-  	echo "Everything up to date"
   end
 
 	if brew list | grep -q docker-machine
