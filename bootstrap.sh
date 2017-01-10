@@ -25,6 +25,7 @@ ln -sFh "${script_dir}/vim/functions" ~/.vim/functions
 ln -sFh "${script_dir}/vim/ftplugin" ~/.vim/ftplugin
 ln -sFh "${script_dir}/vim/plugin" ~/.vim/plugin
 ln -sFh "${script_dir}/vim/rc" ~/.vim/rc
+ln -sFh "${script_dir}/vim/spell" ~/.vim/spell
 ln -sf "${script_dir}/vim/vimrc" ~/.vimrc
 
 case "$(uname -a | tr '[:upper:]' '[:lower:]')" in
