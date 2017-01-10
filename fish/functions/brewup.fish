@@ -20,7 +20,7 @@ function brewup
 	if brew cask list -1 | grep -q virtualbox
 		set -lx running_vms (vboxmanage list runningvms |  cut -d '{' -f 2 | cut -d '}' -f 1)
 
-		if count $running_vms
+		if count $running_vms > /dev/null
 			echo "Stopping running virtualbox machines"
 			echo $running_vms | xargs -L1 -I {} VBoxManage controlvm {} acpipowerbutton
 		end
