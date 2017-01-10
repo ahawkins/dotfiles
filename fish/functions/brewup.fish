@@ -8,9 +8,7 @@ function brewup
   end
 
 	if brew list | grep -q docker-machine
-		for machine in (docker-machine ls -q --filter "driver=virtualbox")
-			docker-machine stop $machine
-		end
+		docker-machine ls -q --filter "driver=virtualbox" | xargs -L1 docker-machine stop
 	end
 
 	if brew cask list -1 | grep -q vagrant
