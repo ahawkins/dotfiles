@@ -5,7 +5,7 @@ function minikube -w minikube
 				command minikube stop
 			end
 		case start
-			if command minikube status | grep -qi 'stopped'
+			if begin command minikube status | grep -qi 'stopped'; or command minikube status | grep -Fqi 'not exist'; end
 				command minikube start
 			end
 		case docker
