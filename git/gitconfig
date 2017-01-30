@@ -1,6 +1,7 @@
 [user]
 	name = Adam Hawkins
 	email = hi@ahawkins.me
+	signingkey = E72329F838F93C4B
 [core]
 	excludesfile = ~/.gitignore
 	ignorecase = false
@@ -93,3 +94,5 @@
 	insteadOf = "gitlab://"
 	insteadOf = "git://gitlab.com/"
 	insteadOf = "https://gitlab.com/"
+[commit]
+	gpgsign = true
