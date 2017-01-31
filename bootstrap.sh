@@ -28,6 +28,8 @@ ln -sFh "${script_dir}/vim/rc" ~/.vim/rc
 ln -sFh "${script_dir}/vim/spell" ~/.vim/spell
 ln -sf "${script_dir}/vim/vimrc" ~/.vimrc
 
+ln -sf "${script_dir}/ledgerrc" ~/.ledgerrc
+
 case "$(uname -a | tr '[:upper:]' '[:lower:]')" in
 	*darwin*)
 		ln -sf "${script_dir}/iterm2.plist" ~/Library/Preferences/com.googlecode.iterm2.plist
