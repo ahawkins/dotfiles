@@ -1,5 +1,7 @@
 function ledger --wraps ledger
 	switch "$argv[1]"
+		case e
+			eval $EDITOR $LIFE_DIR/finance/ledger.dat
 		case bal
 			command ledger \
 				--collapse \
