@@ -1,7 +1,7 @@
 function brewup
   brew update
 
-  set -lx outdated_brews (brew outdated)
+  set -lx oudated brews (comm -23 (brew list | sort | psub) (brew list --pinned | sort | psub))
 
   if count $outdated_brews > /dev/null
   	brew upgrade $outdated_brews
