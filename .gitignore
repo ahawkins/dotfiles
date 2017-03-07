@@ -4,3 +4,4 @@ fish/fish_read_history
 fish/fishd.*
 vim/bundle
 vim/backups
+iterm2.plist
