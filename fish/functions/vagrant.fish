@@ -1,6 +1,6 @@
 function vagrant -w vagrant
-	switch $argv[1]
-		case teardown
+	switch "$argv[1]"
+		case down
 			command vagrant global-status \
 				| grep running \
 				| awk '{print $1}' \
