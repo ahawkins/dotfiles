@@ -11,6 +11,7 @@
 	# Adding
 	a  = add
 	aa = add -A
+	ap = add -p
 
 	# Branching
 	b  = branch
