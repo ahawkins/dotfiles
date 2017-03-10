@@ -1,4 +1,4 @@
-function s
+function s --wraps s
 	switch $argv[1]
 		case dotfiles
 			command s ahawkins/dotfiles
