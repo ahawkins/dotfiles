@@ -12,7 +12,7 @@ ln -sf "${script_dir}/agignore" ~/.agignore
 
 ln -sf "${script_dir}/git/gitignore" ~/.gitignore
 ln -sf "${script_dir}/git/gitconfig" ~/.gitconfig
-ln -sFh "${script_dir}/git/templates" ~/.git-templates
+ln -sFh "${script_dir}/git/hooks" ~/.git-hooks
 
 rm -rf ~/.config/fish
 ln -sFh "${script_dir}/fish" ~/.config/fish

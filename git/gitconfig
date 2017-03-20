@@ -4,9 +4,8 @@
 	signingkey = E72329F838F93C4B
 [core]
 	excludesfile = ~/.gitignore
+	hooksPath = ~/.git-hooks
 	ignorecase = false
-[init]
-	templatedir = ~/.git-templates
 [alias]
 	# Adding
 	a  = add
