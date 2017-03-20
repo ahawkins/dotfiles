@@ -2,19 +2,32 @@
 
 set -euo pipefail
 
-declare uncovered_files=0
-
 if [ ! -f .editorconfig ]; then
 	exit 0
 fi
 
-# Check files in this commit
+declare uncovered_files=0
+declare ignore_file="$(mktemp)"
+
+exit 0
+
+cat << EOF > "${ignore_file}"
+.editorconfig
+.editorconfigignore
+.gitmodules
+EOF
+
+if [ -f .editorconfigignore ]; then
+	cat .editorconfigignore >> "${ignore_file}"
+fi
+
+# Check files in the commit excluding those ignored
 while read -r file; do
 	if [ -z "$(editorconfig "${PWD}/${file}" 2>/dev/null)" ]; then
 		echo "${file}"
 		((++uncovered_files))
 	fi
-done < <(git diff --cached --name-only --diff-filter=ACM | grep -Fv '.editorconfig')
+done < <(comm -23 <(git diff --cached --name-only --diff-filter=ACM | sort) <(sort "${ignore_file}"))
 
 if [ $uncovered_files -ne 0 ]; then
 	echo "${uncovered_files} uncovered file(s) by editorconfig rules"

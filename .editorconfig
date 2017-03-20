@@ -1,0 +1,19 @@
+root = true
+
+[git/**/*]
+indent_style = tab
+
+[bootstrap.sh]
+ident_style = tab
+
+[fish/**/*]
+ident_style = tab
+
+# Space for legacy reasons
+[vim/**/*]
+ident_style = space
+ident_size = 2
+
+[{**/*.rb,**/*.py}]
+ident_style = space
+ident_size = 2
