@@ -47,9 +47,16 @@ check_pgp_key() {
 	fi
 }
 
+run_local_hooks() {
+	while read -r hook; do
+		"${hook}"
+	done < <(find ".git/hooks/$(basename "${0}")" -type f)
+}
+
 main() {
 	lint_editorconfig
 	check_pgp_key
+	run_local_hooks
 }
 
 main "$@"
