@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+declare uncovered_files=0
+
+if [ ! -f .editorconfig ]; then
+	exit 0
+fi
+
+# Check files in this commit
+while read -r file; do
+	if [ -z "$(editorconfig "${PWD}/${file}" 2>/dev/null)" ]; then
+		echo "${file}"
+		((++uncovered_files))
+	fi
+done < <(git diff --cached --name-only --diff-filter=ACM | grep -Fv '.editorconfig')
+
+if [ $uncovered_files -ne 0 ]; then
+	echo "${uncovered_files} uncovered file(s) by editorconfig rules"
+	exit 1
+else
+	exit 0
+fi
