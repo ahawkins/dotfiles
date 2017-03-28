@@ -52,7 +52,7 @@ run_local_hooks() {
 
 	if [ -d "${project_hook_dir}" ]; then
 		while read -r hook; do
-			"${hook}"
+			"${hook}" "$@"
 		done < <(find "${project_hook_dir}" -type f)
 	fi
 }
@@ -60,7 +60,7 @@ run_local_hooks() {
 main() {
 	lint_editorconfig
 	check_pgp_key
-	run_local_hooks
+	run_local_hooks "$@"
 }
 
 main "$@"
