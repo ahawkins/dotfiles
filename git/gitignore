@@ -62,7 +62,9 @@ npm-debug.log
 # Shell configuration
 .envrc
 
+# WIP junk I tend to create in repos
 blog_post.md
+scratch.*
 
 # Seems the ubuntu vagrant image creates the file
 # everytime the machine boots.
