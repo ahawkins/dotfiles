@@ -48,12 +48,10 @@ check_pgp_key() {
 }
 
 run_local_hooks() {
-	local project_hook_dir=".git/hooks/$(basename "${0}")"
+	local project_hook=".git/hooks/$(basename "${0}")"
 
-	if [ -d "${project_hook_dir}" ]; then
-		while read -r hook; do
-			"${hook}" "$@"
-		done < <(find "${project_hook_dir}" -type f)
+	if [ -f "${project_hook}" ]; then
+		"${project_hook}" "$@"
 	fi
 }
 
