@@ -1,5 +1,5 @@
 function s --wraps s
-	switch $argv[1]
+	switch "$argv[1]"
 		case dotfiles
 			command s ahawkins/dotfiles
 		case bindir
