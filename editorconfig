@@ -1,0 +1,51 @@
+root = true
+
+[*]
+indent_style = tab
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Bash / Shell
+[{*.bash*,*.sh}]
+indent_style = tab
+
+# Fish
+[*.fish]
+indent_style = space
+indent_size = 2
+
+# JavaScript
+[*.{js,json}]
+indent_style = space
+indent_size = 2
+
+# Coffeescript
+[*.coffee]
+indent_style = space
+indent_size = 2
+
+# Makefile
+[{Makefile,*.mk}]
+indent_style = tab
+
+# Python
+[*.py]
+indent_style = space
+indent_size = 4
+
+# YAML
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
+# Markdown
+[*.{md,markdown}]
+indent_style = space
+indent_size = 2
+
+# Asciidoc
+[*.{asciidoc,adoc}]
+indent_style = space
+indent_size = 2

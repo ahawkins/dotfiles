@@ -2,10 +2,6 @@
 au BufRead,BufNewFile *_test.rb let b:dispatch = 'testrb %'
 au BufRead,BufNewFile *_spec.rb let b:dispatch = 'rspec %'
 
-" soft Tabs with 2 psaces
-setlocal tabstop=2 shiftwidth=2 softtabstop=2
-setlocal expandtab
-
 nmap <buffer> <CR> :Rrunner<CR>
 nmap <buffer> <Leader><CR> :.Rrunner<CR>
 

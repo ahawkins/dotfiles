@@ -30,6 +30,8 @@ ln -sf "${script_dir}/vim/vimrc" ~/.vimrc
 
 ln -sf "${script_dir}/ledgerrc" ~/.ledgerrc
 
+ln -sf "${script_dir}/editorconfig" ~/.editorconfig
+
 case "$(uname -a | tr '[:upper:]' '[:lower:]')" in
 	*darwin*)
 		ln -sf "${script_dir}/iterm2.plist" ~/Library/Preferences/com.googlecode.iterm2.plist

@@ -1,2 +1,0 @@
-" Hard tabs
-setlocal expandtab
