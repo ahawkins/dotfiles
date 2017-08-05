@@ -6,3 +6,5 @@ install:
 	stow -t $(DEST) tmux-stow
 	stow -t $(DEST) git-stow
 	stow -t $(DEST) vim-stow
+	stow -t $(DEST) gnupg
+
