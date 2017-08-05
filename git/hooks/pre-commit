@@ -10,12 +10,11 @@ lint_editorconfig() {
 	declare uncovered_files=0
 	declare ignore_file="$(mktemp)"
 
-	return 0
-
 	cat << EOF > "${ignore_file}"
 .editorconfig
 .editorconfigignore
 .gitmodules
+.gitattributes
 EOF
 
 	if [ -f .editorconfigignore ]; then
