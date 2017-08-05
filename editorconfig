@@ -49,3 +49,8 @@ indent_size = 2
 [*.{asciidoc,adoc}]
 indent_style = space
 indent_size = 2
+
+# ruby
+[*.rb]
+indent_style = space
+indent_size = 2
