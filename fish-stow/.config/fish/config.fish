@@ -17,4 +17,6 @@ set -x GPG_TTY (tty)
 set -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
 
 # Run hook for per-directory env variables
-eval (direnv hook fish)
+if command -sq direnv; then
+	eval (direnv hook fish)
+end
