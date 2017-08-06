@@ -15,9 +15,9 @@ set -x DIRENV_LOG_FORMAT ""
 # GPG Configuration
 set -x GPG_TTY (tty)
 
-if test -f $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
+if test -S $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
 	set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
-else if test -f ~/.gnupg/S.gpg-agent.ssh
+else if test -S ~/.gnupg/S.gpg-agent.ssh
 	set -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
 end
 
