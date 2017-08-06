@@ -14,7 +14,12 @@ set -x DIRENV_LOG_FORMAT ""
 
 # GPG Configuration
 set -x GPG_TTY (tty)
-set -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
+
+if test -f $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
+	set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
+else if test -f ~/.gnupg/S.gpg-agent.ssh
+	set -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
+end
 
 # Run hook for per-directory env variables
 if command -sq direnv; then

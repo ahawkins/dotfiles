@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+main() {
+	if [ -x /usr/bin/pinentry-gtk-2 ]; then
+		exec /usr/bin/pinentry-gtk-2 "$@"
+	elif [ -x /usr/local/bin/pinentry-mac ]; then
+		exec /usr/local/bin/pinentry-mac "$@"
+	else
+		echo "Cannot detect pinentry program!" 1>&2
+		return 1
+	fi
+}
+
+main "$@"
