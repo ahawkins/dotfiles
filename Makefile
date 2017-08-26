@@ -1,5 +1,4 @@
 DEST    ?= $$HOME
-BIN_DIR := /usr/local/bin
 
 REAL_DIRS := \
 	.config/env\
@@ -21,7 +20,3 @@ install: | $(REAL_DIRS)
 	stow -t $(DEST) git
 	stow -t $(DEST) vim
 	stow -t $(DEST) gnupg
-
-.PHONY: install-bin
-install-bin:
-	stow -t /usr/local/bin bin
