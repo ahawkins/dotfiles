@@ -92,3 +92,6 @@ set backspace=indent,eol,start
 " Save buffer after a certain time after leaving insert mode
 set updatetime=200
 autocmd BufLeave,CursorHold,InsertLeave * silent! wa
+
+" Show hidden files in NERDTree
+let NERDTreeShowHidden=1
