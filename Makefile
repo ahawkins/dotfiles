@@ -19,7 +19,7 @@ install: | $(REAL_DIRS)
 	stow -t $(DEST) fish
 	stow -t $(DEST) tmux
 	stow -t $(DEST) git
-	stow -t $(DEST) vim-stow
+	stow -t $(DEST) vim
 	stow -t $(DEST) gnupg
 
 .PHONY: install-bin
