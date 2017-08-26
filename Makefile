@@ -17,7 +17,7 @@ $(addprefix $(DESTDIR)/,$(REAL_DIRS)):
 .PHONY: install
 install: | $(REAL_DIRS)
 	stow -t $(DEST) fish-stow
-	stow -t $(DEST) tmux-stow
+	stow -t $(DEST) tmux
 	stow -t $(DEST) git-stow
 	stow -t $(DEST) vim-stow
 	stow -t $(DEST) gnupg
