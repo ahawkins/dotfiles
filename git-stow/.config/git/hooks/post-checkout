@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-# Update submodules when switching branches
-if [ $3 = 1 ]; then
-	git submodule update
-fi

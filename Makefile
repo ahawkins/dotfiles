@@ -18,7 +18,7 @@ $(addprefix $(DESTDIR)/,$(REAL_DIRS)):
 install: | $(REAL_DIRS)
 	stow -t $(DEST) fish-stow
 	stow -t $(DEST) tmux
-	stow -t $(DEST) git-stow
+	stow -t $(DEST) git
 	stow -t $(DEST) vim-stow
 	stow -t $(DEST) gnupg
 
