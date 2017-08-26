@@ -10,11 +10,14 @@ REAL_DIRS := \
 	.vim/backups \
 	.vim/bundle
 
-$(addprefix $(DESTDIR)/,$(REAL_DIRS)):
+FORCE_DIRS:=$(addprefix $(DEST)/,$(REAL_DIRS))
+
+
+$(FORCE_DIRS):
 	mkdir -p $@
 
 .PHONY: install
-install: | $(REAL_DIRS)
+install: | $(FORCE_DIRS)
 	stow -t $(DEST) fish
 	stow -t $(DEST) tmux
 	stow -t $(DEST) git
