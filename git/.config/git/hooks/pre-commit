@@ -55,7 +55,7 @@ run_local_hooks() {
 }
 
 main() {
-	# lint_editorconfig
+	lint_editorconfig
 	check_pgp_key
 	run_local_hooks "$@"
 }
