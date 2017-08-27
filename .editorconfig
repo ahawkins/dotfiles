@@ -15,6 +15,9 @@ indent_style = tab
 [**/*.fish]
 ident_style = tab
 
+[gnupg/**/*]
+indent_style = tab
+
 # Space for legacy reasons
 [vim/**/*]
 ident_style = space
