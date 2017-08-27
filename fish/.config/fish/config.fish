@@ -22,6 +22,6 @@ else if test -S ~/.gnupg/S.gpg-agent.ssh
 end
 
 # Run hook for per-directory env variables
-if command -sq direnv; then
+if command -sq direnv
 	eval (direnv hook fish)
 end
