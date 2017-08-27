@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# set -euo pipefail
+
+export PATH="${HOME}/.local/bin:${PATH}"
+
+export $(ev.sh gnupg)
+
+if [ -f "${HOME}/.Xresources" ]; then
+	xrdb -merge "${HOME}/.Xresources"
+fi
+
+gpg-connect-agent /bye

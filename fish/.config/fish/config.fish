@@ -11,17 +11,3 @@ set -x EDITOR vim
 
 # Shutup direnv
 set -x DIRENV_LOG_FORMAT ""
-
-# GPG Configuration
-set -x GPG_TTY (tty)
-
-if test -S $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
-	set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
-else if test -S ~/.gnupg/S.gpg-agent.ssh
-	set -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
-end
-
-# Run hook for per-directory env variables
-if command -sq direnv
-	eval (direnv hook fish)
-end
