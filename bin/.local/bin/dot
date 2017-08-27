@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+main() {
+	if [ -z "${1:-}" ]; then
+		echo "USAGE: ${0} NAME" 1>&2
+		return 1
+	fi
+
+	case "$1" in
+		git)
+			exec "${EDITOR}" ~/.gitconfig
+			;;
+		*)
+			echo "Don't know dotfile for ${1}" 1>&2
+			return 1
+	esac
+}
+
+main "$@"

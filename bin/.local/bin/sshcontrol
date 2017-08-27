@@ -1,0 +1,142 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+declare -r GPGHOME="$(gpgconf --list-dirs homedir)"
+declare -r SSHCONTROL_FILE="${GPGHOME}/sshcontrol"
+
+usage() {
+	echo "Usage: $(basename "${0}") [COMMAND]"
+	echo
+	echo 'Available Commands:'
+	echo '  delete      Delete SSH key from sshcontrol and private keys'
+	echo '  toggle      Toggle SSH key in sshcontrol'
+	echo '  list        Show available private keys'
+	echo '  describe    Describe SSH keys'
+	echo
+	echo 'Flags:'
+	echo '  -h --help   Show usage help'
+}
+
+key_files() {
+	grep -lR ':comment.*$' "${GPGHOME}/private-keys-v1.d"
+}
+
+keygrip_from_file() {
+	local file="${1##*/}"
+	echo "${file%.key}"
+}
+
+list_keys() {
+	for file in $(key_files); do
+		keygrip_from_file "${file}"
+	done
+}
+
+key_data() {
+	for file in $(key_files); do
+		local state keygrip description
+
+		keygrip="$(keygrip_from_file "${file}")"
+		description="$(strings -a "${file}" | sed -nE 's/^.*:comment[0-9]+:(.+)\)\)$/\1/p')"
+		state="$(ssh_state "${keygrip}")"
+
+		echo "${state} ${keygrip} ${description}"
+	done
+}
+
+describe_keys() {
+	local path
+
+	while read -r key; do
+		path="$(echo "${key}" | cut -d ' ' -f 3)"
+
+		printf '%s %s %s\n' \
+			"$(echo "${key}" | cut -c 1)" \
+			"$(echo "${key}" | cut -d ' ' -f 2)" \
+			"$(basename "${path}")"
+	done < <(key_data | sort -i -k3)
+}
+
+ssh_state() {
+	if ssh_enabled "${1}"; then
+		echo '*'
+	else
+		echo '!'
+	fi
+}
+
+ssh_present() {
+	grep -q "${1}" "${SSHCONTROL_FILE}"
+}
+
+ssh_add() {
+	if [[ ! -f "${GPGHOME}/private-keys-v1.d/${1}.key" ]]; then
+		echo "!! no matching private key for '${1}'" 1>&2
+		return 1
+	fi
+
+	echo "${1} 0" >> "${SSHCONTROL_FILE}"
+}
+
+ssh_delete() {
+	if ! ssh_present "${keygrip}"; then
+		echo "Unknown keygrip: ${keygrip}" 1>&2
+		return 1
+	fi
+
+	echo "=> Remove key ${keygrip} in sshcontrol"
+	sed -i '.bak' "/${keygrip}/d" "${SSHCONTROL_FILE}"
+
+	echo "=> Remove ${GPGHOME}/private-keys-v1.d/${keygrip}.key"
+	rm "${GPGHOME}/private-keys-v1.d/${keygrip}.key"
+}
+
+ssh_enabled() {
+	grep -q "^${1}" "${SSHCONTROL_FILE}"
+}
+
+ssh_toggle() {
+	if ssh_enabled "${1}"; then
+		echo "=> Disable key ${keygrip} in sshcontrol"
+		sed -i '.bak' "/${keygrip}/s/^/!/g" "${SSHCONTROL_FILE}"
+	else
+		echo "=> Enable key ${keygrip} in sshcontrol"
+		sed -i '.bak' "/${keygrip}/s/^[#!]//g" "${SSHCONTROL_FILE}"
+	fi
+}
+
+main() {
+	case "${1:-}" in
+		delete)
+			local keygrip="${2?keygrip was not provided}"
+
+			ssh_delete "${keygrip}"
+			;;
+		toggle)
+			local keygrip="${2?keygrip was not provided}"
+
+			if ssh_present "${keygrip}"; then
+				ssh_toggle "${keygrip}"
+			else
+				echo "=> Adding key ${keygrip} to sshcontrol"
+				ssh_add "${keygrip}"
+			fi
+			;;
+		list)
+			list_keys
+			;;
+		""|describe)
+			describe_keys
+			;;
+		-h|--help)
+			usage
+			;;
+		*)
+			usage
+			return 1
+			;;
+	esac
+}
+
+main "$@"

@@ -25,3 +25,4 @@ install: | $(FORCE_DIRS)
 	stow -t $(DEST) gnupg
 	stow -t $(DEST) gui
 	stow -t $(DEST) env
+	stow -t $(DEST) bin

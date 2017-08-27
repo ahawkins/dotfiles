@@ -1,0 +1,147 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+declare -r S_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/s"
+declare -r S_ALIAS_DIR="${S_CONFIG_DIR}/aliases"
+
+declare -r ssh_regex='^[[:alpha:]]+@'
+declare -r custom_regex='^[[:alpha:]]+:\/{0,2}'
+
+protocol_given() {
+	if echo "${1}" | grep -Eq "${ssh_regex}"; then
+		return 0
+	elif echo "${1}" | grep -Eq "${custom_regex}"; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+repo_slug() {
+	if echo "${1}" | grep -Eq "${ssh_regex}"; then
+		echo "$1" | cut -d ':' -f 2 | sed s/\.git//
+	elif echo "${1}" | grep -Eq "${custom_regex}"; then
+		echo "$1" | sed -E "s/${custom_regex}//" | sed 's/\.git//'
+	else
+		echo "Do not know how to handle ${1}" 1>&2
+		return 1
+	fi
+}
+
+slug_to_repo() {
+	if ! protocol_given "$1"; then
+		local username repo_name
+
+		username="$(echo "${1}" | cut -d '/' -f 1)"
+		repo_name="$(echo "${1}" | cut -d '/' -f 2)"
+
+		if [ -f "${S_ALIAS_DIR}/${username}" ]; then
+			echo "git@github.com:$(cat "${S_ALIAS_DIR}/${username}")/${repo_name}"
+		else
+			echo "git@github.com:${1}"
+		fi
+	else
+		echo "$1"
+	fi
+}
+
+session_slug() {
+	echo "${1#$S_SRC_DIR/}"
+}
+
+clone_repo() {
+	local repo="${1}" slug path
+	slug="$(repo_slug "${repo}")"
+
+	path="${S_SRC_DIR}/${slug}"
+
+	mkdir -p "$(dirname "${path}")"
+
+	if [ ! -d "${path}" ]; then
+		git clone "${repo}" "${path}"
+
+		# git clone does exits 0 even if clone fails; test here to make sure
+		# things worked.
+		if [ ! -d "${path}/.git" ]; then
+			echo "Cloning ${repo} failed" 1>&2
+			return 1
+		fi
+	fi
+
+	pushd "${path}" > /dev/null
+
+	# Check if the project is actually a git repo. Not every "project" is
+	# a git repo.
+	if git rev-parse --git-dir &> /dev/null ; then
+		git submodule update --init --recursive 1>&2
+	fi
+
+	popd > /dev/null
+	echo "${path}"
+}
+
+fork_repo() {
+	local upstream_path upstream_url fork_path fork_url
+
+	upstream_path="$(clone_repo "${1}")"
+	pushd "${upstream_path}" > /dev/null
+
+	# Check if there are any remotes _other_ than origin.
+	if [ -z "$(git remote | grep -vF 'origin')" ]; then
+		hub fork 1>&2
+	fi
+
+	fork_url="$(git remote -v | grep -vF 'origin' | head -n 1 | awk '{print $2}')"
+	upstream_url="$(git remote -v | grep -F 'origin' | head -n 1 | awk '{print $2}')"
+
+	popd > /dev/null
+
+	fork_path="$(clone_repo "${fork_url}")"
+
+	pushd "${fork_path}" > /dev/null
+
+	if ! git remote | grep -Fq 'upstream'; then
+		git remote add upstream "${upstream_url}"
+	fi
+
+	popd > /dev/null
+	echo "${fork_path}"
+}
+
+attach_project() {
+	local project_root="$1" slug
+	slug="$(session_slug "${project_root}")"
+
+	tmux start-server &> /dev/null
+
+	if ! tmux has-session -t "${slug}" &> /dev/null; then
+		env TMUX= tmux new-session -d -c "${project_root}" -s "${slug}"
+		tmux send-keys -t "${slug}" "${EDITOR}" Enter
+	fi
+
+	if [ -n "${TMUX:-}" ]; then
+		tmux switch -t "${slug}"
+	else
+		tmux attach -t "${slug}"
+	fi
+}
+
+main() {
+	mkdir -p "${S_ALIAS_DIR}"
+
+	local subcommand="${1:-}"
+
+	shift
+
+	case "${subcommand}" in
+		fork)
+			attach_project "$(fork_repo "$1")"
+			;;
+		*)
+			attach_project "$(clone_repo "$(slug_to_repo "${subcommand}")")"
+			;;
+	esac
+}
+
+main "$@"

@@ -1,21 +1,6 @@
 root = true
 
-[Makefile]
-indent_style = tab
-
-[git/**/*]
-indent_style = tab
-
-[bootstrap.sh]
-ident_style = tab
-
-[editorconfig]
-indent_style = tab
-
-[**/*.fish]
-ident_style = tab
-
-[gnupg/**/*]
+[**/*]
 indent_style = tab
 
 # Space for legacy reasons
