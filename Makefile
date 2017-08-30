@@ -23,6 +23,6 @@ install: | $(FORCE_DIRS)
 	stow -t $(DEST) git
 	stow -t $(DEST) vim
 	stow -t $(DEST) gnupg
-	stow -t $(DEST) gui
-	stow -t $(DEST) env
 	stow -t $(DEST) bin
+	stow -t $(DEST) ag
+	stow -t $(DEST) ledger
