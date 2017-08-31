@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+gpgconf --list-dirs agent-ssh-socket
