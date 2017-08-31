@@ -82,5 +82,5 @@
 	prune = true
 [commit]
 	gpgsign = true
-[includeIf "gitdir:/usr/local/Homebrew"]
-	path = .gitconfig-vendor
+[includeIf "gitdir:/usr/local/Homebrew/"]
+	path = ~/.config/git/homebrew

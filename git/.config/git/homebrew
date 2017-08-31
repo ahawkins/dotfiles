@@ -1,0 +1,5 @@
+[core]
+	# "Remove" hooks by specifing a directory that doesn't exist
+	# This prevents the pre-rebase hooks which assumes commit signing
+	# via my Yubikey.
+	hooksPath = /dev/null
