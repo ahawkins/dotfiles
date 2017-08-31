@@ -84,5 +84,3 @@
 	gpgsign = true
 [includeIf "gitdir:/usr/local/Homebrew"]
 	path = .gitconfig-vendor
-[gpg]
-	program = gpg2
