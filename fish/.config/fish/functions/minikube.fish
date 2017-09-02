@@ -1,11 +1,11 @@
 function minikube -w minikube
 	switch "$argv[1]"
 		case stop
-			if command minikube status | grep -qi 'running'
+			if command minikube status | grep -F 'minikube' | cut -d ' ' -f 2 | grep -qi 'running'
 				command minikube stop
 			end
 		case start
-			if begin command minikube status | grep -qi 'stopped'; or command minikube status | grep -Fqi 'not exist'; end
+			if command minikube status | grep -F 'minikube' | cut -d ' ' -f 2 | grep -qi 'stopped';
 				command minikube start
 			end
 		case docker
