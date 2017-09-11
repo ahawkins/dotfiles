@@ -3,7 +3,7 @@
 set -euo pipefail
 
 check_pgp_key() {
-	if ! gpg2 --card-status &> /dev/null; then
+	if ! gpg --card-status &> /dev/null; then
 		echo "No smart card found. Is the Yubikey plugged in?"
 		return 1
 	else
