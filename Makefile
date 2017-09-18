@@ -26,3 +26,4 @@ install: | $(FORCE_DIRS)
 	stow -t $(DEST) bin
 	stow -t $(DEST) ag
 	stow -t $(DEST) ledger
+	stow -t $(DEST) editorconfig
