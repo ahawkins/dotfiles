@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+organize_photos() {
+	dir="${1:-}"
+	dest="${2:-}"
+	declare target archive_date
+
+	if [ -z "${dir}" ] || [ -z "${dest}" ]; then
+		echo "USAGE: ${0} SOURCE_DIRECTORY DESTINATION_DIRECTORY" 1>&2
+		return 1
+	fi
+
+	if ! [ -d "${dir}" ] && [ -d "${dest}" ]; then
+		echo "${dir} and ${dest} must be pre-existing directories" 1>&2
+		return 1
+	fi
+
+	while read -r image; do
+		archive_date="$(exiftool -createdate -S -t  -d '%Y-%m-%d' "${image}")"
+		target="$(basename "${image}" | tr '[:upper:]' '[:lower:]')"
+		mkdir -p "${dest}/${archive_date}"
+
+		if [ ! -f "${dest}/${archive_date}/${target}" ]; then
+			cp -v "${image}" "${dest}/${archive_date}/${target}"
+		else
+			echo "Skipping ${image}"
+		fi
+	done < <(find "${dir}" -iname '*.jpg' -or -iname '*.arw')
+}
+
+main() {
+	case "${1:-}" in
+		organize)
+			shift
+			organize_photos "$@"
+			;;
+		*)
+			echo "Unknown command" 1>&2
+			return 1
+			;;
+	esac
+}
+
+main "$@"
