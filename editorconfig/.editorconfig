@@ -54,3 +54,8 @@ indent_size = 2
 [*.rb]
 indent_style = space
 indent_size = 2
+
+# ledger
+[ledger.dat]
+indent_style = space
+indent_size = 2
