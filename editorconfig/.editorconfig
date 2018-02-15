@@ -51,7 +51,7 @@ indent_style = space
 indent_size = 2
 
 # ruby
-[*.rb]
+[*.{rb,ru}]
 indent_style = space
 indent_size = 2
 
