@@ -6,8 +6,3 @@ set -q fish_setup_done; or fish_setup
 if test -f ~/.config/comp/env.fish
   . ~/.config/comp/env.fish
 end
-
-set -x EDITOR vim
-
-# Shutup direnv
-set -x DIRENV_LOG_FORMAT ""
