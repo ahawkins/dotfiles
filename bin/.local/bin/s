@@ -112,9 +112,9 @@ fork_repo() {
 create_session() {
 	local project_root="${1}" slug="${2}"
 
-	env TMUX= tmux new-session -d -c "${project_root}" -s "${slug}"
-
 	if [ -f "${project_root}/.s/monorepo" ]; then
+		env TMUX= tmux new-session -d -c "${project_root}" -s "${slug}"
+
 		while read -r sub; do
 			tmux new-window -c "${project_root}/${sub}" -n "${sub}" -t "${slug}"
 			tmux send-keys -t "${slug}:${sub}" "${EDITOR}" Enter
@@ -132,8 +132,7 @@ create_session() {
 		# Select the first window
 		tmux select-window -t "${slug}:1"
 	else
-		tmux new-window -n "code" -t "${slug}"
-		tmux send-keys -t "${slug}" "${EDITOR}" Enter
+		env TMUX= tmux new-session -d -c "${project_root}" -n main -s "${slug}" "${EDITOR}"
 	fi
 }
 
