@@ -20,7 +20,7 @@ protocol_given() {
 
 repo_slug() {
 	if echo "${1}" | grep -Eq "${ssh_regex}"; then
-		echo "$1" | cut -d ':' -f 2 | sed s/\.git//
+		echo "$1" | cut -d ':' -f 2  | sed 's/\.git$//'
 	elif echo "${1}" | grep -Eq "${custom_regex}"; then
 		echo "$1" | sed -E "s/${custom_regex}//" | sed 's/\.git//'
 	else
