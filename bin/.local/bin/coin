@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+main() {
+	if [ $(( RANDOM % 10 + 1 )) -gt 5 ]; then
+		echo 'heads'
+	else
+		echo 'tails'
+	fi
+}
+
+main "$@"
