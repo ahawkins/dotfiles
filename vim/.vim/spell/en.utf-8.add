@@ -78,3 +78,9 @@ VirtualBox
 VMWare
 provisioners
 filesystem
+TeamCI
+eslint
+TeamCI's
+teamci
+rubocop
+shellcheck
