@@ -16,8 +16,8 @@ indent_style = tab
 indent_style = space
 indent_size = 2
 
-# JavaScript
-[*.{js,json}]
+# JavaScript & TypeScript
+[*.{js,json,ts}]
 indent_style = space
 indent_size = 2
 

@@ -17,3 +17,6 @@ au BufRead,BufNewFile *.bats let g:is_bash=1
 
 " .fish => Fish
 au BufRead,BufNewFile *.fish set ft=fish
+
+" .tsconfig.json => TypeScript
+au BufRead,BufNewFile tsconfig.json set ft=typescript

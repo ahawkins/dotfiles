@@ -39,6 +39,7 @@ Plugin 'uarun/vim-protobuf'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-scripts/fish.vim'
 Plugin 'asciidoc/vim-asciidoc'
+Plugin 'leafgarland/typescript-vim'
 
 " General plugins
 Plugin 'editorconfig/editorconfig-vim'
