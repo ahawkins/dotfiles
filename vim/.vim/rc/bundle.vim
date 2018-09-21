@@ -63,6 +63,7 @@ Plugin 'milkypostman/vim-togglelist'
 call vundle#end()
 filetype plugin indent on
 
+let g:ctrlp_root_markers = [ 'package.json' ]
 let g:ctrlp_extensions = ['funky']
 
 if exists('fresh_vundle')
