@@ -132,7 +132,8 @@ create_session() {
 		# Select the first window
 		tmux select-window -t "${slug}:1"
 	else
-		env TMUX= tmux new-session -d -c "${project_root}" -n main -s "${slug}" "${EDITOR}"
+		env TMUX= tmux new-session -d -c "${project_root}" -n main -s "${slug}"
+		tmux send-keys -t "${slug}" "${EDITOR}" Enter
 	fi
 }
 
