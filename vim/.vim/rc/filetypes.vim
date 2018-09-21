@@ -2,7 +2,7 @@
 filetype plugin indent on
 
 " Set file types for custom files
-au BufRead,BufNewFile {AssetFile,Vagrantfile,Gemfile,Rakefile,Thorfile,*.ru} set ft=ruby
+au BufRead,BufNewFile AssetFile,Vagrantfile,Gemfile,Rakefile,Thorfile,*.ru set ft=ruby
 au BufRead,BufNewFile *.handlebars,*.hbs,*.hjs set ft=handlebars
 
 " Custom Ruby Extensions
