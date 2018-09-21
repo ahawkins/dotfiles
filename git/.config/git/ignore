@@ -6,6 +6,7 @@ test/version_tmp
 tmp
 pkg
 *.gem
+!vendor/cache/*.gem
 *.rbc
 *.pyc
 lib/bundler/man
@@ -48,7 +49,6 @@ rerun.txt
 *.tmproject
 tmtags
 
-!vendor/cache/*.gem
 .infinity_test
 
 .vagrant/
