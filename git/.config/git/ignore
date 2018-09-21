@@ -69,3 +69,6 @@ scratch.*
 # Seems the ubuntu vagrant image creates the file
 # everytime the machine boots.
 ubuntu-xenial-16.04-cloudimg-console.log
+
+# Ignore config for my project switcher
+.s/

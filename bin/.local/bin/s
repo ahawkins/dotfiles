@@ -109,6 +109,34 @@ fork_repo() {
 	echo "${fork_path}"
 }
 
+create_session() {
+	local project_root="${1}" slug="${2}"
+
+	env TMUX= tmux new-session -d -c "${project_root}" -s "${slug}"
+
+	if [ -f "${project_root}/.s/monorepo" ]; then
+		while read -r sub; do
+			tmux new-window -c "${project_root}/${sub}" -n "${sub}" -t "${slug}"
+			tmux send-keys -t "${slug}:${sub}" "${EDITOR}" Enter
+		done < "${project_root}/.s/monorepo"
+
+		# Kill the initially created window
+		tmux kill-window -t "${slug}:1"
+		tmux move-window -r -t "${slug}"
+
+		# Iterate through the windows to remove the notification/bell
+		while read -r number; do
+			tmux select-window -t "${slug}:${number}"
+		done < <(tmux list-windows -t "${slug}" | cut -d ':' -f 1)
+
+		# Select the first window
+		tmux select-window -t "${slug}:1"
+	else
+		tmux new-window -n "code" -t "${slug}"
+		tmux send-keys -t "${slug}" "${EDITOR}" Enter
+	fi
+}
+
 attach_project() {
 	local project_root="$1" slug
 	slug="$(session_slug "${project_root}")"
@@ -116,8 +144,7 @@ attach_project() {
 	tmux start-server &> /dev/null
 
 	if ! tmux has-session -t "${slug}" &> /dev/null; then
-		env TMUX= tmux new-session -d -c "${project_root}" -s "${slug}"
-		tmux send-keys -t "${slug}" "${EDITOR}" Enter
+		create_session "${project_root}" "${slug}"
 	fi
 
 	if [ -n "${TMUX:-}" ]; then
