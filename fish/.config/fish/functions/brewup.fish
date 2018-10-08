@@ -1,11 +1,13 @@
 function brewup
   brew update
 
-  set -lx oudated brews (comm -23 (brew list | sort | psub) (brew list --pinned | sort | psub))
+  set -l outdated_brews (brew outdated -1)
 
   if count $outdated_brews > /dev/null
   	brew upgrade $outdated_brews
-  end
+  else
+		echo 'No brews to upgrade'
+	end
 
 	if brew list | grep -q docker-machine
 		docker-machine ls -q --filter "driver=virtualbox" | xargs -L1 docker-machine stop
