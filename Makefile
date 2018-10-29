@@ -1,3 +1,5 @@
+.DEFAULT_GOAL:= install
+
 DEST    ?= $$HOME
 
 REAL_DIRS := \
