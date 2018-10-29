@@ -31,4 +31,5 @@ install: | $(FORCE_DIRS)
 	stow -t $(DEST) editorconfig
 	stow -t $(DEST) ssh
 	stow -t $(DEST) gem
+	stow -t $(DEST) asdf
 	stow -t $(DEST) direnv
