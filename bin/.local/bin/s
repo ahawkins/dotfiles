@@ -113,16 +113,12 @@ create_session() {
 	local project_root="${1}" slug="${2}"
 
 	if [ -f "${project_root}/.s/monorepo" ]; then
-		env TMUX= tmux new-session -d -c "${project_root}" -s "${slug}"
+		env TMUX= tmux new-session -d -c "${project_root}" -s "${slug}" -n main
 
 		while read -r sub; do
 			tmux new-window -c "${project_root}/${sub}" -n "${sub}" -t "${slug}"
 			tmux send-keys -t "${slug}:${sub}" "${EDITOR}" Enter
 		done < "${project_root}/.s/monorepo"
-
-		# Kill the initially created window
-		tmux kill-window -t "${slug}:1"
-		tmux move-window -r -t "${slug}"
 
 		# Iterate through the windows to remove the notification/bell
 		while read -r number; do
