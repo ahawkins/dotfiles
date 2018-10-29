@@ -71,3 +71,6 @@ ubuntu-xenial-16.04-cloudimg-console.log
 
 # Ignore config for my project switcher
 .s/
+
+# Ignore the spelling ignore file
+.spellignore

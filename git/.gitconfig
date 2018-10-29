@@ -84,3 +84,5 @@
 	gpgsign = true
 [includeIf "gitdir:/usr/local/Homebrew/"]
 	path = ~/.config/git/homebrew
+[dotfiles]
+	spellfile = ~/.config/git/misspellings
