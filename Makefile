@@ -7,13 +7,13 @@ REAL_DIRS := \
 	.config/fish/completions \
 	.config/fish/conf.d \
 	.config/fish/functions \
+	.config/direnv \
 	.gnupg \
 	.ssh \
 	.vim/backups \
 	.vim/bundle
 
 FORCE_DIRS:=$(addprefix $(DEST)/,$(REAL_DIRS))
-
 
 $(FORCE_DIRS):
 	mkdir -p $@
@@ -31,3 +31,4 @@ install: | $(FORCE_DIRS)
 	stow -t $(DEST) editorconfig
 	stow -t $(DEST) ssh
 	stow -t $(DEST) gem
+	stow -t $(DEST) direnv
