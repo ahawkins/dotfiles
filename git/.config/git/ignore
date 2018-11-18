@@ -74,3 +74,6 @@ ubuntu-xenial-16.04-cloudimg-console.log
 
 # Ignore the spelling ignore file
 .spellignore
+
+# Private files
+.private
