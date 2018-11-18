@@ -1,7 +1,7 @@
 function brewup
   brew update
 
-  set -l outdated_brews (brew outdated -1)
+  set -l outdated_brews (brew outdated)
 
   if count $outdated_brews > /dev/null
   	brew upgrade $outdated_brews
