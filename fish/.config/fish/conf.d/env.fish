@@ -1,5 +1,6 @@
 set -x PATH $PATH ~/.local/bin
 set -x PATH $PATH /usr/local/bin /usr/local/sbin
+set -x EVPATH ~/.config/env
 
 set -x EDITOR vim
 
