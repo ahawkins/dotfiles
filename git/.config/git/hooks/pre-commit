@@ -15,6 +15,7 @@ lint_editorconfig() {
 .editorconfigignore
 .gitmodules
 .gitattributes
+.gitignore
 EOF
 
 	if [ -f .editorconfigignore ]; then
