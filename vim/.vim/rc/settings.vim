@@ -12,6 +12,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+" Now with more \o/ \o/
+colorscheme skylinesdark
+
 set autoindent
 set number
 set hlsearch

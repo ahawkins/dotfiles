@@ -18,10 +18,6 @@ call vundle#begin()
 " required! 
 Plugin 'VundleVim/Vundle.vim'
 
-" Themes
-Plugin 'tpope/vim-vividchalk'
-Plugin 'w0ng/vim-hybrid'
-
 " Language & Project specific plugins
 Plugin 'timcharper/textile.vim'
 Plugin 'vim-ruby/vim-ruby'

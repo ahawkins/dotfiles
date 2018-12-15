@@ -1,0 +1,32 @@
+# Originally based on https://github.com/sonph/onehalf.
+# customized with:
+# - Darker background
+# - Changed yellow to a more vibrant amber
+# - Brigther bright white (previously they were the same)
+# - Foreground/background/bold all map to ANSI color values
+# - Uses 256 colors for colors used in tmux
+guid: 'C2592B01-FCAF-464B-BAF9-4780B89F45D7'
+foreground: white
+background: black
+bold: '#e4e4e4'
+link: '#61afef'
+selection: '#474e5d'
+selected_text: '#dcdfe4'
+normal:
+  black: '#121212'
+  red: '#e06c75'
+  green: '#98c379'
+  yellow: '#ffaf00'
+  blue: '#61afef'
+  magenta: '#c678dd'
+  cyan: '#56b6c2'
+  white: '#d7d7d7'
+bright:
+  black: '#5c6370'
+  red: '#e06c75'
+  green: '#98c379'
+  yellow: '#e5c07b'
+  blue: '#61afef'
+  magenta: '#c678dd'
+  cyan: '#56b6c2'
+  white: '#e4e4e4'

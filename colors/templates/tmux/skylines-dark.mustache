@@ -1,0 +1,23 @@
+# vim: set ft=conf:
+
+# Indicate activity/bell with "*"
+setw -g window-status-format "#I:#W#{?window_activity_flag,#[fg=#{{colors.normal.blue.hex}}]*,}#{?window_bell_flag,#[fg=#{{colors.normal.blue.hex}}]*,}"
+
+# Set Default colors for anything in the status line
+set -g status-style "bg=#{{background.hex}},fg=#{{colors.bright.black.hex}}"
+setw -g window-status-bell-style "bg=#{{background.hex}},fg=#{{colors.bright.black.hex}}"
+setw -g window-status-activity-style "bg=#{{background.hex}},fg=#{{colors.bright.black.hex}}"
+
+# Make the active window stand out
+setw -g window-status-current-style "bg=#{{background.hex}},fg=#{{colors.normal.yellow.hex}}"
+
+# make pane colors correspond with Vim splits and vice/versa
+set -g pane-border-fg "#181818"
+set -g pane-border-bg "#181818"
+
+set -g pane-active-border-fg colour245
+set -g pane-active-border-bg "#{{background.hex}}"
+
+# Message colors
+set-option -g message-bg "#{{colors.normal.yellow.hex}}"
+set-option -g message-fg "#{{colors.normal.black.hex}}"

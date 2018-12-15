@@ -1,0 +1,104 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'mustache'
+require 'json'
+require 'optparse'
+
+class Color
+	COLOR_256_NUMBERS = JSON.parse(File.read('colors/256.json')).each_with_object({ }) do |item, bucket|
+		bucket[item.fetch('hexString').sub('#', '')] = item.fetch('colorId')
+	end
+
+	attr_reader :hex, :red_component, :green_component, :blue_component, :number
+
+	def initialize(hex)
+		@hex = hex.sub('#', '')
+
+		red, green, blue = hex.scan(/[a-f0-9]{2}/).map do |code|
+			code.to_i(16)
+		end
+
+		@red_component = red.to_f / 255
+		@green_component = green.to_f / 255
+		@blue_component = blue.to_f / 255
+	end
+
+	def number
+		COLOR_256_NUMBERS.fetch(hex) do
+			fail "#{hex} does not map to a valid 256 color"
+		end
+	end
+end
+
+options = { }
+
+OptionParser.new do |opts|
+	opts.on('-t', '--template PATH') do |t|
+		options[:template] = t
+	end
+
+	opts.on('-d', '--data PATH') do |d|
+		options[:data] = d
+	end
+
+	opts.on('-n', '--name NAME') do |n|
+		options[:name] = n
+	end
+end.parse!
+
+class Template < Mustache
+	attr_reader :name, :guid
+
+	attr_reader :foreground, :background
+
+	attr_reader :bold, :link, :selection, :selected_text
+
+	attr_reader :colors
+
+	self.template_path = './'
+
+	def initialize(name, data)
+		@name = name
+		@guid = data.fetch('guid')
+
+		foreground = data.fetch('normal').fetch(data.fetch('foreground'))
+		background = data.fetch('normal').fetch(data.fetch('background'))
+
+		@foreground = Color.new(foreground)
+		@background = Color.new(background)
+
+		bold = data.fetch('bold')
+		link = data.fetch('link')
+		selection = data.fetch('selection')
+		selected_text = data.fetch('selected_text')
+
+		@bold = Color.new(bold)
+		@link = Color.new(link)
+		@selection = Color.new(selection)
+		@selected_text = Color.new(selected_text)
+
+		@colors = { }
+
+		@colors[:normal] = data.fetch('normal').each_with_object({ }) do |(name, hex), bucket|
+			bucket.merge!({
+				name => Color.new(hex)
+			})
+		end
+
+		@colors[:bright] = data.fetch('bright').each_with_object({ }) do |(name, hex), bucket|
+			bucket.merge!({
+				name => Color.new(hex)
+			})
+		end
+
+		super({ })
+	end
+end
+
+data = YAML.load_file(options.fetch(:data))
+
+template = Template.new(options.fetch(:name), data)
+template.template_file = options.fetch(:template)
+
+puts template.render

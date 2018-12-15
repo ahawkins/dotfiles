@@ -1,0 +1,164 @@
+{
+  "Profiles": [{
+    "Name": "{{ name }}",
+    "Guid": "{{ guid }}",
+
+		{{! "Basic Colors" }}
+		"Foreground Color": {
+			"Red Component": {{foreground.red_component}},
+			"Blue Component": {{foreground.blue_component}},
+			"Green Component": {{foreground.green_component}},
+			"Alpha Component": 1,
+			"Color Space": "sRGB"
+		},
+		"Background Color": {
+			"Red Component": {{background.red_component}},
+			"Blue Component": {{background.blue_component}},
+			"Green Component": {{background.green_component}},
+			"Alpha Component": 1,
+			"Color Space": "sRGB"
+		},
+		"Bold Color": {
+			"Red Component": {{bold.red_component}},
+			"Blue Component": {{bold.blue_component}},
+			"Green Component": {{bold.green_component}},
+			"Alpha Component": 1,
+			"Color Space": "sRGB"
+		},
+		"Selected Text Color": {
+			"Red Component": {{selected_text.red_component}},
+			"Blue Component": {{selected_text.blue_component}},
+			"Green Component": {{selected_text.green_component}},
+			"Alpha Component": 1,
+			"Color Space": "sRGB"
+		},
+		"Link Color": {
+			"Red Component": {{link.red_component}},
+			"Blue Component": {{link.blue_component}},
+			"Green Component": {{link.green_component}},
+			"Alpha Component": 1,
+			"Color Space": "sRGB"
+		},
+		"Smart Cursor Color": true,
+
+    {{#colors}}
+      {{#normal}}
+        "Ansi 0 Color": {
+          "Red Component": {{black.red_component}},
+          "Blue Component": {{black.blue_component}},
+          "Green Component": {{black.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 1 Color": {
+          "Red Component": {{red.red_component}},
+          "Blue Component": {{red.blue_component}},
+          "Green Component": {{red.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 2 Color": {
+          "Red Component": {{green.red_component}},
+          "Blue Component": {{green.blue_component}},
+          "Green Component": {{green.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 3 Color": {
+          "Red Component": {{yellow.red_component}},
+          "Blue Component": {{yellow.blue_component}},
+          "Green Component": {{yellow.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 4 Color": {
+          "Red Component": {{blue.red_component}},
+          "Blue Component": {{blue.blue_component}},
+          "Green Component": {{blue.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 5 Color": {
+          "Red Component": {{magenta.red_component}},
+          "Blue Component": {{magenta.blue_component}},
+          "Green Component": {{magenta.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 6 Color": {
+          "Red Component": {{cyan.red_component}},
+          "Blue Component": {{cyan.blue_component}},
+          "Green Component": {{cyan.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 7 Color": {
+          "Red Component": {{white.red_component}},
+          "Blue Component": {{white.blue_component}},
+          "Green Component": {{white.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+      {{/normal}}
+
+      {{#bright}}
+        "Ansi 8 Color": {
+          "Red Component": {{black.red_component}},
+          "Blue Component": {{black.blue_component}},
+          "Green Component": {{black.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 9 Color": {
+          "Red Component": {{red.red_component}},
+          "Blue Component": {{red.blue_component}},
+          "Green Component": {{red.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 10 Color": {
+          "Red Component": {{green.red_component}},
+          "Blue Component": {{green.blue_component}},
+          "Green Component": {{green.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 11 Color": {
+          "Red Component": {{yellow.red_component}},
+          "Blue Component": {{yellow.blue_component}},
+          "Green Component": {{yellow.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 12 Color": {
+          "Red Component": {{blue.red_component}},
+          "Blue Component": {{blue.blue_component}},
+          "Green Component": {{blue.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 13 Color": {
+          "Red Component": {{magenta.red_component}},
+          "Blue Component": {{magenta.blue_component}},
+          "Green Component": {{magenta.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 14 Color": {
+          "Red Component": {{cyan.red_component}},
+          "Blue Component": {{cyan.blue_component}},
+          "Green Component": {{cyan.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        },
+        "Ansi 15 Color": {
+          "Red Component": {{white.red_component}},
+          "Blue Component": {{white.blue_component}},
+          "Green Component": {{white.green_component}},
+          "Alpha Component": 1,
+          "Color Space": "sRGB"
+        }
+      {{/bright}}
+    {{/colors}}
+  }]
+}
