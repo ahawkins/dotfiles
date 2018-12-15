@@ -53,6 +53,9 @@ main() {
 		"test-rgb")
 			test_rgb
 			;;
+		"256")
+			256colors.py
+			;;
 		*)
 			echo "Unknown command" 1>&2
 			return 1
