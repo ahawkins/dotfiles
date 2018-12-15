@@ -112,6 +112,14 @@ fork_repo() {
 create_session() {
 	local project_root="${1}" slug="${2}"
 
+	local org_dir="$(dirname "${project_root}")"
+	local org="$(dirname "${slug}")"
+	local timesheet="${org_dir}/.timetrap-sheet"
+
+	if [ ! -f "${timesheet}" ]; then
+		echo "${org}" > "${timesheet}"
+	fi
+
 	if [ -f "${project_root}/.s/tmuxinator.yml" ]; then
 		tmuxinator start "${slug}" --no-attach -p "${project_root}/.s/tmuxinator.yml" "root=${project_root}" "name=${slug}"
 	elif [ -f "${project_root}/.s/monorepo" ]; then
