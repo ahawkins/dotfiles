@@ -27,7 +27,6 @@ install: | $(FORCE_DIRS)
 	stow -t $(DEST) gnupg
 	stow -t $(DEST) bin
 	stow -t $(DEST) ag
-	stow -t $(DEST) ledger
 	stow -t $(DEST) editorconfig
 	stow -t $(DEST) ssh
 	stow -t $(DEST) gem
