@@ -5,6 +5,11 @@ set -euo pipefail
 main() {
 	local commit="${1}"
 
+	# Generated merge commit message
+	if grep -qE '^Merge'; then
+		return 0
+	fi
+
 	if ! grep -qE '^(feat|fix|docs|style|ref|perf|test|chore)\(.+\):' "${commit}"; then
 		echo "Commmit subject formatted incorrectly." 1>&2
 		return 1
