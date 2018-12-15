@@ -3,3 +3,4 @@ rack
 minitest
 sinatra
 tmuxinator
+timetrap
