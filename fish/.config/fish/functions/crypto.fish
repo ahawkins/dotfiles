@@ -1,6 +1,7 @@
 function crypto --description 'gpg/crypto helpers'
 	switch "$argv[1]"
-		case reload
+		case restart
+			gpgconf --kill gpg-agent
 			gpg-connect-agent reloadagent /bye
 		case ssh
 			ssh-add -L | grep --color=never -Fi 'cardno'
