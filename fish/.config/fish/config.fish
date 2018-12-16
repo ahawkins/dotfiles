@@ -6,3 +6,7 @@ set -q fish_setup_done; or fish_setup
 if test -f ~/.config/comp/env.fish
   . ~/.config/comp/env.fish
 end
+
+# XXX: short circuit tabtab completion auto installation
+# tabtab source for serverless package
+# tabtab source for sls package
