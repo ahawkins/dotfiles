@@ -11,3 +11,11 @@ ident_size = 2
 [{**/*.rb,**/*.py}]
 ident_style = space
 ident_size = 2
+
+[*.mustache]
+ident_style = space
+ident_size = 2
+
+[*.yml]
+ident_style = space
+ident_size = 2
