@@ -62,8 +62,8 @@ class Template < Mustache
 		@name = name
 		@guid = data.fetch('guid')
 
-		foreground = data.fetch('normal').fetch(data.fetch('foreground'))
-		background = data.fetch('normal').fetch(data.fetch('background'))
+		foreground = data.fetch('foreground')
+		background = data.fetch('background')
 
 		@foreground = Color.new(foreground)
 		@background = Color.new(background)
