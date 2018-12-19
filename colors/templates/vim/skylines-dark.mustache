@@ -28,7 +28,7 @@ let colors_name="skylinesdark"
 let s:black       = { "gui": "#{{black.hex}}",  "cterm": "{{black.number}}" }
 let s:red         = { "gui": "#{{red.hex}}",    "cterm": "168" }
 let s:green       = { "gui": "#{{green.hex}}",  "cterm": "144" }
-let s:yellow      = { "gui": "#{{yellow.hex}}", "cterm": "{{yellow.number}}" }
+let s:yellow      = { "gui": "#{{yellow.hex}}", "cterm": "180" }
 let s:blue        = { "gui": "#{{blue.hex}}",   "cterm": "75"  }
 let s:purple      = { "gui": "#{{magenta.hex}}", "cterm": "176" }
 let s:cyan        = { "gui": "#{{cyan.hex}}",   "cterm": "73"  }
@@ -41,6 +41,8 @@ let s:bg          = s:black
 
 let s:comment_fg  = { "gui": "#{{colors.bright.black.hex}}", "cterm": "{{colors.bright.black.hex}}" }
 let s:gutter_bg   = { "gui": "#{{colors.normal.black.hex}}", "cterm": "{{colors.normal.black.number}}" }
+
+let s:indicator   = { "gui": "#{{colors.bright.yellow.hex}}", "cterm": "{{colors.bright.yellow.number}}" }
 
 " Darker than bright black to keep text sutble
 let s:gutter_fg   = { "gui": "#303030", "cterm": "236" }
@@ -87,8 +89,8 @@ call s:h("DiffChange", s:yellow, "", "")
 call s:h("DiffDelete", s:red, "", "")
 call s:h("DiffText", s:blue, "", "")
 
-call s:h("IncSearch", s:bg, s:yellow, "")
-call s:h("Search", s:bg, s:yellow, "")
+call s:h("IncSearch", s:bg, s:indicator, "")
+call s:h("Search", s:bg, s:indicator, "")
 
 call s:h("ErrorMsg", s:fg, "", "")
 call s:h("ModeMsg", s:fg, "", "")
@@ -102,11 +104,11 @@ call s:h("PmenuSbar", "", s:selection, "")
 call s:h("PmenuThumb", "", s:fg, "")
 
 call s:h("SpellBad", s:red, "", "")
-call s:h("SpellCap", s:yellow, "", "")
-call s:h("SpellLocal", s:yellow, "", "")
-call s:h("SpellRare", s:yellow, "", "")
+call s:h("SpellCap", s:indicator, "", "")
+call s:h("SpellLocal", s:indicator, "", "")
+call s:h("SpellRare", s:indicator, "", "")
 
-call s:h("StatusLine", s:blue, s:cursor_line, "")
+call s:h("StatusLine", s:yellow, s:cursor_line, "")
 call s:h("StatusLineNC", s:comment_fg, s:cursor_line, "")
 call s:h("TabLine", s:comment_fg, s:cursor_line, "")
 call s:h("TabLineFill", s:comment_fg, s:cursor_line, "")

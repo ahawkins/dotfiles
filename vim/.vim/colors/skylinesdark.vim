@@ -26,7 +26,7 @@ let colors_name="skylinesdark"
 let s:black       = { "gui": "#121212",  "cterm": "233" }
 let s:red         = { "gui": "#e06c75",    "cterm": "168" }
 let s:green       = { "gui": "#98c379",  "cterm": "144" }
-let s:yellow      = { "gui": "#ffaf00", "cterm": "214" }
+let s:yellow      = { "gui": "#e5c07b", "cterm": "180" }
 let s:blue        = { "gui": "#61afef",   "cterm": "75"  }
 let s:purple      = { "gui": "#c678dd", "cterm": "176" }
 let s:cyan        = { "gui": "#56b6c2",   "cterm": "73"  }
@@ -37,6 +37,8 @@ let s:bg          = s:black
 
 let s:comment_fg  = { "gui": "#5c6370", "cterm": "5c6370" }
 let s:gutter_bg   = { "gui": "#121212", "cterm": "233" }
+
+let s:indicator   = { "gui": "#ffaf00", "cterm": "214" }
 
 " Darker than bright black to keep text sutble
 let s:gutter_fg   = { "gui": "#303030", "cterm": "236" }
@@ -83,8 +85,8 @@ call s:h("DiffChange", s:yellow, "", "")
 call s:h("DiffDelete", s:red, "", "")
 call s:h("DiffText", s:blue, "", "")
 
-call s:h("IncSearch", s:bg, s:yellow, "")
-call s:h("Search", s:bg, s:yellow, "")
+call s:h("IncSearch", s:bg, s:indicator, "")
+call s:h("Search", s:bg, s:indicator, "")
 
 call s:h("ErrorMsg", s:fg, "", "")
 call s:h("ModeMsg", s:fg, "", "")
@@ -98,11 +100,11 @@ call s:h("PmenuSbar", "", s:selection, "")
 call s:h("PmenuThumb", "", s:fg, "")
 
 call s:h("SpellBad", s:red, "", "")
-call s:h("SpellCap", s:yellow, "", "")
-call s:h("SpellLocal", s:yellow, "", "")
-call s:h("SpellRare", s:yellow, "", "")
+call s:h("SpellCap", s:indicator, "", "")
+call s:h("SpellLocal", s:indicator, "", "")
+call s:h("SpellRare", s:indicator, "", "")
 
-call s:h("StatusLine", s:blue, s:cursor_line, "")
+call s:h("StatusLine", s:yellow, s:cursor_line, "")
 call s:h("StatusLineNC", s:comment_fg, s:cursor_line, "")
 call s:h("TabLine", s:comment_fg, s:cursor_line, "")
 call s:h("TabLineFill", s:comment_fg, s:cursor_line, "")
