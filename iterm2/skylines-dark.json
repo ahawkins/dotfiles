@@ -3,6 +3,9 @@
     {
       "Name": "skylines-dark",
       "Guid": "C2592B01-FCAF-464B-BAF9-4780B89F45D7",
+      "Normal Font": "InputMono-Medium 12",
+      "Use Bold Font": false,
+      "Silence Bell": true,
       "Foreground Color": {
         "Red Component": 0.8431372549019608,
         "Blue Component": 0.8431372549019608,
@@ -24,10 +27,17 @@
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },
+      "Selection Color": {
+        "Red Component": 0.2784313725490196,
+        "Blue Component": 0.36470588235294116,
+        "Green Component": 0.3058823529411765,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
       "Selected Text Color": {
-        "Red Component": 0.8627450980392157,
-        "Blue Component": 0.8941176470588236,
-        "Green Component": 0.8745098039215686,
+        "Red Component": 0.8431372549019608,
+        "Blue Component": 0.8431372549019608,
+        "Green Component": 0.8431372549019608,
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },
@@ -61,9 +71,9 @@
         "Color Space": "sRGB"
       },
       "Ansi 3 Color": {
-        "Red Component": 1,
-        "Blue Component": 0,
-        "Green Component": 0.6862745098039216,
+        "Red Component": 0.8980392156862745,
+        "Blue Component": 0.4823529411764706,
+        "Green Component": 0.7529411764705882,
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },
@@ -117,9 +127,9 @@
         "Color Space": "sRGB"
       },
       "Ansi 11 Color": {
-        "Red Component": 0.8980392156862745,
-        "Blue Component": 0.4823529411764706,
-        "Green Component": 0.7529411764705882,
+        "Red Component": 1,
+        "Blue Component": 0,
+        "Green Component": 0.6862745098039216,
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },

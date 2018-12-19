@@ -52,7 +52,7 @@ let s:cursor_line = { "gui": "#181818", "cterm": "237" }
 
 let s:color_col   = { "gui": "#313640", "cterm": "237" }
 
-let s:selection   = { "gui": "#474e5d", "cterm": "239" }
+let s:selection   = { "gui": "#{{selection.hex}}", "cterm": "239" }
 
 function! s:h(group, fg, bg, attr)
   if type(a:fg) == type({})

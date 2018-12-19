@@ -11,7 +11,7 @@ background: &black '#121212'
 bold: '#e4e4e4'
 link: '#61afef'
 selection: '#474e5d'
-selected_text: '#dcdfe4'
+selected_text: *white
 normal:
   black: *black
   red: '#e06c75'
