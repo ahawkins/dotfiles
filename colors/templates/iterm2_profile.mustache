@@ -3,7 +3,14 @@
     "Name": "{{ name }}",
     "Guid": "{{ guid }}",
 
-		{{! "Basic Colors" }}
+		"Normal Font" : "InputMono-Medium 12",
+
+		{{! do not bold bright colors }}
+		"Use Bold Font" : false,
+
+		"Silence Bell" : true,
+
+		{{! Basic Colors }}
 		"Foreground Color": {
 			"Red Component": {{foreground.red_component}},
 			"Blue Component": {{foreground.blue_component}},
