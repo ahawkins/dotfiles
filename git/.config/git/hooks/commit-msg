@@ -5,8 +5,8 @@ set -euo pipefail
 main() {
 	local commit="${1}"
 
-	# Generated merge commit message
-	if grep -qE '^Merge'; then
+	# git generated messages
+	if grep -qE '^(Merge|Revert)' "${commit}"; then
 		return 0
 	fi
 
