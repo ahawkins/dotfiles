@@ -15,25 +15,27 @@ REAL_DIRS := \
 
 FORCE_DIRS:=$(addprefix $(DEST)/,$(REAL_DIRS))
 COLORS:=\
-	iterm2/skylines-dark.json \
-	vim/.vim/colors/skylinesdark.vim \
-	tmux/.config/tmux/skylines-dark.conf
+	themes/iterm2/skylines-dark.json \
+	themes/.vim/colors/skylinesdark.vim \
+	themes/.config/tmux/skylines-dark.conf
 
 $(FORCE_DIRS):
 	mkdir -p $@
 
-iterm2/%.json: colors/%.yml
+themes/iterm2/%.json: colors/%.yml
+	mkdir -p $(@D)
 	colors/template -n $* -d $< -t colors/templates/iterm2_profile.mustache | jq . > $@
 
-vim/.vim/colors/%.vim: colors/templates/vim/%.mustache
+themes/.vim/colors/%.vim: colors/templates/vim/%.mustache
+	mkdir -p $(@D)
 	colors/template -n $*  -t $< -d colors/$*.yml > $@
 
-tmux/.config/tmux/%.conf: colors/templates/tmux/%.mustache
+themes/.config/tmux/%.conf: colors/templates/tmux/%.mustache
 	mkdir -p $(@D)
 	colors/template -n $*  -t $< -d colors/$*.yml > $@
 
 # Fix VIM's weirdness with files ending in -.vim
-vim/.vim/colors/skylinesdark.vim: vim/.vim/colors/skylines-dark.vim
+themes/.vim/colors/skylinesdark.vim: themes/.vim/colors/skylines-dark.vim
 	mv $< $@
 
 .PNONY: colors
@@ -53,7 +55,8 @@ install: $(COLORS) install-iterm2 | $(FORCE_DIRS)
 	stow -t $(DEST) gem
 	stow -t $(DEST) asdf
 	stow -t $(DEST) direnv
+	stow -t $(DEST) themes
 
 .PHONY: install-iterm2
 install-iterm2: $(COLORS)
-	cp -f iterm2/* ~/Library/Application\ Support/iTerm2/DynamicProfiles
+	cp -f themes/iterm2/* ~/Library/Application\ Support/iTerm2/DynamicProfiles
