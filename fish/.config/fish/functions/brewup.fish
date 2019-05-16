@@ -29,4 +29,6 @@ function brewup
 	end
 
 	mas upgrade
+
+	brew cleanup
 end
