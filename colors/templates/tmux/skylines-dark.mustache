@@ -12,12 +12,8 @@ setw -g window-status-activity-style "bg=#{{background.hex}},fg=#{{colors.bright
 setw -g window-status-current-style "bg=#{{background.hex}},fg=#{{colors.bright.yellow.hex}}"
 
 # make pane colors correspond with Vim splits and vice/versa
-set -g pane-border-fg "#181818"
-set -g pane-border-bg "#181818"
-
-set -g pane-active-border-fg colour245
-set -g pane-active-border-bg "#{{background.hex}}"
+set -g pane-border-style "fg=#181818 bg=#181818"
+set -g pane-active-border-style "fg=colour245,bg=#{{background.hex}}"
 
 # Message colors
-set-option -g message-bg "#{{colors.bright.yellow.hex}}"
-set-option -g message-fg "#{{colors.normal.black.hex}}"
+set-option -g message-style "fg=#{{colors.normal.black.hex}},bg=#{{colors.bright.yellow.hex}}"
