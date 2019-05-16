@@ -29,6 +29,7 @@ vim/.vim/colors/%.vim: colors/templates/vim/%.mustache
 	colors/template -n $*  -t $< -d colors/$*.yml > $@
 
 tmux/.config/tmux/%.conf: colors/templates/tmux/%.mustache
+	mkdir -p $(@D)
 	colors/template -n $*  -t $< -d colors/$*.yml > $@
 
 # Fix VIM's weirdness with files ending in -.vim
