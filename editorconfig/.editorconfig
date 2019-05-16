@@ -41,7 +41,7 @@ indent_style = space
 indent_size = 2
 
 # Markdown
-[*.{md,markdown}]
+[*.{md,md.erb,markdown}]
 indent_style = space
 indent_size = 2
 
