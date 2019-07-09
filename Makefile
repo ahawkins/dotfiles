@@ -62,6 +62,7 @@ install: $(COLORS) install-iterm2 | $(FORCE_DIRS)
 	stow -t $(DEST) asdf
 	stow -t $(DEST) direnv
 	stow -t $(DEST) themes
+	stow -t $(DEST) aws
 
 .PHONY: install-iterm2
 install-iterm2: $(COLORS) | $(DYNAMIC_PROFILES)

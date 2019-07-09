@@ -5,6 +5,7 @@ end
 
 if type -q ev
 	ev gnupg > /dev/null
+	ev aws > /dev/null
 
 	if test -d $EVPATH/comp
 		ev comp > /dev/null
