@@ -20,6 +20,11 @@ COLORS:=\
 	themes/.vim/colors/skylinesdark.vim \
 	themes/.config/tmux/skylines-dark.conf
 
+DYNAMIC_PROFILES:=~/Library/Application\ Support/iTerm2/DynamicProfiles
+
+$(DYNAMIC_PROFILES):
+	mkdir -p $@
+
 $(FORCE_DIRS):
 	mkdir -p $@
 
@@ -59,5 +64,5 @@ install: $(COLORS) install-iterm2 | $(FORCE_DIRS)
 	stow -t $(DEST) themes
 
 .PHONY: install-iterm2
-install-iterm2: $(COLORS)
+install-iterm2: $(COLORS) | $(DYNAMIC_PROFILES)
 	cp -f themes/iterm2/* ~/Library/Application\ Support/iTerm2/DynamicProfiles
