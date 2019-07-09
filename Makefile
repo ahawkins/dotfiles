@@ -3,6 +3,7 @@
 DEST    ?= $$HOME
 
 REAL_DIRS := \
+	.local \
 	.config/env\
 	.config/fish/completions \
 	.config/fish/conf.d \
