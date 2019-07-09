@@ -86,3 +86,5 @@
 	path = ~/.config/git/homebrew
 [dotfiles]
 	spellfile = ~/.config/git/misspellings
+[include]
+	path = ~/.config/comp/git
