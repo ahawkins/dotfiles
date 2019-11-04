@@ -68,3 +68,8 @@ indent_size = 2
 [*.feature]
 indent_style = space
 indent_size = 2
+
+# Terraform
+[*.tf]
+indent_style = space
+indent_size = 2
