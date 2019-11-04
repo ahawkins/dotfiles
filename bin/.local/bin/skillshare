@@ -37,6 +37,7 @@ logs() {
 						;;
 					stag*)
 						context="${STAGING_CONTEXT}"
+						;;
 					prod*)
 						context="${PROD_CONTEXT}"
 						;;
