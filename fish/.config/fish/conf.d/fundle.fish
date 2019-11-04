@@ -4,11 +4,11 @@ if type -q fundle
 end
 
 if type -q ev
-	ev gnupg > /dev/null
-	ev aws > /dev/null
+	ev gnupg -q
+	ev aws -q
 	ev timetrap -q
 
 	if test -d $EVPATH/comp
-		ev comp > /dev/null
+		ev comp -q
 	end
 end
