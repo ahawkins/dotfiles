@@ -316,6 +316,12 @@ main() {
 			shift
 			ecr_login "$@"
 			;;
+		mk|minikube)
+			shift
+			# Set Kubectl verison required for Minikube
+			export ASDF_KUBECTL_VERSION=1.7.0
+			kubectl --context minikube "$@"
+			;;
 		*)
 			echo "Unknown command: $*" 1>&2
 			return 1
