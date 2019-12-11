@@ -116,6 +116,7 @@ get_env() {
 		chatops)
 			selector="app=chatops"
 			context="${UTILITY_CONTEXT}"
+			namespace=tools
 			;;
 		*)
 			echo "Unknown app: ${1:-}" 1>&2
