@@ -154,6 +154,8 @@ get_env() {
 		esac
 	done
 
+	shift $((OPTIND-1))
+
 	scratch="$(mktemp)"
 
 	kubectl get pods \
@@ -220,6 +222,8 @@ open_console() {
 				;;
 		esac
 	done
+
+	shift $((OPTIND-1))
 
 	scratch="$(mktemp)"
 
