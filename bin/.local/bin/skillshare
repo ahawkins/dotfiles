@@ -135,8 +135,12 @@ get_env() {
 						context="${QA_CONTEXT}"
 						;;
 					prod*)
-						namespace=prod
+						namespace="prod"
 						context="${PROD_CONTEXT}"
+						;;
+					stag*)
+						namespace="staging"
+						context="${STAGING_CONTEXT}"
 						;;
 					*)
 						echo "Unknown environment: ${OPTARG}" 1>&2
