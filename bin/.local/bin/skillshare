@@ -8,26 +8,11 @@ declare -r PROD_CONTEXT=skillshare-prod
 declare -r QA_CONTEXT=skillshare-qa
 
 logs() {
-	local OPTIND app="${1:-}" selector namespace context
+	local OPTIND selector namespace context
 
-	case "${1:-}" in
-		chatops)
-			selector="chatops"
-			namespace="tools"
-			context="${UTILITY_CONTEXT}"
-			;;
-		api|skillshare-api)
-			selector="component=api"
-			;;
-		*)
-			echo "Unknown app: ${1:-}" 1>&2
-			return 1
-			;;
-	esac
+	local -a stern_args
 
-	shift
-
-	while getopts ':e:' opt; do
+	while getopts ':e:s:' opt; do
 		case "${opt}" in
 			e)
 				case "${OPTARG}" in
@@ -45,7 +30,28 @@ logs() {
 						echo "Unknown environment: ${OPTARG}" 1>&2
 						return 1
 						;;
-					esac
+				esac
+				;;
+			s)
+				case "${OPTARG}" in
+					chatops)
+						selector="app=chatops"
+						context="${UTILITY_CONTEXT}"
+						;;
+					api|skillshare-api)
+						selector="component=api"
+						;;
+					resque*)
+						selector="component=resque-worker"
+						;;
+					php-fpm*)
+						selector="component=php-fpm"
+						;;
+					*)
+						echo "Unknown app: ${1:-}" 1>&2
+						return 1
+						;;
+				esac
 				;;
 			\?)
 				echo "Invalid option: ${OPTARG}" 1>&2
@@ -58,11 +64,28 @@ logs() {
 		esac
 	done
 
-	if [ "${1:-}" = "--" ]; then
-		shift
+	shift $((OPTIND-1))
+
+	if [ -z "${context}" ]; then
+		echo "-e required" 1>&2
+		return 1
 	fi
 
-	exec stern "${selector}" --context "${context}" --since 10m "$@"
+	if [ -n "${selector:-}" ]; then
+		stern_args+=( -l "${selector}" )
+	else
+		stern_args+=( '.*' )
+	fi
+
+	stern_args+=( --context "${context}" )
+
+	if [ -n "${namespace:-}" ]; then
+		stern_args+=( -n "${namespace}" )
+	fi
+
+	stern_args+=( --exclude-container metrics )
+
+	exec stern "${stern_args[@]}" "$@"
 }
 
 get_env() {
