@@ -25,6 +25,7 @@
 	ci  = commit -v
 	cim = commit -v -m
 	rc  = commit --amend -v
+	ctb = commit --no-gpg-sign --no-verify --allow-empty -m 'chore(*): trigger build'
 
 	# Diffing
 	d  = diff
