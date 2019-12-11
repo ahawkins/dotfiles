@@ -308,6 +308,10 @@ main() {
 			export TIMETRAP_SHEET=skillshare
 			timetrap "$@"
 			;;
+		github)
+			shift
+			curl -u "ahawkins:${SKILLSHARE_GITHUB_ACCESS_TOKEN}" "$@"
+			;;
 		ecr-login)
 			shift
 			ecr_login "$@"
