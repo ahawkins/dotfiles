@@ -240,6 +240,11 @@ harness_helper() {
 	esac
 }
 
+ecr_login() {
+	source <(aws --profile skillshare-production ecr get-login --no-include-email)
+	source <(aws --profile skillshare-utility ecr get-login --no-include-email)
+}
+
 main() {
 	case "${1:-}" in
 		qa*)
@@ -279,6 +284,10 @@ main() {
 			shift
 			export TIMETRAP_SHEET=skillshare
 			timetrap "$@"
+			;;
+		ecr-login)
+			shift
+			ecr_login "$@"
 			;;
 		*)
 			echo "Unknown command: $*" 1>&2
