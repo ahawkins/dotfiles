@@ -241,7 +241,13 @@ open_console() {
 		return 1
 	fi
 
-	exec kubectl exec -it -c "${container}" -n "${namespace}" --context "${context}" "$(cat "${scratch}")" -- sh
+	exec kubectl exec \
+		-it \
+		-c "${container}" \
+		-n "${namespace}" \
+		--context "${context}" \
+		"$(cat "${scratch}")" \
+		-- sh
 }
 
 harness_helper() {
