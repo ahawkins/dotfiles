@@ -191,6 +191,12 @@ open_console() {
 			selector="component=nginx"
 			container=nginx
 			;;
+		chatops)
+			selector="app=chatops"
+			container=app
+			context="${UTILITY_CONTEXT}"
+			namespace=tools
+			;;
 		*)
 			echo "Unknown app: ${1:-}" 1>&2
 			return 1
