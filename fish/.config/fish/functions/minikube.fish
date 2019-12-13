@@ -1,13 +1,5 @@
 function minikube -w minikube
 	switch "$argv[1]"
-		case stop
-			if command minikube status -f '{{ .Host }}' |  grep -qiF 'running'
-				command minikube stop
-			end
-		case start
-			if command minikube status -f '{{ .Host }}' |  grep -qiF 'stopped'
-				command minikube start
-			end
 		case docker
 			eval (command minikube docker-env)
 			command docker $argv[2..-1]
