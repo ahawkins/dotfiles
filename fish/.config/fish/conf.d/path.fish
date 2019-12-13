@@ -9,3 +9,9 @@ end
 if not string match /usr/local/sbin $PATH > /dev/null
 	set -x PATH $PATH /usr/local/sbin
 end
+
+if test -d ~/.local/comp/bin
+	if not string match ~/.local/comp/bin $PATH > /dev/null
+		set -x PATH ~/.local/comp/bin $PATH
+	end
+end
