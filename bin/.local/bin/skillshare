@@ -3,10 +3,11 @@
 set -euo pipefail
 
 declare -r UTILITY_CONTEXT=skillshare-utility
-declare -r STAGING_CONTEXT=skillshare-staging
 declare -r PROD_CONTEXT=skillshare-prod
+declare -r STAGING_CONTEXT=skillshare-staging
 declare -r SANDBOX_CONTEXT=skillshare-sandbox
 declare -r QA_CONTEXT=skillshare-qa
+declare -r DATA_SCIENCE_CONTEXT=skillshare-data-science
 
 logs() {
 	local OPTIND selector namespace context
@@ -313,6 +314,10 @@ main() {
 		util*)
 			shift
 			kubectl --context "${UTILITY_CONTEXT}" "$@"
+			;;
+		ds)
+			shift
+			kubectl --context "${DATA_SCIENCE_CONTEXT}" "$@"
 			;;
 		env)
 			shift
