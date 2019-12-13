@@ -5,6 +5,7 @@ set -euo pipefail
 declare -r UTILITY_CONTEXT=skillshare-utility
 declare -r STAGING_CONTEXT=skillshare-staging
 declare -r PROD_CONTEXT=skillshare-prod
+declare -r SANDBOX_CONTEXT=skillshare-sandbox
 declare -r QA_CONTEXT=skillshare-qa
 
 logs() {
@@ -295,6 +296,11 @@ main() {
 			local namespace="${1}"
 			shift
 			kubectl --context "${QA_CONTEXT}" -n "${namespace}" "$@"
+			;;
+		sandbox*)
+			local namespace="${1}"
+			shift
+			kubectl --context "${SANDBOX_CONTEXT}" -n "${namespace}" "$@"
 			;;
 		prod|production)
 			shift
