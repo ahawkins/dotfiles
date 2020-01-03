@@ -64,6 +64,7 @@ install: $(COLORS) install-iterm2 | $(FORCE_DIRS)
 	stow -t $(DEST) themes
 	stow -t $(DEST) aws
 	stow -t $(DEST) timetrap
+	stow -t $(DEST) commitlint
 
 .PHONY: install-iterm2
 install-iterm2: $(COLORS) | $(DYNAMIC_PROFILES)

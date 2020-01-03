@@ -3,22 +3,12 @@
 set -euo pipefail
 
 main() {
-	local commit="${1}"
-
-	# git generated messages
-	if grep -qE '^(Merge|Revert)' "${commit}"; then
-		return 0
-	fi
-
-	if ! grep -qE '^(feat|fix|docs|style|ref|perf|test|chore)\(.+\):' "${commit}"; then
-		echo "Commmit subject formatted incorrectly." 1>&2
+	if ! which commitlint &> /dev/null; then
+		echo "commitlint command missing" 1>&2
 		return 1
 	fi
 
-	if grep -qE '^(feat|fix|docs|style|ref|perf|test|chore)\(.+\):\s[A-Z]' "${commit}"; then
-		echo "Subject cannot start with a capital." 1>&2
-		return 1
-	fi
+	commitlint -e
 }
 
 main "$@"
