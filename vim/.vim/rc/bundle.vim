@@ -36,6 +36,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-scripts/fish.vim'
 Plugin 'asciidoc/vim-asciidoc'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'hashivim/vim-terraform'
 
 " General plugins
 Plugin 'editorconfig/editorconfig-vim'
@@ -61,6 +62,9 @@ filetype plugin indent on
 
 let g:ctrlp_root_markers = [ 'package.json' ]
 let g:ctrlp_extensions = ['funky']
+
+" Automatically format with Tabular
+let g:terraform_align=1
 
 if exists('fresh_vundle')
   PluginInstall

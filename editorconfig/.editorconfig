@@ -70,6 +70,6 @@ indent_style = space
 indent_size = 2
 
 # Terraform
-[*.tf]
+[*.{tf,tfvars}]
 indent_style = space
 indent_size = 2
