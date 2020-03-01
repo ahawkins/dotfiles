@@ -1,7 +1,7 @@
 [user]
 	name = Adam Hawkins
-	email = hi@ahawkins.me
-	signingkey = E72329F838F93C4B
+	email = adam@hawkins.io
+	signingkey = E942BAC12E22340F
 [core]
 	excludesfile = ~/.config/git/ignore
 	hooksPath = ~/.config/git/hooks
