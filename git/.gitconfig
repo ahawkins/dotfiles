@@ -85,13 +85,10 @@
 	gpgsign = true
 [init]
 	templateDir = ~/.config/git/template
-[includeIf "gitdir:/usr/local/Homebrew/"]
-	path = ~/.config/git/homebrew
-[dotfiles]
-	spellfile = ~/.config/git/misspellings
-[include]
-	path = ~/.config/comp/git
-[include]
-	path = ~/.config/git/secrets
+	defaultBranch = master
 [diff "sopsdiffer"]
 	textconv = sops -d
+[includeIf "gitdir:/usr/local/Homebrew/"]
+	path = ~/.config/git/homebrew
+[include]
+	path = ~/.config/comp/git
