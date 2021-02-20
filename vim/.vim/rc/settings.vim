@@ -79,6 +79,7 @@ set wildignore+=*.gem
 set wildignore+=*/tmp/*
 set wildignore+=*/log/*
 set wildignore+=*dist/*
+set wildignore+=*.tfplan,*.tfstate,*.tfstate.*.backup
 
 " more natural splitting
 set splitbelow
@@ -103,3 +104,4 @@ autocmd BufLeave,CursorHold,InsertLeave * silent! wa
 
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
+let NERDTreeRespectWildIgnore=1
