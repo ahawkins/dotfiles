@@ -9,17 +9,17 @@ function brewup
 		echo 'No brews to upgrade'
 	end
 
-	if brew list | grep -q docker-machine
+	if brew list --formula | grep -q docker-machine
 		docker-machine ls -q --filter "driver=virtualbox" | xargs -L1 docker-machine stop
 	end
 
-	if brew cask list -1 | grep -q vagrant
+	if brew list --cask | grep -q vagrant
 		echo "Stopping running vagrant machines"
 
 		vagrant global-status | grep running | awk '{print $1}' | xargs -L1 vagrant halt
 	end
 
-	if brew cask list -1 | grep -q virtualbox
+	if brew list --cask | grep -q virtualbox
 		set -lx running_vms (vboxmanage list runningvms |  cut -d '{' -f 2 | cut -d '}' -f 1)
 
 		if count $running_vms > /dev/null
