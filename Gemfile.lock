@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mustache (1.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mustache
+
+BUNDLED WITH
+   2.0.2

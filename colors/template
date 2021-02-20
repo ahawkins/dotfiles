@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
 
+require 'rubygems'
+require 'bundler/setup'
 require 'yaml'
-require 'mustache'
 require 'json'
 require 'optparse'
+require 'mustache'
 
 class Color
 	COLOR_256_NUMBERS = JSON.parse(File.read('colors/256.json')).each_with_object({ }) do |item, bucket|
