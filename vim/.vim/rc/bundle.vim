@@ -49,8 +49,8 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-dispatch'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rking/ag.vim'
 Plugin 'AndrewRadev/switch.vim'
@@ -60,8 +60,8 @@ Plugin 'milkypostman/vim-togglelist'
 call vundle#end()
 filetype plugin indent on
 
-let g:ctrlp_root_markers = [ 'package.json' ]
-let g:ctrlp_extensions = ['funky']
+" let g:ctrlp_root_markers = [ 'package.json' ]
+" let g:ctrlp_extensions = ['funky']
 
 " Automatically format with Tabular
 let g:terraform_align=1

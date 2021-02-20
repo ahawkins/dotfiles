@@ -22,9 +22,8 @@ nnoremap <C-H> <C-W><C-H>
 " map - to switch plugin
 noremap - :Switch<CR>
 
-" Map space in normal mode to CtrlP
-nnoremap <Space> :CtrlP <CR>
-nnoremap <Space><Space> :CtrlPFunky <CR>
+" Map space in normal mode load git files
+nnoremap <Space> :GFiles <CR>
 
 " Autoformat file & cursors stays in same position
 nnoremap === mgg=G`m^zz
