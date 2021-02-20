@@ -1,41 +1,3 @@
-coverage
-rdoc
-pkg
-test/tmp
-test/version_tmp
-tmp
-pkg
-*.gem
-!vendor/cache/*.gem
-*.rbc
-*.pyc
-lib/bundler/man
-spec/reports
-.config
-InstalledFiles
-.bundle
-node_modules
-
-# YARD artifacts
-.yardoc
-_yardoc
-*.rbc
-*.sassc
-.sass-cache
-capybara-*.html
-/.bundle
-/vendor/bundle
-/log/*
-/tmp/*
-/db/*.sqlite3
-/public/system/*
-/coverage/
-/spec/tmp/*
-**.orig
-rerun.txt
-.DS_Store
-.DS_Store?
-
 # Thumbnails
 ._*
 
@@ -48,11 +10,14 @@ rerun.txt
 *.tmproject
 tmtags
 
+# MacOS artifacts
+.DS_Store
+.DS_Store?
+
 .infinity_test
 
+# Vagrand
 .vagrant/
-npm-debug.log
-
 .vagrant-ssh-config
 
 # Ansible artifacts
@@ -65,10 +30,6 @@ npm-debug.log
 blog_post.md
 scratch.*
 
-# Seems the ubuntu vagrant image creates the file
-# everytime the machine boots.
-ubuntu-xenial-16.04-cloudimg-console.log
-
 # Ignore config for my project switcher
 .s/
 
@@ -78,4 +39,14 @@ ubuntu-xenial-16.04-cloudimg-console.log
 # Private files
 .private
 
+# Node projects
+node_modules
+yarn-error.log
+npm-debug.log
+coverage
+
+# Taskfile
+.task
+
+# Timetrap
 .timetrap-sheet
