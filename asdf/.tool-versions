@@ -1,0 +1,10 @@
+helm system
+kubectl system
+minikube system
+nodejs system
+packer system
+php system
+python system
+ruby system
+terraform system
+yq system
