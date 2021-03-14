@@ -81,6 +81,8 @@ set wildignore+=*/log/*
 set wildignore+=*dist/*
 set wildignore+=*.tfplan,*.tfstate,*.tfstate.*.backup
 
+set wildignore+=htdocs/build/*
+
 " more natural splitting
 set splitbelow
 set splitright
