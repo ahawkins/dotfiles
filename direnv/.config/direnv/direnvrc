@@ -36,3 +36,9 @@ aws_keys() {
 
 	unset AWS_REGION AWS_DEFAULT_PROFILE
 }
+
+# Shutup direnv
+export DIRENV_LOG_FORMAT=""
+
+# Configure https://github.com/asdf-community/asdf-direnv
+source "$(asdf direnv hook asdf)"

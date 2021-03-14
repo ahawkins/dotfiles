@@ -1,5 +1,5 @@
 function git -w git
-	if which hub > /dev/null ^/dev/null
+	if type -q hub
 		hub $argv
 	else
 		command git $argv

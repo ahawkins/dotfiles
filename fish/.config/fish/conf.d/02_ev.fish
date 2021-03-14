@@ -1,7 +1,4 @@
-if type -q fundle
-	fundle plugin joehillen/ev-fish
-	fundle init
-end
+set -x EVPATH ~/.config/env
 
 if type -q ev
 	ev gnupg -q
