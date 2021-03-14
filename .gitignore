@@ -2,3 +2,4 @@ vim/.vim/colors/skylines-dark.vim
 tmux/.config/tmux/skylines-dark.conf
 themes/
 !.config
+vendor/bundle
