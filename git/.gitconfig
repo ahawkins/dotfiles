@@ -83,7 +83,6 @@
 [commit]
 	gpgsign = true
 [init]
-	templateDir = ~/.config/git/template
 	defaultBranch = master
 [diff "sopsdiffer"]
 	textconv = sops -d
