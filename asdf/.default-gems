@@ -1,7 +1,2 @@
 bundler
-rack
-minitest
-mustache
-sinatra
-tmuxinator
 timetrap
