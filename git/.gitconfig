@@ -4,7 +4,6 @@
 	signingkey = 627EA6D4272937AF
 [core]
 	excludesfile = ~/.config/git/ignore
-	hooksPath = ~/.config/git/hooks
 	ignorecase = false
 [alias]
 	# Adding
