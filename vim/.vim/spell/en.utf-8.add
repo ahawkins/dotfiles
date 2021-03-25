@@ -90,3 +90,6 @@ config
 Tunnelblick
 OpenVPN
 keychain
+env
+Codefresh
+Prerelease
