@@ -3,8 +3,9 @@ function sk --wraps skillshare-workstation
 		case tt
 			set --erase argv[1]
 			set --export TIMETRAP_SHEET skillshare
+			set --export ASDF_RUBY_VERSION 2.6.6
 
-			timetrap $argv
+			asdf exec timetrap $argv
 		case gh
 			set --erase argv[1]
 			curl -u "ahawkins:$SKILLSHARE_GITHUB_ACCESS_TOKEN" $argv
