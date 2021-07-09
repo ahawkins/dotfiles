@@ -1,7 +1,7 @@
 [user]
 	name = Adam Hawkins
 	email = adam@hawkins.io
-	signingkey = 627EA6D4272937AF
+	signingkey = 7B492DC9A2AB0E5A 
 [core]
 	excludesfile = ~/.config/git/ignore
 	ignorecase = false
