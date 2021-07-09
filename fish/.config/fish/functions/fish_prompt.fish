@@ -9,7 +9,7 @@ function fish_prompt --description 'Write out the prompt'
 	set -l git_color (set_color bryellow)
 	set -l prompt_color (set_color brblack)
 
-	if command git rev-parse --git-dir --is-inside-git-dir --is-bare-repository --is-inside-work-tree HEAD > /dev/null ^/dev/null
+	if command git rev-parse --git-dir --is-inside-git-dir --is-bare-repository --is-inside-work-tree HEAD > /dev/null 2> /dev/null
 		echo -n -s "$git_color" (__fish_git_prompt 'git:%s') "$__fish_prompt_normal" ' ' "$prompt_color" '>>' "$__fish_prompt_normal" ' '
 	else
 		echo -n -s "$prompt_color" '>>' "$__fish_prompt_normal" ' '
