@@ -37,6 +37,7 @@ Plugin 'vim-scripts/fish.vim'
 Plugin 'asciidoc/vim-asciidoc'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'hashivim/vim-terraform'
+Plugin 'jvirtanen/vim-hcl'
 
 " General plugins
 Plugin 'editorconfig/editorconfig-vim'
