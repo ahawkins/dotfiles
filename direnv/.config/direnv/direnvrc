@@ -1,44 +1,4 @@
 # vim: set ft=sh:
 
-# A function to export AWS profile settings as environment variables.
-# This is useful for projects that don't support AWS profiles.
-# The AWS CLI is not used because it's far to slow to be run on every
-# command prompt.
-aws_keys() {
-	local profile="${1:-}"
-
-	if [ -z "${profile}" ]; then
-		log_error "${0} requires a profile argument"
-	fi
-
-	local aws_access_key_id="$(grep -o -A2 -F "[${profile}]" "$HOME/.aws/credentials" \
-		| grep -F 'aws_access_key_id' \
-		| cut -d ' ' -f 3 | tr -d ' ')"
-
-	local aws_secret_access_key="$(grep -o -A2 -F "[${profile}]" "$HOME/.aws/credentials" \
-		| grep -F 'aws_secret_access_key' \
-		| cut -d ' ' -f 3 | tr -d ' ')"
-
-	if [ -z "${aws_access_key_id}" ] || [ -z "${aws_secret_access_key}" ]; then
-		log_error "AWS keys not found in ${profile}"
-	fi
-
-	export "AWS_ACCESS_KEY_ID=${aws_access_key_id}"
-	export "AWS_SECRET_ACCESS_KEY=${aws_secret_access_key}"
-
-	local region="$(grep -o -A1 -F "[${profile}]" "$HOME/.aws/config" \
-		| grep -F 'profile' \
-		| cut -d ' ' -f 3 | tr -d ' ')"
-
-	if [ -n "${region}" ]; then
-		export "AWS_DEFAULT_REGION=${region}"
-	fi
-
-	unset AWS_REGION AWS_DEFAULT_PROFILE
-}
-
 # Shutup direnv
 export DIRENV_LOG_FORMAT=""
-
-# Configure https://github.com/asdf-community/asdf-direnv
-source "$(asdf direnv hook asdf)"
