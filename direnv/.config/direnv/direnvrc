@@ -2,3 +2,6 @@
 
 # Shutup direnv
 export DIRENV_LOG_FORMAT=""
+
+strict_env
+
