@@ -47,6 +47,3 @@ coverage
 
 # Taskfile
 .task
-
-# Timetrap
-.timetrap-sheet

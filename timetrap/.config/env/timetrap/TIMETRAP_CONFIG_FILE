@@ -1,3 +1,0 @@
-#!/bin/sh
-
-echo "${HOME}/.config/timetrap/config.yml"
