@@ -1,0 +1,114 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'commander'
+require 'excon'
+
+class Sentry
+  include Commander::Methods
+
+  def assert(condition, message)
+    fail message unless condition
+  end
+
+  def run
+    program :name, 'sentry'
+    program :version, '1.0'
+    program :description, 'Sentry utils'
+    program :help_formatter, :compact
+
+    command :events do |c|
+      c.syntax = '<ORG> <ID>'
+      c.option '--limit N', Integer, 'Limit to N events'
+      c.description = 'List an issue events'
+      c.action do |(org, id), options|
+        if(!org || !id) 
+          $stderr.puts("Usage: #{c.syntax}")
+          return
+        end
+
+        assert ENV['SENTRY_TOKEN'], 'SENTRY_TOKEN missing'
+
+
+        token = ENV.fetch('SENTRY_TOKEN')
+
+        org = 'skillshare'
+
+        sentry = Excon.new('https://sentry.io', {
+          headers: {
+            'Authorization': "Bearer #{token}"
+          }
+        })
+
+        events = [ ]
+
+        path = "/api/0/organizations/#{org}/issues/#{id}/events/"
+        cursor = "0:0:0"
+
+        while cursor do
+          $stderr.puts("Fetching list from cursor #{cursor}")
+
+          page = sentry.get({
+            path: path,
+            query: {
+              cursor: cursor,
+              full: true
+            },
+            expects: [ 200 ]
+          })
+
+          data = JSON.parse(page.body)
+
+          data.each do |event|
+            entry = event.fetch('entries').find do |item|
+              item.fetch('type') == 'exception'
+            end
+
+            if(!entry)
+              $stderr.puts("No error found in event: #{event.fetch('eventID')}")
+              next
+            end
+
+            assert entry.dig('data', 'values'), 'No values found in entry'
+
+            error = entry.dig('data', 'values').first
+
+            events.push({
+              id: event.fetch('eventID'),
+              title: error.fetch('value'),
+              date: event.fetch('dateReceived')
+            })
+          end
+
+          if(options.limit && events.length > options.limit)
+            break
+          end
+
+          links = page.headers.fetch('link').split(/,\s*/)
+
+          assert links.length == 2, 'API did not provide expected number of pagination links'
+
+          next_page = links.last
+
+          assert next_page.include?('rel="next"'),'API did not provide a next page link'
+
+          if(!next_page.include?('results="true"'))
+             break
+          end
+
+          cursors = next_page.match(/cursor="(\d+:\d+:\d+)"/)
+
+          assert cursors, "Could not find expected cursor in #{next_page}"
+
+          cursor = cursors[1]
+        end
+
+        $stdout.puts(JSON.dump(events))
+      end
+    end
+
+    run!
+  end
+end
+
+Sentry.new.run if $0 == __FILE__
