@@ -5,140 +5,140 @@ require 'commander'
 require 'excon'
 
 class Sentry
-	include Commander::Methods
+  include Commander::Methods
 
-	Record = Struct.new(:id, :title, :date, keyword_init: true)
+  Record = Struct.new(:id, :title, :date, keyword_init: true)
 
-	def assert(condition, message)
-		fail message unless condition
-	end
+  def assert(condition, message)
+    fail message unless condition
+  end
 
-	def run
-		program :name, 'sentry'
-		program :version, '1.0'
-		program :description, 'Sentry utils'
-		program :help_formatter, :compact
+  def run
+    program :name, 'sentry'
+    program :version, '1.0'
+    program :description, 'Sentry utils'
+    program :help_formatter, :compact
 
-		command :events do |c|
-			c.syntax = '<ORG> <ID>'
-			c.option '--limit N', Integer, 'Limit to N events'
-			c.option '--titles', 'Only print titles'
-			c.description = 'List an issue events'
-			c.action do |(org, id), options|
-				options.default(titles: true)
+    command :events do |c|
+      c.syntax = '<ORG> <ID>'
+      c.option '--limit N', Integer, 'Limit to N events'
+      c.option '--titles', 'Only print titles'
+      c.description = 'List an issue events'
+      c.action do |(org, id), options|
+        options.default(titles: true)
 
-				if(!org || !id) 
-					$stderr.puts("Usage: #{c.syntax}")
-					return
-				end
+        if(!org || !id) 
+          $stderr.puts("Usage: #{c.syntax}")
+          return
+        end
 
-				assert ENV['SENTRY_TOKEN'], 'SENTRY_TOKEN missing'
+        assert ENV['SENTRY_TOKEN'], 'SENTRY_TOKEN missing'
 
 
-				token = ENV.fetch('SENTRY_TOKEN')
+        token = ENV.fetch('SENTRY_TOKEN')
 
-				org = 'skillshare'
+        org = 'skillshare'
 
-				sentry = Excon.new('https://sentry.io', {
-					headers: {
-						'Authorization': "Bearer #{token}"
-					}
-				})
+        sentry = Excon.new('https://sentry.io', {
+          headers: {
+            'Authorization': "Bearer #{token}"
+          }
+        })
 
-				events = [ ]
+        events = [ ]
 
-				path = "/api/0/organizations/#{org}/issues/#{id}/events/"
-				cursor = "0:0:0"
+        path = "/api/0/organizations/#{org}/issues/#{id}/events/"
+        cursor = "0:0:0"
 
-				while cursor do
-					$stderr.puts("Fetching list from cursor #{cursor}")
+        while cursor do
+          $stderr.puts("Fetching list from cursor #{cursor}")
 
-					page = sentry.get({
-						path: path,
-						query: {
-							cursor: cursor,
-							full: true
-						},
-						expects: [ 200 ]
-					})
+          page = sentry.get({
+            path: path,
+            query: {
+              cursor: cursor,
+              full: true
+            },
+            expects: [ 200 ]
+          })
 
-					data = JSON.parse(page.body)
+          data = JSON.parse(page.body)
 
-					data.each do |event|
-						events.push(find_error(event))
-					end
+          data.each do |event|
+            events.push(find_error(event))
+          end
 
-					if(options.limit && events.length > options.limit)
-						break
-					end
+          if(options.limit && events.length > options.limit)
+            break
+          end
 
-					links = page.headers.fetch('link').split(/,\s*/)
+          links = page.headers.fetch('link').split(/,\s*/)
 
-					assert links.length == 2, 'API did not provide expected number of pagination links'
+          assert links.length == 2, 'API did not provide expected number of pagination links'
 
-					next_page = links.last
+          next_page = links.last
 
-					assert next_page.include?('rel="next"'),'API did not provide a next page link'
+          assert next_page.include?('rel="next"'),'API did not provide a next page link'
 
-					if(!next_page.include?('results="true"'))
-						 break
-					end
+          if(!next_page.include?('results="true"'))
+             break
+          end
 
-					cursors = next_page.match(/cursor="(\d+:\d+:\d+)"/)
+          cursors = next_page.match(/cursor="(\d+:\d+:\d+)"/)
 
-					assert cursors, "Could not find expected cursor in #{next_page}"
+          assert cursors, "Could not find expected cursor in #{next_page}"
 
-					cursor = cursors[1]
-				end
+          cursor = cursors[1]
+        end
 
-				if options.titles
-					events.each do |event|
-						$stdout.puts(event.title)
-					end
-				else
-					$stdout.puts(JSON.dump(events.map(:to_h)))
-				end
-			end
-		end
+        if options.titles
+          events.each do |event|
+            $stdout.puts(event.title)
+          end
+        else
+          $stdout.puts(JSON.dump(events.map(:to_h)))
+        end
+      end
+    end
 
-		def find_error(event)
-			platform = event.fetch('platform')
+    def find_error(event)
+      platform = event.fetch('platform')
 
-			case platform
-			when 'node', 'php'
-				entry = event.fetch('entries').find do |item|
-					item.fetch('type') == 'exception'
-				end
+      case platform
+      when 'node', 'php'
+        entry = event.fetch('entries').find do |item|
+          item.fetch('type') == 'exception'
+        end
 
-				assert entry, "Could not error for #{platform}"
-				assert entry.dig('data', 'values').length, 'No values found in entry'
+        assert entry, "Could not error for #{platform}"
+        assert entry.dig('data', 'values').length, 'No values found in entry'
 
-				error = entry.dig('data', 'values').first
+        error = entry.dig('data', 'values').first
 
-				return Record.new({
-					id: event.fetch('eventID'),
-					title: error.fetch('value'),
-					date: event.fetch('dateReceived')
-				})
-			when 'cocoa'
-				entry = event.fetch('entries').find do |item|
-					item.fetch('type') == 'message'
-				end
+        return Record.new({
+          id: event.fetch('eventID'),
+          title: error.fetch('value'),
+          date: event.fetch('dateReceived')
+        })
+      when 'cocoa'
+        entry = event.fetch('entries').find do |item|
+          item.fetch('type') == 'message'
+        end
 
-				assert entry, "Could not error for #{platform}"
+        assert entry, "Could not error for #{platform}"
 
-				return Record.new({
-					id: event.fetch('eventID'),
-					title: entry.dig('data', 'formatted'),
-					date: event.fetch('dateReceived')
-				})
-			else
-				fail "Cannot infer error for platform: #{platform}"
-			end
-		end
+        return Record.new({
+          id: event.fetch('eventID'),
+          title: entry.dig('data', 'formatted'),
+          date: event.fetch('dateReceived')
+        })
+      else
+        fail "Cannot infer error for platform: #{platform}"
+      end
+    end
 
-		run!
-	end
+    run!
+  end
 end
 
 Sentry.new.run if $0 == __FILE__
