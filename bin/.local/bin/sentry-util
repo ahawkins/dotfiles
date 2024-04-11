@@ -51,6 +51,10 @@ class Sentry
         cursor = "0:0:0"
 
         while cursor do
+          if(options.limit && events.length >= options.limit)
+            break
+          end
+
           $stderr.puts("Fetching list from cursor #{cursor}")
 
           page = sentry.get({
@@ -66,10 +70,6 @@ class Sentry
 
           data.each do |event|
             events.push(find_error(event))
-          end
-
-          if(options.limit && events.length > options.limit)
-            break
           end
 
           links = page.headers.fetch('link').split(/,\s*/)
