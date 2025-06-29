@@ -38,6 +38,7 @@ Plugin 'asciidoc/vim-asciidoc'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'jvirtanen/vim-hcl'
+Plugin 'google/vim-jsonnet'
 
 " General plugins
 Plugin 'editorconfig/editorconfig-vim'
