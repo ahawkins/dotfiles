@@ -24,7 +24,8 @@ tmtags
 *.retry
 
 # Shell configuration
-.envrc
+.envrc*
+.env*
 
 # WIP junk I tend to create in repos
 blog_post.md
