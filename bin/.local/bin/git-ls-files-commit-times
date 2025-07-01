@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# List the last commit date on all files.
+#
+# Output:
+#
+# DATE(ISO8601) PATH
+
+main() {
+	while read -r file; do
+		echo \
+			"$(env TZ=UTC git --no-pager log \
+				--follow --date=iso8601-strict-local \
+				--format="%ad" -1 \
+				-- "${file}")" \
+			"${file}"
+	done < <(git ls-files)
+}
+
+main "$@"

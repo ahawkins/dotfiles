@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# List the date and files in every commit. It's intended for use in studying
+# activity on a path-by-path basis.
+#
+# Output:
+#
+# DATE(ISO8601) ACTION PATH
+
+main() {
+	local -a log
+
+	while read -a log; do
+		git diff-tree --no-commit-id --name-status -r "${log[0]}" \
+			| awk -v date="${log[1]}" '{print date " " $1 " " $2}'
+	done < <(env TZ=UTC git --no-pager log --date=iso8601-strict-local --pretty="format:%H %cd" "$@")
+}
+
+main "$@"
