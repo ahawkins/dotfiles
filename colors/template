@@ -98,7 +98,7 @@ class Template < Mustache
 	end
 end
 
-data = YAML.load_file(options.fetch(:data))
+data = YAML.load_file(options.fetch(:data), aliases: true)
 
 template = Template.new(options.fetch(:name), data)
 template.template_file = options.fetch(:template)
