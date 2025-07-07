@@ -21,7 +21,7 @@ COLORS:=\
 	themes/.vim/colors/skylinesdark.vim \
 	themes/.config/tmux/skylines-dark.conf
 
-DYNAMIC_PROFILES:=~/Library/Application\ Support/iTerm2/DynamicProfiles
+DYNAMIC_PROFILES:=$(HOME)/Library/Application\ Support/iTerm2/DynamicProfiles
 
 $(DYNAMIC_PROFILES):
 	mkdir -p $@
