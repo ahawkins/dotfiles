@@ -66,4 +66,4 @@ install: $(COLORS) install-iterm2 | $(FORCE_DIRS)
 
 .PHONY: install-iterm2
 install-iterm2: $(COLORS) | $(DYNAMIC_PROFILES)
-	cp -f themes/iterm2/* ~/Library/Application\ Support/iTerm2/DynamicProfiles
+	cp -f themes/iterm2/* $(DYNAMIC_PROFILES)
