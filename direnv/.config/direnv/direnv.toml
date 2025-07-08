@@ -1,0 +1,10 @@
+[global]
+# Evaluate with set -euo pipefail
+strict_env = true
+
+# Accomodate poor choices, no need to add "dotenv_if_exists" to project
+# specific .envrc files
+load_dotenv = true
+
+# Do not print exports
+hide_env_diff = true

@@ -1,7 +1,5 @@
 # vim: set ft=sh:
 
-# Shutup direnv
+# XXX: https://github.com/direnv/direnv/issues/1418, ongoing issues
+# with the behavior of silencing direnv
 export DIRENV_LOG_FORMAT=""
-
-strict_env
-
