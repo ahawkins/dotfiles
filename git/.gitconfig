@@ -66,6 +66,7 @@
 	scrub = "!git branch --merged | grep -v -F '*' | xargs -n 1 git branch -d"
 [push]
 	default = simple
+	autoSetupRemote = true
 [branch]
 	# git checkout -t <branch> will use --rebase with
 	# all future pulls
